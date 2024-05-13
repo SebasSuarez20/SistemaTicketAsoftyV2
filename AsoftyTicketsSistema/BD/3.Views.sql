@@ -47,11 +47,13 @@ SELECT
     WHEN "Result" THEN "Resueltos"
     WHEN "Close" THEN "Cancelados"
     END) AS Status,
-	ts.AssignedTo, thm.HasUnique,
+	ts.AssignedTo, 
+    thm.HasUnique,
     ts.Enabled,
     ts.Username
 FROM ticketssupport ts
 LEFT JOIN tickethasmapping thm ON
 	ts.Consecutive = thm.Consecutive 
 WHERE ts.Enabled = TRUE
-GROUP BY ts.Consecutive,thm.HasUnique;
+GROUP BY ts.Consecutive,thm.HasUnique
+ORDER BY ts.Consecutive;
