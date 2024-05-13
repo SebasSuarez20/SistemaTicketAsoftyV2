@@ -4821,11 +4821,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\USER\\Escritorio\\SistemaTicketV2\\AsoftyTicketsSistema\\Backend\\SistemaTickets\\SistemaTickets.csproj",
+      "projectUniqueName": "E:\\USER\\Escritorio\\TicketV2\\AsoftyTicketsSistema\\Backend\\SistemaTickets\\SistemaTickets.csproj",
       "projectName": "SistemaTickets",
-      "projectPath": "E:\\USER\\Escritorio\\SistemaTicketV2\\AsoftyTicketsSistema\\Backend\\SistemaTickets\\SistemaTickets.csproj",
+      "projectPath": "E:\\USER\\Escritorio\\TicketV2\\AsoftyTicketsSistema\\Backend\\SistemaTickets\\SistemaTickets.csproj",
       "packagesPath": "C:\\Users\\Juan Sebastian S\\.nuget\\packages\\",
-      "outputPath": "E:\\USER\\Escritorio\\SistemaTicketV2\\AsoftyTicketsSistema\\Backend\\SistemaTickets\\obj\\",
+      "outputPath": "E:\\USER\\Escritorio\\TicketV2\\AsoftyTicketsSistema\\Backend\\SistemaTickets\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

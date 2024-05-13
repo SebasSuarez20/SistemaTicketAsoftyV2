@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "5GP4U9jwhgMLhkgXy312Fx1uoz1ivc6UGzI18JYGn3I/Vm066wSxRsmgY3gwKIRHraa77umnPJrY/LBnTCUozQ==",
+  "dgSpecHash": "MYy4pqEh+vno1JgTjEMIi5pemDiUzYXf+SDWlhcpZzWSULI3kDQYcJoWAJ3A8PhDqCafEA3OlVIb9NSUxbBq1w==",
   "success": true,
-  "projectFilePath": "E:\\USER\\Escritorio\\SistemaTicketV2\\AsoftyTicketsSistema\\Backend\\SistemaTickets\\SistemaTickets.csproj",
+  "projectFilePath": "E:\\USER\\Escritorio\\TicketV2\\AsoftyTicketsSistema\\Backend\\SistemaTickets\\SistemaTickets.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Juan Sebastian S\\.nuget\\packages\\bouncycastle.cryptography\\2.2.1\\bouncycastle.cryptography.2.2.1.nupkg.sha512",
     "C:\\Users\\Juan Sebastian S\\.nuget\\packages\\google.protobuf\\3.25.1\\google.protobuf.3.25.1.nupkg.sha512",
