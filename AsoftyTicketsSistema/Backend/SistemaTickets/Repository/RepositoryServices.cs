@@ -45,12 +45,9 @@ namespace SistemaTickets.Repository
             return await Sql.ToListAsync();
         }
 
-        public async Task<IEnumerable<t>> GetAllAsyncHub(string idHub)
+        public async Task<IEnumerable<t>> GetCodeAsyncAll(string nameSp)
         {
-            var Sql = entitySet.AsQueryable();
-            Sql = Sql.Where(s => EF.Property<int>(s, "Idcontrol") == int.Parse(idHub));
-            Sql = Sql.Where(s => EF.Property<bool>(s, "Enabled") == true); // se valida que siempre sea true.
-            return await Sql.ToListAsync();
+            return await entitySet.FromSqlRaw($"CALL {nameSp}()").ToListAsync();
         }
 
         public async Task CreateAllAsync(t entity)
@@ -72,7 +69,7 @@ namespace SistemaTickets.Repository
 
             _context.Database.ExecuteSqlRaw(Query, result);
         }
-
+       
         public  async Task UpdateAsyncAll(t entity, object _wh)
         {
 
@@ -126,5 +123,7 @@ namespace SistemaTickets.Repository
             Dispose(true);
             GC.SuppressFinalize(this);
         }
+
+       
     }
 }

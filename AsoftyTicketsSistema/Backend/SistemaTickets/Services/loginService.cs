@@ -18,7 +18,7 @@ namespace SistemaTickets.Services
         private IConfiguration _config;
 
 
-        public loginService(IdbHandler<Users> dbHandlerSupport,IConfiguration config,IJwt jwt)
+        public loginService(IdbHandler<Users> dbHandlerSupport,IConfiguration config)
         {
             this._dbHandlerSupport = dbHandlerSupport;
             this._config = config;

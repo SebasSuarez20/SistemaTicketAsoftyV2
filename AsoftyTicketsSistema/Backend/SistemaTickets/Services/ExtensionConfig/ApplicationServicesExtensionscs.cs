@@ -32,6 +32,7 @@ namespace SistemaPoscloud.Services.ServicesConfig.ExtensionsConfig
             services.AddTransient<IdbHandler<ticketssupport>, RepositoryServices<ticketssupport>>();
             services.AddTransient<IdbHandler<consecticketview>, RepositoryServices<consecticketview>>();
             services.AddTransient<IdbHandler<TicketMapAndSupView>, RepositoryServices<TicketMapAndSupView>>();
+            services.AddTransient<IdbHandler<CodeGeneric>, RepositoryServices<CodeGeneric>>();
         }
     }
 }
