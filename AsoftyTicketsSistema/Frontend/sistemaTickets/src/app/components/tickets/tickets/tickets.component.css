@@ -1,0 +1,222 @@
+.container_inicio {
+    color: #7e8083;
+    width: 100%;
+    margin-top: -6px;
+    justify-content: center;
+    float: right;
+    font-family: 'Poppins', sans-serif;
+}
+
+.bx_inicio {
+    height: auto;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #a4a4a4;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 10px 0 rgba(0, 0, 0, 0.19);
+}
+
+.container_btn {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1rem;
+}
+
+.bx_btn button {
+    border: none;
+    padding: 5px;
+    border-radius: 5px;
+    color: #999999;
+    cursor: pointer;
+    transition: background-color 0.5s ease;
+    transition: color 0.5s ease;
+}
+
+.bx_btn button:hover {
+    color: #f0f0f0;
+    background-color: #999999;
+}
+
+.bx_AsuntoDescri {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+    width: 423px;
+}
+
+.bx_AsuntoDescri_textarea {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+
+}
+
+.bx_AsuntoDescri label {
+    font-weight: 500;
+}
+
+.bx_Asunto label {
+    font-weight: 500;
+}
+
+.bx_Asunto input {
+    border: 1px solid #999999;
+    color: #999999;
+    border-radius: 5px;
+    height: 21px;
+}
+
+.bx_Asunto select {
+    border: 1px solid #999999;
+    color: #999999;
+    border-radius: 5px;
+    height: 25px;
+}
+
+.bx_AsuntoDescri_textarea textarea {
+    border: 1px solid #999999;
+    border-radius: 5px;
+    resize: none;
+}
+
+.container_ticketCreado {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.bx-img-container {
+    position: relative;
+}
+
+.btn-ver {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    width: 91%;
+    height: 30px;
+    /* margin-top: 22px; */
+    text-align: center;
+    align-items: center;
+}
+
+.zoom {
+    width: 31%;
+    text-align: center;
+    display: flex;
+    font-weight: bold;
+    justify-content: center;
+    /* align-items: center; */
+    cursor: pointer;
+    /* left: -28px; */
+    /* position: relative;*/
+}
+
+/* .zoom:nth-child(1) {
+    width: 5%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.zoom:nth-child(2) {
+    width: 5%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    position: relative;
+    left: 23px;
+    font-weight: bold;
+} */
+
+.radion_button {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.ver-btn {
+    position: absolute;
+    bottom: 10px;
+    /* ajusta la posición vertical según sea necesario */
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.summaryAndDetail {
+    height: 47px;
+    margin-bottom: 1rem;
+    background-color: #e5e5e5;
+    align-items: center;
+    display: flex;
+    border-radius: 6px;
+    padding: 0px 0px 0px 11px;
+    cursor: pointer;
+}
+
+.bx_Asunto {
+    display: flex;
+    justify-content: space-between;
+}
+
+.img-adj {
+    width: 91%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.bx-img {
+    height: 118px;
+    text-align: center;
+    border-style: dashed solid;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+}
+
+.bx_addImg {
+    position: relative;
+    width: 113px;
+    height: 100%;
+    overflow: hidden;
+}
+
+.input_file {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.img_file {
+    width: 100%;
+    height: 100%;
+}
+
+.bx_Asunto {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+    width: 24%;
+}
+
+.small_text {
+    margin-bottom: 1rem;
+}
+
+.container_inputLabel {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}

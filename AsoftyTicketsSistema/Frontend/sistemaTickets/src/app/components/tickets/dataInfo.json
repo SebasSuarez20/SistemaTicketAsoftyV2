@@ -1,0 +1,20 @@
+[
+  {
+    "Info_Status": [
+      {
+        "Open": "Abierto",
+        "InProgress": "En Progreso",
+        "Result": "Resuelto",
+        "Close": "Cerrado"
+      }
+    ],
+    "Info_Progress": [
+      {
+        "S": "Baja",
+        "M": "Medio",
+        "L": "Alta"
+      }
+    ],
+    "Aerea": []
+  }
+]

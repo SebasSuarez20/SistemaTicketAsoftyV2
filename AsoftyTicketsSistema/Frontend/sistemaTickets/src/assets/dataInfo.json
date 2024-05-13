@@ -1,0 +1,56 @@
+[
+  {
+    "Info_Status": [
+      {
+        "name": "Abierto",
+        "value": "Open"
+      },
+      {
+        "name": "En Progreso",
+        "value": "InProgress"
+      },
+      {
+        "name": "Resuelto",
+        "value": "Result"
+      },
+      {
+        "name": "Cerrado",
+        "value": "Close"
+      }
+    ],
+    "Info_Progress": [
+      {
+        "name": "Baja",
+        "value": "S"
+      },
+      {
+        "name": "Media",
+        "value": "M"
+      },
+      {
+        "name": "Alta",
+        "value": "L"
+      }
+    ],
+    "Aerea": [
+      {
+        "name": "Administrativo"
+      },
+      {
+        "name": "Recursos Humanos"
+      },
+      {
+        "name": "Comercial"
+      },
+      {
+        "name": "Operaciones"
+      },
+      {
+        "name": "Contabilidad"
+      },
+      {
+        "name": "Financiero"
+      }
+    ]
+  }
+]

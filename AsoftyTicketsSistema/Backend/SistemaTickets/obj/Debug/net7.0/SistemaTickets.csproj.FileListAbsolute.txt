@@ -1,0 +1,416 @@
+C:\Users\Juan Sebastian S\source\repos\SistemaTickets\bin\Debug\net7.0\appsettings.Development.json
+C:\Users\Juan Sebastian S\source\repos\SistemaTickets\bin\Debug\net7.0\appsettings.json
+C:\Users\Juan Sebastian S\source\repos\SistemaTickets\bin\Debug\net7.0\SistemaTickets.exe
+C:\Users\Juan Sebastian S\source\repos\SistemaTickets\bin\Debug\net7.0\SistemaTickets.deps.json
+C:\Users\Juan Sebastian S\source\repos\SistemaTickets\bin\Debug\net7.0\SistemaTickets.runtimeconfig.json
+C:\Users\Juan Sebastian S\source\repos\SistemaTickets\bin\Debug\net7.0\SistemaTickets.dll
+C:\Users\Juan Sebastian S\source\repos\SistemaTickets\bin\Debug\net7.0\SistemaTickets.pdb
+C:\Users\Juan Sebastian S\source\repos\SistemaTickets\bin\Debug\net7.0\BouncyCastle.Cryptography.dll
+C:\Users\Juan Sebastian S\source\repos\SistemaTickets\bin\Debug\net7.0\Google.Protobuf.dll
+C:\Users\Juan Sebastian S\source\repos\SistemaTickets\bin\Debug\net7.0\K4os.Compression.LZ4.dll
+C:\Users\Juan Sebastian S\source\repos\SistemaTickets\bin\Debug\net7.0\K4os.Compression.LZ4.Streams.dll
+C:\Users\Juan Sebastian S\source\repos\SistemaTickets\bin\Debug\net7.0\K4os.Hash.xxHash.dll
+C:\Users\Juan Sebastian S\source\repos\SistemaTickets\bin\Debug\net7.0\Microsoft.AspNetCore.OpenApi.dll
+C:\Users\Juan Sebastian S\source\repos\SistemaTickets\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.dll
+C:\Users\Juan Sebastian S\source\repos\SistemaTickets\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Users\Juan Sebastian S\source\repos\SistemaTickets\bin\Debug\net7.0\Microsoft.OpenApi.dll
+C:\Users\Juan Sebastian S\source\repos\SistemaTickets\bin\Debug\net7.0\Microsoft.Win32.SystemEvents.dll
+C:\Users\Juan Sebastian S\source\repos\SistemaTickets\bin\Debug\net7.0\MySql.Data.dll
+C:\Users\Juan Sebastian S\source\repos\SistemaTickets\bin\Debug\net7.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\Juan Sebastian S\source\repos\SistemaTickets\bin\Debug\net7.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\Juan Sebastian S\source\repos\SistemaTickets\bin\Debug\net7.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\Juan Sebastian S\source\repos\SistemaTickets\bin\Debug\net7.0\System.Configuration.ConfigurationManager.dll
+C:\Users\Juan Sebastian S\source\repos\SistemaTickets\bin\Debug\net7.0\System.Diagnostics.DiagnosticSource.dll
+C:\Users\Juan Sebastian S\source\repos\SistemaTickets\bin\Debug\net7.0\System.Drawing.Common.dll
+C:\Users\Juan Sebastian S\source\repos\SistemaTickets\bin\Debug\net7.0\System.Security.Cryptography.ProtectedData.dll
+C:\Users\Juan Sebastian S\source\repos\SistemaTickets\bin\Debug\net7.0\System.Security.Permissions.dll
+C:\Users\Juan Sebastian S\source\repos\SistemaTickets\bin\Debug\net7.0\System.Windows.Extensions.dll
+C:\Users\Juan Sebastian S\source\repos\SistemaTickets\bin\Debug\net7.0\ZstdSharp.dll
+C:\Users\Juan Sebastian S\source\repos\SistemaTickets\bin\Debug\net7.0\runtimes\win\lib\netcoreapp3.0\Microsoft.Win32.SystemEvents.dll
+C:\Users\Juan Sebastian S\source\repos\SistemaTickets\bin\Debug\net7.0\runtimes\win-x64\native\comerr64.dll
+C:\Users\Juan Sebastian S\source\repos\SistemaTickets\bin\Debug\net7.0\runtimes\win-x64\native\gssapi64.dll
+C:\Users\Juan Sebastian S\source\repos\SistemaTickets\bin\Debug\net7.0\runtimes\win-x64\native\k5sprt64.dll
+C:\Users\Juan Sebastian S\source\repos\SistemaTickets\bin\Debug\net7.0\runtimes\win-x64\native\krb5_64.dll
+C:\Users\Juan Sebastian S\source\repos\SistemaTickets\bin\Debug\net7.0\runtimes\win-x64\native\krbcc64.dll
+C:\Users\Juan Sebastian S\source\repos\SistemaTickets\bin\Debug\net7.0\runtimes\unix\lib\netcoreapp3.0\System.Drawing.Common.dll
+C:\Users\Juan Sebastian S\source\repos\SistemaTickets\bin\Debug\net7.0\runtimes\win\lib\netcoreapp3.0\System.Drawing.Common.dll
+C:\Users\Juan Sebastian S\source\repos\SistemaTickets\bin\Debug\net7.0\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+C:\Users\Juan Sebastian S\source\repos\SistemaTickets\bin\Debug\net7.0\runtimes\win\lib\netcoreapp3.0\System.Windows.Extensions.dll
+C:\Users\Juan Sebastian S\source\repos\SistemaTickets\obj\Debug\net7.0\SistemaTickets.csproj.AssemblyReference.cache
+C:\Users\Juan Sebastian S\source\repos\SistemaTickets\obj\Debug\net7.0\SistemaTickets.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Juan Sebastian S\source\repos\SistemaTickets\obj\Debug\net7.0\SistemaTickets.AssemblyInfoInputs.cache
+C:\Users\Juan Sebastian S\source\repos\SistemaTickets\obj\Debug\net7.0\SistemaTickets.AssemblyInfo.cs
+C:\Users\Juan Sebastian S\source\repos\SistemaTickets\obj\Debug\net7.0\SistemaTickets.csproj.CoreCompileInputs.cache
+C:\Users\Juan Sebastian S\source\repos\SistemaTickets\obj\Debug\net7.0\SistemaTickets.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\Juan Sebastian S\source\repos\SistemaTickets\obj\Debug\net7.0\SistemaTickets.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Juan Sebastian S\source\repos\SistemaTickets\obj\Debug\net7.0\staticwebassets\msbuild.SistemaTickets.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Users\Juan Sebastian S\source\repos\SistemaTickets\obj\Debug\net7.0\staticwebassets\msbuild.build.SistemaTickets.props
+C:\Users\Juan Sebastian S\source\repos\SistemaTickets\obj\Debug\net7.0\staticwebassets\msbuild.buildMultiTargeting.SistemaTickets.props
+C:\Users\Juan Sebastian S\source\repos\SistemaTickets\obj\Debug\net7.0\staticwebassets\msbuild.buildTransitive.SistemaTickets.props
+C:\Users\Juan Sebastian S\source\repos\SistemaTickets\obj\Debug\net7.0\staticwebassets.pack.json
+C:\Users\Juan Sebastian S\source\repos\SistemaTickets\obj\Debug\net7.0\staticwebassets.build.json
+C:\Users\Juan Sebastian S\source\repos\SistemaTickets\obj\Debug\net7.0\staticwebassets.development.json
+C:\Users\Juan Sebastian S\source\repos\SistemaTickets\obj\Debug\net7.0\scopedcss\bundle\SistemaTickets.styles.css
+C:\Users\Juan Sebastian S\source\repos\SistemaTickets\obj\Debug\net7.0\SistemaTickets.csproj.CopyComplete
+C:\Users\Juan Sebastian S\source\repos\SistemaTickets\obj\Debug\net7.0\SistemaTickets.dll
+C:\Users\Juan Sebastian S\source\repos\SistemaTickets\obj\Debug\net7.0\refint\SistemaTickets.dll
+C:\Users\Juan Sebastian S\source\repos\SistemaTickets\obj\Debug\net7.0\SistemaTickets.pdb
+C:\Users\Juan Sebastian S\source\repos\SistemaTickets\obj\Debug\net7.0\SistemaTickets.genruntimeconfig.cache
+C:\Users\Juan Sebastian S\source\repos\SistemaTickets\obj\Debug\net7.0\ref\SistemaTickets.dll
+C:\Users\Juan Sebastian S\source\repos\SistemaTickets\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.Relational.dll
+C:\Users\Juan Sebastian S\source\repos\SistemaTickets\bin\Debug\net7.0\MySqlConnector.dll
+C:\Users\Juan Sebastian S\source\repos\SistemaTickets\bin\Debug\net7.0\Pomelo.EntityFrameworkCore.MySql.dll
+C:\Users\Juan Sebastian S\source\repos\SistemaTickets\bin\Debug\net7.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\Juan Sebastian S\source\repos\SistemaTickets\bin\Debug\net7.0\Microsoft.IdentityModel.Abstractions.dll
+C:\Users\Juan Sebastian S\source\repos\SistemaTickets\bin\Debug\net7.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\Juan Sebastian S\source\repos\SistemaTickets\bin\Debug\net7.0\Microsoft.IdentityModel.Logging.dll
+C:\Users\Juan Sebastian S\source\repos\SistemaTickets\bin\Debug\net7.0\Microsoft.IdentityModel.Protocols.dll
+C:\Users\Juan Sebastian S\source\repos\SistemaTickets\bin\Debug\net7.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\Juan Sebastian S\source\repos\SistemaTickets\bin\Debug\net7.0\Microsoft.IdentityModel.Tokens.dll
+C:\Users\Juan Sebastian S\source\repos\SistemaTickets\bin\Debug\net7.0\System.IdentityModel.Tokens.Jwt.dll
+E:\USER\Escritorio\exampltickets\AsoftyTicketsSistema\Backend\SistemaTickets\bin\Debug\net7.0\appsettings.Development.json
+E:\USER\Escritorio\exampltickets\AsoftyTicketsSistema\Backend\SistemaTickets\bin\Debug\net7.0\appsettings.json
+E:\USER\Escritorio\exampltickets\AsoftyTicketsSistema\Backend\SistemaTickets\bin\Debug\net7.0\SistemaTickets.exe
+E:\USER\Escritorio\exampltickets\AsoftyTicketsSistema\Backend\SistemaTickets\bin\Debug\net7.0\SistemaTickets.deps.json
+E:\USER\Escritorio\exampltickets\AsoftyTicketsSistema\Backend\SistemaTickets\bin\Debug\net7.0\SistemaTickets.runtimeconfig.json
+E:\USER\Escritorio\exampltickets\AsoftyTicketsSistema\Backend\SistemaTickets\bin\Debug\net7.0\SistemaTickets.dll
+E:\USER\Escritorio\exampltickets\AsoftyTicketsSistema\Backend\SistemaTickets\bin\Debug\net7.0\SistemaTickets.pdb
+E:\USER\Escritorio\exampltickets\AsoftyTicketsSistema\Backend\SistemaTickets\bin\Debug\net7.0\BouncyCastle.Cryptography.dll
+E:\USER\Escritorio\exampltickets\AsoftyTicketsSistema\Backend\SistemaTickets\bin\Debug\net7.0\Google.Protobuf.dll
+E:\USER\Escritorio\exampltickets\AsoftyTicketsSistema\Backend\SistemaTickets\bin\Debug\net7.0\K4os.Compression.LZ4.dll
+E:\USER\Escritorio\exampltickets\AsoftyTicketsSistema\Backend\SistemaTickets\bin\Debug\net7.0\K4os.Compression.LZ4.Streams.dll
+E:\USER\Escritorio\exampltickets\AsoftyTicketsSistema\Backend\SistemaTickets\bin\Debug\net7.0\K4os.Hash.xxHash.dll
+E:\USER\Escritorio\exampltickets\AsoftyTicketsSistema\Backend\SistemaTickets\bin\Debug\net7.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+E:\USER\Escritorio\exampltickets\AsoftyTicketsSistema\Backend\SistemaTickets\bin\Debug\net7.0\Microsoft.AspNetCore.OpenApi.dll
+E:\USER\Escritorio\exampltickets\AsoftyTicketsSistema\Backend\SistemaTickets\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.dll
+E:\USER\Escritorio\exampltickets\AsoftyTicketsSistema\Backend\SistemaTickets\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+E:\USER\Escritorio\exampltickets\AsoftyTicketsSistema\Backend\SistemaTickets\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.Relational.dll
+E:\USER\Escritorio\exampltickets\AsoftyTicketsSistema\Backend\SistemaTickets\bin\Debug\net7.0\Microsoft.IdentityModel.Abstractions.dll
+E:\USER\Escritorio\exampltickets\AsoftyTicketsSistema\Backend\SistemaTickets\bin\Debug\net7.0\Microsoft.IdentityModel.JsonWebTokens.dll
+E:\USER\Escritorio\exampltickets\AsoftyTicketsSistema\Backend\SistemaTickets\bin\Debug\net7.0\Microsoft.IdentityModel.Logging.dll
+E:\USER\Escritorio\exampltickets\AsoftyTicketsSistema\Backend\SistemaTickets\bin\Debug\net7.0\Microsoft.IdentityModel.Protocols.dll
+E:\USER\Escritorio\exampltickets\AsoftyTicketsSistema\Backend\SistemaTickets\bin\Debug\net7.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+E:\USER\Escritorio\exampltickets\AsoftyTicketsSistema\Backend\SistemaTickets\bin\Debug\net7.0\Microsoft.IdentityModel.Tokens.dll
+E:\USER\Escritorio\exampltickets\AsoftyTicketsSistema\Backend\SistemaTickets\bin\Debug\net7.0\Microsoft.OpenApi.dll
+E:\USER\Escritorio\exampltickets\AsoftyTicketsSistema\Backend\SistemaTickets\bin\Debug\net7.0\Microsoft.Win32.SystemEvents.dll
+E:\USER\Escritorio\exampltickets\AsoftyTicketsSistema\Backend\SistemaTickets\bin\Debug\net7.0\MySql.Data.dll
+E:\USER\Escritorio\exampltickets\AsoftyTicketsSistema\Backend\SistemaTickets\bin\Debug\net7.0\MySqlConnector.dll
+E:\USER\Escritorio\exampltickets\AsoftyTicketsSistema\Backend\SistemaTickets\bin\Debug\net7.0\Pomelo.EntityFrameworkCore.MySql.dll
+E:\USER\Escritorio\exampltickets\AsoftyTicketsSistema\Backend\SistemaTickets\bin\Debug\net7.0\Swashbuckle.AspNetCore.Swagger.dll
+E:\USER\Escritorio\exampltickets\AsoftyTicketsSistema\Backend\SistemaTickets\bin\Debug\net7.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+E:\USER\Escritorio\exampltickets\AsoftyTicketsSistema\Backend\SistemaTickets\bin\Debug\net7.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+E:\USER\Escritorio\exampltickets\AsoftyTicketsSistema\Backend\SistemaTickets\bin\Debug\net7.0\System.Configuration.ConfigurationManager.dll
+E:\USER\Escritorio\exampltickets\AsoftyTicketsSistema\Backend\SistemaTickets\bin\Debug\net7.0\System.Diagnostics.DiagnosticSource.dll
+E:\USER\Escritorio\exampltickets\AsoftyTicketsSistema\Backend\SistemaTickets\bin\Debug\net7.0\System.Drawing.Common.dll
+E:\USER\Escritorio\exampltickets\AsoftyTicketsSistema\Backend\SistemaTickets\bin\Debug\net7.0\System.IdentityModel.Tokens.Jwt.dll
+E:\USER\Escritorio\exampltickets\AsoftyTicketsSistema\Backend\SistemaTickets\bin\Debug\net7.0\System.Security.Cryptography.ProtectedData.dll
+E:\USER\Escritorio\exampltickets\AsoftyTicketsSistema\Backend\SistemaTickets\bin\Debug\net7.0\System.Security.Permissions.dll
+E:\USER\Escritorio\exampltickets\AsoftyTicketsSistema\Backend\SistemaTickets\bin\Debug\net7.0\System.Windows.Extensions.dll
+E:\USER\Escritorio\exampltickets\AsoftyTicketsSistema\Backend\SistemaTickets\bin\Debug\net7.0\ZstdSharp.dll
+E:\USER\Escritorio\exampltickets\AsoftyTicketsSistema\Backend\SistemaTickets\bin\Debug\net7.0\runtimes\win\lib\netcoreapp3.0\Microsoft.Win32.SystemEvents.dll
+E:\USER\Escritorio\exampltickets\AsoftyTicketsSistema\Backend\SistemaTickets\bin\Debug\net7.0\runtimes\win-x64\native\comerr64.dll
+E:\USER\Escritorio\exampltickets\AsoftyTicketsSistema\Backend\SistemaTickets\bin\Debug\net7.0\runtimes\win-x64\native\gssapi64.dll
+E:\USER\Escritorio\exampltickets\AsoftyTicketsSistema\Backend\SistemaTickets\bin\Debug\net7.0\runtimes\win-x64\native\k5sprt64.dll
+E:\USER\Escritorio\exampltickets\AsoftyTicketsSistema\Backend\SistemaTickets\bin\Debug\net7.0\runtimes\win-x64\native\krb5_64.dll
+E:\USER\Escritorio\exampltickets\AsoftyTicketsSistema\Backend\SistemaTickets\bin\Debug\net7.0\runtimes\win-x64\native\krbcc64.dll
+E:\USER\Escritorio\exampltickets\AsoftyTicketsSistema\Backend\SistemaTickets\bin\Debug\net7.0\runtimes\unix\lib\netcoreapp3.0\System.Drawing.Common.dll
+E:\USER\Escritorio\exampltickets\AsoftyTicketsSistema\Backend\SistemaTickets\bin\Debug\net7.0\runtimes\win\lib\netcoreapp3.0\System.Drawing.Common.dll
+E:\USER\Escritorio\exampltickets\AsoftyTicketsSistema\Backend\SistemaTickets\bin\Debug\net7.0\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+E:\USER\Escritorio\exampltickets\AsoftyTicketsSistema\Backend\SistemaTickets\bin\Debug\net7.0\runtimes\win\lib\netcoreapp3.0\System.Windows.Extensions.dll
+E:\USER\Escritorio\exampltickets\AsoftyTicketsSistema\Backend\SistemaTickets\obj\Debug\net7.0\SistemaTickets.csproj.AssemblyReference.cache
+E:\USER\Escritorio\exampltickets\AsoftyTicketsSistema\Backend\SistemaTickets\obj\Debug\net7.0\SistemaTickets.GeneratedMSBuildEditorConfig.editorconfig
+E:\USER\Escritorio\exampltickets\AsoftyTicketsSistema\Backend\SistemaTickets\obj\Debug\net7.0\SistemaTickets.AssemblyInfoInputs.cache
+E:\USER\Escritorio\exampltickets\AsoftyTicketsSistema\Backend\SistemaTickets\obj\Debug\net7.0\SistemaTickets.AssemblyInfo.cs
+E:\USER\Escritorio\exampltickets\AsoftyTicketsSistema\Backend\SistemaTickets\obj\Debug\net7.0\SistemaTickets.csproj.CoreCompileInputs.cache
+E:\USER\Escritorio\exampltickets\AsoftyTicketsSistema\Backend\SistemaTickets\obj\Debug\net7.0\SistemaTickets.MvcApplicationPartsAssemblyInfo.cs
+E:\USER\Escritorio\exampltickets\AsoftyTicketsSistema\Backend\SistemaTickets\obj\Debug\net7.0\SistemaTickets.MvcApplicationPartsAssemblyInfo.cache
+E:\USER\Escritorio\exampltickets\AsoftyTicketsSistema\Backend\SistemaTickets\obj\Debug\net7.0\staticwebassets\msbuild.SistemaTickets.Microsoft.AspNetCore.StaticWebAssets.props
+E:\USER\Escritorio\exampltickets\AsoftyTicketsSistema\Backend\SistemaTickets\obj\Debug\net7.0\staticwebassets\msbuild.build.SistemaTickets.props
+E:\USER\Escritorio\exampltickets\AsoftyTicketsSistema\Backend\SistemaTickets\obj\Debug\net7.0\staticwebassets\msbuild.buildMultiTargeting.SistemaTickets.props
+E:\USER\Escritorio\exampltickets\AsoftyTicketsSistema\Backend\SistemaTickets\obj\Debug\net7.0\staticwebassets\msbuild.buildTransitive.SistemaTickets.props
+E:\USER\Escritorio\exampltickets\AsoftyTicketsSistema\Backend\SistemaTickets\obj\Debug\net7.0\staticwebassets.pack.json
+E:\USER\Escritorio\exampltickets\AsoftyTicketsSistema\Backend\SistemaTickets\obj\Debug\net7.0\staticwebassets.build.json
+E:\USER\Escritorio\exampltickets\AsoftyTicketsSistema\Backend\SistemaTickets\obj\Debug\net7.0\staticwebassets.development.json
+E:\USER\Escritorio\exampltickets\AsoftyTicketsSistema\Backend\SistemaTickets\obj\Debug\net7.0\scopedcss\bundle\SistemaTickets.styles.css
+E:\USER\Escritorio\exampltickets\AsoftyTicketsSistema\Backend\SistemaTickets\obj\Debug\net7.0\SistemaTickets.csproj.CopyComplete
+E:\USER\Escritorio\exampltickets\AsoftyTicketsSistema\Backend\SistemaTickets\obj\Debug\net7.0\SistemaTickets.dll
+E:\USER\Escritorio\exampltickets\AsoftyTicketsSistema\Backend\SistemaTickets\obj\Debug\net7.0\refint\SistemaTickets.dll
+E:\USER\Escritorio\exampltickets\AsoftyTicketsSistema\Backend\SistemaTickets\obj\Debug\net7.0\SistemaTickets.pdb
+E:\USER\Escritorio\exampltickets\AsoftyTicketsSistema\Backend\SistemaTickets\obj\Debug\net7.0\SistemaTickets.genruntimeconfig.cache
+E:\USER\Escritorio\exampltickets\AsoftyTicketsSistema\Backend\SistemaTickets\obj\Debug\net7.0\ref\SistemaTickets.dll
+E:\USER\Escritorio\sistemaTickets\Backend\SistemaTickets\bin\Debug\net7.0\appsettings.Development.json
+E:\USER\Escritorio\sistemaTickets\Backend\SistemaTickets\bin\Debug\net7.0\appsettings.json
+E:\USER\Escritorio\sistemaTickets\Backend\SistemaTickets\bin\Debug\net7.0\SistemaTickets.exe
+E:\USER\Escritorio\sistemaTickets\Backend\SistemaTickets\bin\Debug\net7.0\SistemaTickets.deps.json
+E:\USER\Escritorio\sistemaTickets\Backend\SistemaTickets\bin\Debug\net7.0\SistemaTickets.runtimeconfig.json
+E:\USER\Escritorio\sistemaTickets\Backend\SistemaTickets\bin\Debug\net7.0\SistemaTickets.dll
+E:\USER\Escritorio\sistemaTickets\Backend\SistemaTickets\bin\Debug\net7.0\SistemaTickets.pdb
+E:\USER\Escritorio\sistemaTickets\Backend\SistemaTickets\bin\Debug\net7.0\BouncyCastle.Cryptography.dll
+E:\USER\Escritorio\sistemaTickets\Backend\SistemaTickets\bin\Debug\net7.0\Google.Protobuf.dll
+E:\USER\Escritorio\sistemaTickets\Backend\SistemaTickets\bin\Debug\net7.0\K4os.Compression.LZ4.dll
+E:\USER\Escritorio\sistemaTickets\Backend\SistemaTickets\bin\Debug\net7.0\K4os.Compression.LZ4.Streams.dll
+E:\USER\Escritorio\sistemaTickets\Backend\SistemaTickets\bin\Debug\net7.0\K4os.Hash.xxHash.dll
+E:\USER\Escritorio\sistemaTickets\Backend\SistemaTickets\bin\Debug\net7.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+E:\USER\Escritorio\sistemaTickets\Backend\SistemaTickets\bin\Debug\net7.0\Microsoft.AspNetCore.Connections.Abstractions.dll
+E:\USER\Escritorio\sistemaTickets\Backend\SistemaTickets\bin\Debug\net7.0\Microsoft.AspNetCore.Http.Connections.Client.dll
+E:\USER\Escritorio\sistemaTickets\Backend\SistemaTickets\bin\Debug\net7.0\Microsoft.AspNetCore.Http.Connections.Common.dll
+E:\USER\Escritorio\sistemaTickets\Backend\SistemaTickets\bin\Debug\net7.0\Microsoft.AspNetCore.OpenApi.dll
+E:\USER\Escritorio\sistemaTickets\Backend\SistemaTickets\bin\Debug\net7.0\Microsoft.AspNetCore.SignalR.Client.dll
+E:\USER\Escritorio\sistemaTickets\Backend\SistemaTickets\bin\Debug\net7.0\Microsoft.AspNetCore.SignalR.Client.Core.dll
+E:\USER\Escritorio\sistemaTickets\Backend\SistemaTickets\bin\Debug\net7.0\Microsoft.AspNetCore.SignalR.Common.dll
+E:\USER\Escritorio\sistemaTickets\Backend\SistemaTickets\bin\Debug\net7.0\Microsoft.AspNetCore.SignalR.Protocols.Json.dll
+E:\USER\Escritorio\sistemaTickets\Backend\SistemaTickets\bin\Debug\net7.0\Microsoft.Bcl.AsyncInterfaces.dll
+E:\USER\Escritorio\sistemaTickets\Backend\SistemaTickets\bin\Debug\net7.0\Microsoft.Bcl.TimeProvider.dll
+E:\USER\Escritorio\sistemaTickets\Backend\SistemaTickets\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.dll
+E:\USER\Escritorio\sistemaTickets\Backend\SistemaTickets\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+E:\USER\Escritorio\sistemaTickets\Backend\SistemaTickets\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.Relational.dll
+E:\USER\Escritorio\sistemaTickets\Backend\SistemaTickets\bin\Debug\net7.0\Microsoft.Extensions.DependencyInjection.dll
+E:\USER\Escritorio\sistemaTickets\Backend\SistemaTickets\bin\Debug\net7.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+E:\USER\Escritorio\sistemaTickets\Backend\SistemaTickets\bin\Debug\net7.0\Microsoft.Extensions.Features.dll
+E:\USER\Escritorio\sistemaTickets\Backend\SistemaTickets\bin\Debug\net7.0\Microsoft.Extensions.Logging.dll
+E:\USER\Escritorio\sistemaTickets\Backend\SistemaTickets\bin\Debug\net7.0\Microsoft.Extensions.Logging.Abstractions.dll
+E:\USER\Escritorio\sistemaTickets\Backend\SistemaTickets\bin\Debug\net7.0\Microsoft.Extensions.Options.dll
+E:\USER\Escritorio\sistemaTickets\Backend\SistemaTickets\bin\Debug\net7.0\Microsoft.Extensions.Primitives.dll
+E:\USER\Escritorio\sistemaTickets\Backend\SistemaTickets\bin\Debug\net7.0\Microsoft.IdentityModel.Abstractions.dll
+E:\USER\Escritorio\sistemaTickets\Backend\SistemaTickets\bin\Debug\net7.0\Microsoft.IdentityModel.JsonWebTokens.dll
+E:\USER\Escritorio\sistemaTickets\Backend\SistemaTickets\bin\Debug\net7.0\Microsoft.IdentityModel.Logging.dll
+E:\USER\Escritorio\sistemaTickets\Backend\SistemaTickets\bin\Debug\net7.0\Microsoft.IdentityModel.Protocols.dll
+E:\USER\Escritorio\sistemaTickets\Backend\SistemaTickets\bin\Debug\net7.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+E:\USER\Escritorio\sistemaTickets\Backend\SistemaTickets\bin\Debug\net7.0\Microsoft.IdentityModel.Tokens.dll
+E:\USER\Escritorio\sistemaTickets\Backend\SistemaTickets\bin\Debug\net7.0\Microsoft.OpenApi.dll
+E:\USER\Escritorio\sistemaTickets\Backend\SistemaTickets\bin\Debug\net7.0\Microsoft.Win32.SystemEvents.dll
+E:\USER\Escritorio\sistemaTickets\Backend\SistemaTickets\bin\Debug\net7.0\MySql.Data.dll
+E:\USER\Escritorio\sistemaTickets\Backend\SistemaTickets\bin\Debug\net7.0\MySqlConnector.dll
+E:\USER\Escritorio\sistemaTickets\Backend\SistemaTickets\bin\Debug\net7.0\Newtonsoft.Json.dll
+E:\USER\Escritorio\sistemaTickets\Backend\SistemaTickets\bin\Debug\net7.0\Pomelo.EntityFrameworkCore.MySql.dll
+E:\USER\Escritorio\sistemaTickets\Backend\SistemaTickets\bin\Debug\net7.0\Swashbuckle.AspNetCore.Swagger.dll
+E:\USER\Escritorio\sistemaTickets\Backend\SistemaTickets\bin\Debug\net7.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+E:\USER\Escritorio\sistemaTickets\Backend\SistemaTickets\bin\Debug\net7.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+E:\USER\Escritorio\sistemaTickets\Backend\SistemaTickets\bin\Debug\net7.0\System.Configuration.ConfigurationManager.dll
+E:\USER\Escritorio\sistemaTickets\Backend\SistemaTickets\bin\Debug\net7.0\System.Diagnostics.DiagnosticSource.dll
+E:\USER\Escritorio\sistemaTickets\Backend\SistemaTickets\bin\Debug\net7.0\System.Drawing.Common.dll
+E:\USER\Escritorio\sistemaTickets\Backend\SistemaTickets\bin\Debug\net7.0\System.IdentityModel.Tokens.Jwt.dll
+E:\USER\Escritorio\sistemaTickets\Backend\SistemaTickets\bin\Debug\net7.0\System.IO.Pipelines.dll
+E:\USER\Escritorio\sistemaTickets\Backend\SistemaTickets\bin\Debug\net7.0\System.Security.Cryptography.ProtectedData.dll
+E:\USER\Escritorio\sistemaTickets\Backend\SistemaTickets\bin\Debug\net7.0\System.Security.Permissions.dll
+E:\USER\Escritorio\sistemaTickets\Backend\SistemaTickets\bin\Debug\net7.0\System.Text.Encodings.Web.dll
+E:\USER\Escritorio\sistemaTickets\Backend\SistemaTickets\bin\Debug\net7.0\System.Text.Json.dll
+E:\USER\Escritorio\sistemaTickets\Backend\SistemaTickets\bin\Debug\net7.0\System.Threading.Channels.dll
+E:\USER\Escritorio\sistemaTickets\Backend\SistemaTickets\bin\Debug\net7.0\System.Windows.Extensions.dll
+E:\USER\Escritorio\sistemaTickets\Backend\SistemaTickets\bin\Debug\net7.0\ZstdSharp.dll
+E:\USER\Escritorio\sistemaTickets\Backend\SistemaTickets\bin\Debug\net7.0\runtimes\win\lib\netcoreapp3.0\Microsoft.Win32.SystemEvents.dll
+E:\USER\Escritorio\sistemaTickets\Backend\SistemaTickets\bin\Debug\net7.0\runtimes\win-x64\native\comerr64.dll
+E:\USER\Escritorio\sistemaTickets\Backend\SistemaTickets\bin\Debug\net7.0\runtimes\win-x64\native\gssapi64.dll
+E:\USER\Escritorio\sistemaTickets\Backend\SistemaTickets\bin\Debug\net7.0\runtimes\win-x64\native\k5sprt64.dll
+E:\USER\Escritorio\sistemaTickets\Backend\SistemaTickets\bin\Debug\net7.0\runtimes\win-x64\native\krb5_64.dll
+E:\USER\Escritorio\sistemaTickets\Backend\SistemaTickets\bin\Debug\net7.0\runtimes\win-x64\native\krbcc64.dll
+E:\USER\Escritorio\sistemaTickets\Backend\SistemaTickets\bin\Debug\net7.0\runtimes\unix\lib\netcoreapp3.0\System.Drawing.Common.dll
+E:\USER\Escritorio\sistemaTickets\Backend\SistemaTickets\bin\Debug\net7.0\runtimes\win\lib\netcoreapp3.0\System.Drawing.Common.dll
+E:\USER\Escritorio\sistemaTickets\Backend\SistemaTickets\bin\Debug\net7.0\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+E:\USER\Escritorio\sistemaTickets\Backend\SistemaTickets\bin\Debug\net7.0\runtimes\browser\lib\net7.0\System.Text.Encodings.Web.dll
+E:\USER\Escritorio\sistemaTickets\Backend\SistemaTickets\bin\Debug\net7.0\runtimes\win\lib\netcoreapp3.0\System.Windows.Extensions.dll
+E:\USER\Escritorio\sistemaTickets\Backend\SistemaTickets\obj\Debug\net7.0\SistemaTickets.csproj.AssemblyReference.cache
+E:\USER\Escritorio\sistemaTickets\Backend\SistemaTickets\obj\Debug\net7.0\SistemaTickets.GeneratedMSBuildEditorConfig.editorconfig
+E:\USER\Escritorio\sistemaTickets\Backend\SistemaTickets\obj\Debug\net7.0\SistemaTickets.AssemblyInfoInputs.cache
+E:\USER\Escritorio\sistemaTickets\Backend\SistemaTickets\obj\Debug\net7.0\SistemaTickets.AssemblyInfo.cs
+E:\USER\Escritorio\sistemaTickets\Backend\SistemaTickets\obj\Debug\net7.0\SistemaTickets.csproj.CoreCompileInputs.cache
+E:\USER\Escritorio\sistemaTickets\Backend\SistemaTickets\obj\Debug\net7.0\SistemaTickets.MvcApplicationPartsAssemblyInfo.cs
+E:\USER\Escritorio\sistemaTickets\Backend\SistemaTickets\obj\Debug\net7.0\SistemaTickets.MvcApplicationPartsAssemblyInfo.cache
+E:\USER\Escritorio\sistemaTickets\Backend\SistemaTickets\obj\Debug\net7.0\staticwebassets\msbuild.SistemaTickets.Microsoft.AspNetCore.StaticWebAssets.props
+E:\USER\Escritorio\sistemaTickets\Backend\SistemaTickets\obj\Debug\net7.0\staticwebassets\msbuild.build.SistemaTickets.props
+E:\USER\Escritorio\sistemaTickets\Backend\SistemaTickets\obj\Debug\net7.0\staticwebassets\msbuild.buildMultiTargeting.SistemaTickets.props
+E:\USER\Escritorio\sistemaTickets\Backend\SistemaTickets\obj\Debug\net7.0\staticwebassets\msbuild.buildTransitive.SistemaTickets.props
+E:\USER\Escritorio\sistemaTickets\Backend\SistemaTickets\obj\Debug\net7.0\staticwebassets.pack.json
+E:\USER\Escritorio\sistemaTickets\Backend\SistemaTickets\obj\Debug\net7.0\staticwebassets.build.json
+E:\USER\Escritorio\sistemaTickets\Backend\SistemaTickets\obj\Debug\net7.0\staticwebassets.development.json
+E:\USER\Escritorio\sistemaTickets\Backend\SistemaTickets\obj\Debug\net7.0\scopedcss\bundle\SistemaTickets.styles.css
+E:\USER\Escritorio\sistemaTickets\Backend\SistemaTickets\obj\Debug\net7.0\SistemaTickets.csproj.CopyComplete
+E:\USER\Escritorio\sistemaTickets\Backend\SistemaTickets\obj\Debug\net7.0\SistemaTickets.dll
+E:\USER\Escritorio\sistemaTickets\Backend\SistemaTickets\obj\Debug\net7.0\refint\SistemaTickets.dll
+E:\USER\Escritorio\sistemaTickets\Backend\SistemaTickets\obj\Debug\net7.0\SistemaTickets.pdb
+E:\USER\Escritorio\sistemaTickets\Backend\SistemaTickets\obj\Debug\net7.0\SistemaTickets.genruntimeconfig.cache
+E:\USER\Escritorio\sistemaTickets\Backend\SistemaTickets\obj\Debug\net7.0\ref\SistemaTickets.dll
+C:\Users\Miguel\OneDrive\Escritorio\Proyectos\Sistema_Tickets_Asofty\AsoftyTicketsSistema\Backend\SistemaTickets\bin\Debug\net7.0\appsettings.Development.json
+C:\Users\Miguel\OneDrive\Escritorio\Proyectos\Sistema_Tickets_Asofty\AsoftyTicketsSistema\Backend\SistemaTickets\bin\Debug\net7.0\appsettings.json
+C:\Users\Miguel\OneDrive\Escritorio\Proyectos\Sistema_Tickets_Asofty\AsoftyTicketsSistema\Backend\SistemaTickets\bin\Debug\net7.0\SistemaTickets.exe
+C:\Users\Miguel\OneDrive\Escritorio\Proyectos\Sistema_Tickets_Asofty\AsoftyTicketsSistema\Backend\SistemaTickets\bin\Debug\net7.0\SistemaTickets.deps.json
+C:\Users\Miguel\OneDrive\Escritorio\Proyectos\Sistema_Tickets_Asofty\AsoftyTicketsSistema\Backend\SistemaTickets\bin\Debug\net7.0\SistemaTickets.runtimeconfig.json
+C:\Users\Miguel\OneDrive\Escritorio\Proyectos\Sistema_Tickets_Asofty\AsoftyTicketsSistema\Backend\SistemaTickets\bin\Debug\net7.0\SistemaTickets.dll
+C:\Users\Miguel\OneDrive\Escritorio\Proyectos\Sistema_Tickets_Asofty\AsoftyTicketsSistema\Backend\SistemaTickets\bin\Debug\net7.0\SistemaTickets.pdb
+C:\Users\Miguel\OneDrive\Escritorio\Proyectos\Sistema_Tickets_Asofty\AsoftyTicketsSistema\Backend\SistemaTickets\bin\Debug\net7.0\BouncyCastle.Cryptography.dll
+C:\Users\Miguel\OneDrive\Escritorio\Proyectos\Sistema_Tickets_Asofty\AsoftyTicketsSistema\Backend\SistemaTickets\bin\Debug\net7.0\Google.Protobuf.dll
+C:\Users\Miguel\OneDrive\Escritorio\Proyectos\Sistema_Tickets_Asofty\AsoftyTicketsSistema\Backend\SistemaTickets\bin\Debug\net7.0\K4os.Compression.LZ4.dll
+C:\Users\Miguel\OneDrive\Escritorio\Proyectos\Sistema_Tickets_Asofty\AsoftyTicketsSistema\Backend\SistemaTickets\bin\Debug\net7.0\K4os.Compression.LZ4.Streams.dll
+C:\Users\Miguel\OneDrive\Escritorio\Proyectos\Sistema_Tickets_Asofty\AsoftyTicketsSistema\Backend\SistemaTickets\bin\Debug\net7.0\K4os.Hash.xxHash.dll
+C:\Users\Miguel\OneDrive\Escritorio\Proyectos\Sistema_Tickets_Asofty\AsoftyTicketsSistema\Backend\SistemaTickets\bin\Debug\net7.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\Miguel\OneDrive\Escritorio\Proyectos\Sistema_Tickets_Asofty\AsoftyTicketsSistema\Backend\SistemaTickets\bin\Debug\net7.0\Microsoft.AspNetCore.Connections.Abstractions.dll
+C:\Users\Miguel\OneDrive\Escritorio\Proyectos\Sistema_Tickets_Asofty\AsoftyTicketsSistema\Backend\SistemaTickets\bin\Debug\net7.0\Microsoft.AspNetCore.Http.Connections.Client.dll
+C:\Users\Miguel\OneDrive\Escritorio\Proyectos\Sistema_Tickets_Asofty\AsoftyTicketsSistema\Backend\SistemaTickets\bin\Debug\net7.0\Microsoft.AspNetCore.Http.Connections.Common.dll
+C:\Users\Miguel\OneDrive\Escritorio\Proyectos\Sistema_Tickets_Asofty\AsoftyTicketsSistema\Backend\SistemaTickets\bin\Debug\net7.0\Microsoft.AspNetCore.OpenApi.dll
+C:\Users\Miguel\OneDrive\Escritorio\Proyectos\Sistema_Tickets_Asofty\AsoftyTicketsSistema\Backend\SistemaTickets\bin\Debug\net7.0\Microsoft.AspNetCore.SignalR.Client.dll
+C:\Users\Miguel\OneDrive\Escritorio\Proyectos\Sistema_Tickets_Asofty\AsoftyTicketsSistema\Backend\SistemaTickets\bin\Debug\net7.0\Microsoft.AspNetCore.SignalR.Client.Core.dll
+C:\Users\Miguel\OneDrive\Escritorio\Proyectos\Sistema_Tickets_Asofty\AsoftyTicketsSistema\Backend\SistemaTickets\bin\Debug\net7.0\Microsoft.AspNetCore.SignalR.Common.dll
+C:\Users\Miguel\OneDrive\Escritorio\Proyectos\Sistema_Tickets_Asofty\AsoftyTicketsSistema\Backend\SistemaTickets\bin\Debug\net7.0\Microsoft.AspNetCore.SignalR.Protocols.Json.dll
+C:\Users\Miguel\OneDrive\Escritorio\Proyectos\Sistema_Tickets_Asofty\AsoftyTicketsSistema\Backend\SistemaTickets\bin\Debug\net7.0\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\Miguel\OneDrive\Escritorio\Proyectos\Sistema_Tickets_Asofty\AsoftyTicketsSistema\Backend\SistemaTickets\bin\Debug\net7.0\Microsoft.Bcl.TimeProvider.dll
+C:\Users\Miguel\OneDrive\Escritorio\Proyectos\Sistema_Tickets_Asofty\AsoftyTicketsSistema\Backend\SistemaTickets\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.dll
+C:\Users\Miguel\OneDrive\Escritorio\Proyectos\Sistema_Tickets_Asofty\AsoftyTicketsSistema\Backend\SistemaTickets\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Users\Miguel\OneDrive\Escritorio\Proyectos\Sistema_Tickets_Asofty\AsoftyTicketsSistema\Backend\SistemaTickets\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.Relational.dll
+C:\Users\Miguel\OneDrive\Escritorio\Proyectos\Sistema_Tickets_Asofty\AsoftyTicketsSistema\Backend\SistemaTickets\bin\Debug\net7.0\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\Miguel\OneDrive\Escritorio\Proyectos\Sistema_Tickets_Asofty\AsoftyTicketsSistema\Backend\SistemaTickets\bin\Debug\net7.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\Miguel\OneDrive\Escritorio\Proyectos\Sistema_Tickets_Asofty\AsoftyTicketsSistema\Backend\SistemaTickets\bin\Debug\net7.0\Microsoft.Extensions.Features.dll
+C:\Users\Miguel\OneDrive\Escritorio\Proyectos\Sistema_Tickets_Asofty\AsoftyTicketsSistema\Backend\SistemaTickets\bin\Debug\net7.0\Microsoft.Extensions.Logging.dll
+C:\Users\Miguel\OneDrive\Escritorio\Proyectos\Sistema_Tickets_Asofty\AsoftyTicketsSistema\Backend\SistemaTickets\bin\Debug\net7.0\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\Miguel\OneDrive\Escritorio\Proyectos\Sistema_Tickets_Asofty\AsoftyTicketsSistema\Backend\SistemaTickets\bin\Debug\net7.0\Microsoft.Extensions.Options.dll
+C:\Users\Miguel\OneDrive\Escritorio\Proyectos\Sistema_Tickets_Asofty\AsoftyTicketsSistema\Backend\SistemaTickets\bin\Debug\net7.0\Microsoft.Extensions.Primitives.dll
+C:\Users\Miguel\OneDrive\Escritorio\Proyectos\Sistema_Tickets_Asofty\AsoftyTicketsSistema\Backend\SistemaTickets\bin\Debug\net7.0\Microsoft.IdentityModel.Abstractions.dll
+C:\Users\Miguel\OneDrive\Escritorio\Proyectos\Sistema_Tickets_Asofty\AsoftyTicketsSistema\Backend\SistemaTickets\bin\Debug\net7.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\Miguel\OneDrive\Escritorio\Proyectos\Sistema_Tickets_Asofty\AsoftyTicketsSistema\Backend\SistemaTickets\bin\Debug\net7.0\Microsoft.IdentityModel.Logging.dll
+C:\Users\Miguel\OneDrive\Escritorio\Proyectos\Sistema_Tickets_Asofty\AsoftyTicketsSistema\Backend\SistemaTickets\bin\Debug\net7.0\Microsoft.IdentityModel.Protocols.dll
+C:\Users\Miguel\OneDrive\Escritorio\Proyectos\Sistema_Tickets_Asofty\AsoftyTicketsSistema\Backend\SistemaTickets\bin\Debug\net7.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\Miguel\OneDrive\Escritorio\Proyectos\Sistema_Tickets_Asofty\AsoftyTicketsSistema\Backend\SistemaTickets\bin\Debug\net7.0\Microsoft.IdentityModel.Tokens.dll
+C:\Users\Miguel\OneDrive\Escritorio\Proyectos\Sistema_Tickets_Asofty\AsoftyTicketsSistema\Backend\SistemaTickets\bin\Debug\net7.0\Microsoft.OpenApi.dll
+C:\Users\Miguel\OneDrive\Escritorio\Proyectos\Sistema_Tickets_Asofty\AsoftyTicketsSistema\Backend\SistemaTickets\bin\Debug\net7.0\Microsoft.Win32.SystemEvents.dll
+C:\Users\Miguel\OneDrive\Escritorio\Proyectos\Sistema_Tickets_Asofty\AsoftyTicketsSistema\Backend\SistemaTickets\bin\Debug\net7.0\MySql.Data.dll
+C:\Users\Miguel\OneDrive\Escritorio\Proyectos\Sistema_Tickets_Asofty\AsoftyTicketsSistema\Backend\SistemaTickets\bin\Debug\net7.0\MySqlConnector.dll
+C:\Users\Miguel\OneDrive\Escritorio\Proyectos\Sistema_Tickets_Asofty\AsoftyTicketsSistema\Backend\SistemaTickets\bin\Debug\net7.0\Newtonsoft.Json.dll
+C:\Users\Miguel\OneDrive\Escritorio\Proyectos\Sistema_Tickets_Asofty\AsoftyTicketsSistema\Backend\SistemaTickets\bin\Debug\net7.0\Pomelo.EntityFrameworkCore.MySql.dll
+C:\Users\Miguel\OneDrive\Escritorio\Proyectos\Sistema_Tickets_Asofty\AsoftyTicketsSistema\Backend\SistemaTickets\bin\Debug\net7.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\Miguel\OneDrive\Escritorio\Proyectos\Sistema_Tickets_Asofty\AsoftyTicketsSistema\Backend\SistemaTickets\bin\Debug\net7.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\Miguel\OneDrive\Escritorio\Proyectos\Sistema_Tickets_Asofty\AsoftyTicketsSistema\Backend\SistemaTickets\bin\Debug\net7.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\Miguel\OneDrive\Escritorio\Proyectos\Sistema_Tickets_Asofty\AsoftyTicketsSistema\Backend\SistemaTickets\bin\Debug\net7.0\System.Configuration.ConfigurationManager.dll
+C:\Users\Miguel\OneDrive\Escritorio\Proyectos\Sistema_Tickets_Asofty\AsoftyTicketsSistema\Backend\SistemaTickets\bin\Debug\net7.0\System.Drawing.Common.dll
+C:\Users\Miguel\OneDrive\Escritorio\Proyectos\Sistema_Tickets_Asofty\AsoftyTicketsSistema\Backend\SistemaTickets\bin\Debug\net7.0\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\Miguel\OneDrive\Escritorio\Proyectos\Sistema_Tickets_Asofty\AsoftyTicketsSistema\Backend\SistemaTickets\bin\Debug\net7.0\System.IO.Pipelines.dll
+C:\Users\Miguel\OneDrive\Escritorio\Proyectos\Sistema_Tickets_Asofty\AsoftyTicketsSistema\Backend\SistemaTickets\bin\Debug\net7.0\System.Security.Cryptography.ProtectedData.dll
+C:\Users\Miguel\OneDrive\Escritorio\Proyectos\Sistema_Tickets_Asofty\AsoftyTicketsSistema\Backend\SistemaTickets\bin\Debug\net7.0\System.Security.Permissions.dll
+C:\Users\Miguel\OneDrive\Escritorio\Proyectos\Sistema_Tickets_Asofty\AsoftyTicketsSistema\Backend\SistemaTickets\bin\Debug\net7.0\System.Text.Encodings.Web.dll
+C:\Users\Miguel\OneDrive\Escritorio\Proyectos\Sistema_Tickets_Asofty\AsoftyTicketsSistema\Backend\SistemaTickets\bin\Debug\net7.0\System.Text.Json.dll
+C:\Users\Miguel\OneDrive\Escritorio\Proyectos\Sistema_Tickets_Asofty\AsoftyTicketsSistema\Backend\SistemaTickets\bin\Debug\net7.0\System.Threading.Channels.dll
+C:\Users\Miguel\OneDrive\Escritorio\Proyectos\Sistema_Tickets_Asofty\AsoftyTicketsSistema\Backend\SistemaTickets\bin\Debug\net7.0\System.Windows.Extensions.dll
+C:\Users\Miguel\OneDrive\Escritorio\Proyectos\Sistema_Tickets_Asofty\AsoftyTicketsSistema\Backend\SistemaTickets\bin\Debug\net7.0\ZstdSharp.dll
+C:\Users\Miguel\OneDrive\Escritorio\Proyectos\Sistema_Tickets_Asofty\AsoftyTicketsSistema\Backend\SistemaTickets\bin\Debug\net7.0\runtimes\win\lib\netcoreapp3.0\Microsoft.Win32.SystemEvents.dll
+C:\Users\Miguel\OneDrive\Escritorio\Proyectos\Sistema_Tickets_Asofty\AsoftyTicketsSistema\Backend\SistemaTickets\bin\Debug\net7.0\runtimes\win-x64\native\comerr64.dll
+C:\Users\Miguel\OneDrive\Escritorio\Proyectos\Sistema_Tickets_Asofty\AsoftyTicketsSistema\Backend\SistemaTickets\bin\Debug\net7.0\runtimes\win-x64\native\gssapi64.dll
+C:\Users\Miguel\OneDrive\Escritorio\Proyectos\Sistema_Tickets_Asofty\AsoftyTicketsSistema\Backend\SistemaTickets\bin\Debug\net7.0\runtimes\win-x64\native\k5sprt64.dll
+C:\Users\Miguel\OneDrive\Escritorio\Proyectos\Sistema_Tickets_Asofty\AsoftyTicketsSistema\Backend\SistemaTickets\bin\Debug\net7.0\runtimes\win-x64\native\krb5_64.dll
+C:\Users\Miguel\OneDrive\Escritorio\Proyectos\Sistema_Tickets_Asofty\AsoftyTicketsSistema\Backend\SistemaTickets\bin\Debug\net7.0\runtimes\win-x64\native\krbcc64.dll
+C:\Users\Miguel\OneDrive\Escritorio\Proyectos\Sistema_Tickets_Asofty\AsoftyTicketsSistema\Backend\SistemaTickets\bin\Debug\net7.0\runtimes\unix\lib\netcoreapp3.0\System.Drawing.Common.dll
+C:\Users\Miguel\OneDrive\Escritorio\Proyectos\Sistema_Tickets_Asofty\AsoftyTicketsSistema\Backend\SistemaTickets\bin\Debug\net7.0\runtimes\win\lib\netcoreapp3.0\System.Drawing.Common.dll
+C:\Users\Miguel\OneDrive\Escritorio\Proyectos\Sistema_Tickets_Asofty\AsoftyTicketsSistema\Backend\SistemaTickets\bin\Debug\net7.0\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+C:\Users\Miguel\OneDrive\Escritorio\Proyectos\Sistema_Tickets_Asofty\AsoftyTicketsSistema\Backend\SistemaTickets\bin\Debug\net7.0\runtimes\browser\lib\net7.0\System.Text.Encodings.Web.dll
+C:\Users\Miguel\OneDrive\Escritorio\Proyectos\Sistema_Tickets_Asofty\AsoftyTicketsSistema\Backend\SistemaTickets\bin\Debug\net7.0\runtimes\win\lib\netcoreapp3.0\System.Windows.Extensions.dll
+C:\Users\Miguel\OneDrive\Escritorio\Proyectos\Sistema_Tickets_Asofty\AsoftyTicketsSistema\Backend\SistemaTickets\obj\Debug\net7.0\SistemaTickets.csproj.AssemblyReference.cache
+C:\Users\Miguel\OneDrive\Escritorio\Proyectos\Sistema_Tickets_Asofty\AsoftyTicketsSistema\Backend\SistemaTickets\obj\Debug\net7.0\SistemaTickets.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Miguel\OneDrive\Escritorio\Proyectos\Sistema_Tickets_Asofty\AsoftyTicketsSistema\Backend\SistemaTickets\obj\Debug\net7.0\SistemaTickets.AssemblyInfoInputs.cache
+C:\Users\Miguel\OneDrive\Escritorio\Proyectos\Sistema_Tickets_Asofty\AsoftyTicketsSistema\Backend\SistemaTickets\obj\Debug\net7.0\SistemaTickets.AssemblyInfo.cs
+C:\Users\Miguel\OneDrive\Escritorio\Proyectos\Sistema_Tickets_Asofty\AsoftyTicketsSistema\Backend\SistemaTickets\obj\Debug\net7.0\SistemaTickets.csproj.CoreCompileInputs.cache
+C:\Users\Miguel\OneDrive\Escritorio\Proyectos\Sistema_Tickets_Asofty\AsoftyTicketsSistema\Backend\SistemaTickets\obj\Debug\net7.0\SistemaTickets.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\Miguel\OneDrive\Escritorio\Proyectos\Sistema_Tickets_Asofty\AsoftyTicketsSistema\Backend\SistemaTickets\obj\Debug\net7.0\SistemaTickets.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Miguel\OneDrive\Escritorio\Proyectos\Sistema_Tickets_Asofty\AsoftyTicketsSistema\Backend\SistemaTickets\obj\Debug\net7.0\SistemaTickets.sourcelink.json
+C:\Users\Miguel\OneDrive\Escritorio\Proyectos\Sistema_Tickets_Asofty\AsoftyTicketsSistema\Backend\SistemaTickets\obj\Debug\net7.0\staticwebassets.build.json
+C:\Users\Miguel\OneDrive\Escritorio\Proyectos\Sistema_Tickets_Asofty\AsoftyTicketsSistema\Backend\SistemaTickets\obj\Debug\net7.0\staticwebassets.development.json
+C:\Users\Miguel\OneDrive\Escritorio\Proyectos\Sistema_Tickets_Asofty\AsoftyTicketsSistema\Backend\SistemaTickets\obj\Debug\net7.0\staticwebassets\msbuild.SistemaTickets.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Users\Miguel\OneDrive\Escritorio\Proyectos\Sistema_Tickets_Asofty\AsoftyTicketsSistema\Backend\SistemaTickets\obj\Debug\net7.0\staticwebassets\msbuild.build.SistemaTickets.props
+C:\Users\Miguel\OneDrive\Escritorio\Proyectos\Sistema_Tickets_Asofty\AsoftyTicketsSistema\Backend\SistemaTickets\obj\Debug\net7.0\staticwebassets\msbuild.buildMultiTargeting.SistemaTickets.props
+C:\Users\Miguel\OneDrive\Escritorio\Proyectos\Sistema_Tickets_Asofty\AsoftyTicketsSistema\Backend\SistemaTickets\obj\Debug\net7.0\staticwebassets\msbuild.buildTransitive.SistemaTickets.props
+C:\Users\Miguel\OneDrive\Escritorio\Proyectos\Sistema_Tickets_Asofty\AsoftyTicketsSistema\Backend\SistemaTickets\obj\Debug\net7.0\staticwebassets.pack.json
+C:\Users\Miguel\OneDrive\Escritorio\Proyectos\Sistema_Tickets_Asofty\AsoftyTicketsSistema\Backend\SistemaTickets\obj\Debug\net7.0\scopedcss\bundle\SistemaTickets.styles.css
+C:\Users\Miguel\OneDrive\Escritorio\Proyectos\Sistema_Tickets_Asofty\AsoftyTicketsSistema\Backend\SistemaTickets\obj\Debug\net7.0\SistemaTickets.csproj.CopyComplete
+C:\Users\Miguel\OneDrive\Escritorio\Proyectos\Sistema_Tickets_Asofty\AsoftyTicketsSistema\Backend\SistemaTickets\obj\Debug\net7.0\SistemaTickets.dll
+C:\Users\Miguel\OneDrive\Escritorio\Proyectos\Sistema_Tickets_Asofty\AsoftyTicketsSistema\Backend\SistemaTickets\obj\Debug\net7.0\refint\SistemaTickets.dll
+C:\Users\Miguel\OneDrive\Escritorio\Proyectos\Sistema_Tickets_Asofty\AsoftyTicketsSistema\Backend\SistemaTickets\obj\Debug\net7.0\SistemaTickets.pdb
+C:\Users\Miguel\OneDrive\Escritorio\Proyectos\Sistema_Tickets_Asofty\AsoftyTicketsSistema\Backend\SistemaTickets\obj\Debug\net7.0\SistemaTickets.genruntimeconfig.cache
+C:\Users\Miguel\OneDrive\Escritorio\Proyectos\Sistema_Tickets_Asofty\AsoftyTicketsSistema\Backend\SistemaTickets\obj\Debug\net7.0\ref\SistemaTickets.dll
+E:\USER\Escritorio\SistemaTicketV2\AsoftyTicketsSistema\Backend\SistemaTickets\bin\Debug\net7.0\appsettings.Development.json
+E:\USER\Escritorio\SistemaTicketV2\AsoftyTicketsSistema\Backend\SistemaTickets\bin\Debug\net7.0\appsettings.json
+E:\USER\Escritorio\SistemaTicketV2\AsoftyTicketsSistema\Backend\SistemaTickets\bin\Debug\net7.0\SistemaTickets.exe
+E:\USER\Escritorio\SistemaTicketV2\AsoftyTicketsSistema\Backend\SistemaTickets\bin\Debug\net7.0\SistemaTickets.deps.json
+E:\USER\Escritorio\SistemaTicketV2\AsoftyTicketsSistema\Backend\SistemaTickets\bin\Debug\net7.0\SistemaTickets.runtimeconfig.json
+E:\USER\Escritorio\SistemaTicketV2\AsoftyTicketsSistema\Backend\SistemaTickets\bin\Debug\net7.0\SistemaTickets.dll
+E:\USER\Escritorio\SistemaTicketV2\AsoftyTicketsSistema\Backend\SistemaTickets\bin\Debug\net7.0\SistemaTickets.pdb
+E:\USER\Escritorio\SistemaTicketV2\AsoftyTicketsSistema\Backend\SistemaTickets\bin\Debug\net7.0\BouncyCastle.Cryptography.dll
+E:\USER\Escritorio\SistemaTicketV2\AsoftyTicketsSistema\Backend\SistemaTickets\bin\Debug\net7.0\Google.Protobuf.dll
+E:\USER\Escritorio\SistemaTicketV2\AsoftyTicketsSistema\Backend\SistemaTickets\bin\Debug\net7.0\K4os.Compression.LZ4.dll
+E:\USER\Escritorio\SistemaTicketV2\AsoftyTicketsSistema\Backend\SistemaTickets\bin\Debug\net7.0\K4os.Compression.LZ4.Streams.dll
+E:\USER\Escritorio\SistemaTicketV2\AsoftyTicketsSistema\Backend\SistemaTickets\bin\Debug\net7.0\K4os.Hash.xxHash.dll
+E:\USER\Escritorio\SistemaTicketV2\AsoftyTicketsSistema\Backend\SistemaTickets\bin\Debug\net7.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+E:\USER\Escritorio\SistemaTicketV2\AsoftyTicketsSistema\Backend\SistemaTickets\bin\Debug\net7.0\Microsoft.AspNetCore.Connections.Abstractions.dll
+E:\USER\Escritorio\SistemaTicketV2\AsoftyTicketsSistema\Backend\SistemaTickets\bin\Debug\net7.0\Microsoft.AspNetCore.Http.Connections.Client.dll
+E:\USER\Escritorio\SistemaTicketV2\AsoftyTicketsSistema\Backend\SistemaTickets\bin\Debug\net7.0\Microsoft.AspNetCore.Http.Connections.Common.dll
+E:\USER\Escritorio\SistemaTicketV2\AsoftyTicketsSistema\Backend\SistemaTickets\bin\Debug\net7.0\Microsoft.AspNetCore.OpenApi.dll
+E:\USER\Escritorio\SistemaTicketV2\AsoftyTicketsSistema\Backend\SistemaTickets\bin\Debug\net7.0\Microsoft.AspNetCore.SignalR.Client.dll
+E:\USER\Escritorio\SistemaTicketV2\AsoftyTicketsSistema\Backend\SistemaTickets\bin\Debug\net7.0\Microsoft.AspNetCore.SignalR.Client.Core.dll
+E:\USER\Escritorio\SistemaTicketV2\AsoftyTicketsSistema\Backend\SistemaTickets\bin\Debug\net7.0\Microsoft.AspNetCore.SignalR.Common.dll
+E:\USER\Escritorio\SistemaTicketV2\AsoftyTicketsSistema\Backend\SistemaTickets\bin\Debug\net7.0\Microsoft.AspNetCore.SignalR.Protocols.Json.dll
+E:\USER\Escritorio\SistemaTicketV2\AsoftyTicketsSistema\Backend\SistemaTickets\bin\Debug\net7.0\Microsoft.Bcl.AsyncInterfaces.dll
+E:\USER\Escritorio\SistemaTicketV2\AsoftyTicketsSistema\Backend\SistemaTickets\bin\Debug\net7.0\Microsoft.Bcl.TimeProvider.dll
+E:\USER\Escritorio\SistemaTicketV2\AsoftyTicketsSistema\Backend\SistemaTickets\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.dll
+E:\USER\Escritorio\SistemaTicketV2\AsoftyTicketsSistema\Backend\SistemaTickets\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+E:\USER\Escritorio\SistemaTicketV2\AsoftyTicketsSistema\Backend\SistemaTickets\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.Relational.dll
+E:\USER\Escritorio\SistemaTicketV2\AsoftyTicketsSistema\Backend\SistemaTickets\bin\Debug\net7.0\Microsoft.Extensions.DependencyInjection.dll
+E:\USER\Escritorio\SistemaTicketV2\AsoftyTicketsSistema\Backend\SistemaTickets\bin\Debug\net7.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+E:\USER\Escritorio\SistemaTicketV2\AsoftyTicketsSistema\Backend\SistemaTickets\bin\Debug\net7.0\Microsoft.Extensions.Features.dll
+E:\USER\Escritorio\SistemaTicketV2\AsoftyTicketsSistema\Backend\SistemaTickets\bin\Debug\net7.0\Microsoft.Extensions.Logging.dll
+E:\USER\Escritorio\SistemaTicketV2\AsoftyTicketsSistema\Backend\SistemaTickets\bin\Debug\net7.0\Microsoft.Extensions.Logging.Abstractions.dll
+E:\USER\Escritorio\SistemaTicketV2\AsoftyTicketsSistema\Backend\SistemaTickets\bin\Debug\net7.0\Microsoft.Extensions.Options.dll
+E:\USER\Escritorio\SistemaTicketV2\AsoftyTicketsSistema\Backend\SistemaTickets\bin\Debug\net7.0\Microsoft.Extensions.Primitives.dll
+E:\USER\Escritorio\SistemaTicketV2\AsoftyTicketsSistema\Backend\SistemaTickets\bin\Debug\net7.0\Microsoft.IdentityModel.Abstractions.dll
+E:\USER\Escritorio\SistemaTicketV2\AsoftyTicketsSistema\Backend\SistemaTickets\bin\Debug\net7.0\Microsoft.IdentityModel.JsonWebTokens.dll
+E:\USER\Escritorio\SistemaTicketV2\AsoftyTicketsSistema\Backend\SistemaTickets\bin\Debug\net7.0\Microsoft.IdentityModel.Logging.dll
+E:\USER\Escritorio\SistemaTicketV2\AsoftyTicketsSistema\Backend\SistemaTickets\bin\Debug\net7.0\Microsoft.IdentityModel.Protocols.dll
+E:\USER\Escritorio\SistemaTicketV2\AsoftyTicketsSistema\Backend\SistemaTickets\bin\Debug\net7.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+E:\USER\Escritorio\SistemaTicketV2\AsoftyTicketsSistema\Backend\SistemaTickets\bin\Debug\net7.0\Microsoft.IdentityModel.Tokens.dll
+E:\USER\Escritorio\SistemaTicketV2\AsoftyTicketsSistema\Backend\SistemaTickets\bin\Debug\net7.0\Microsoft.OpenApi.dll
+E:\USER\Escritorio\SistemaTicketV2\AsoftyTicketsSistema\Backend\SistemaTickets\bin\Debug\net7.0\Microsoft.Win32.SystemEvents.dll
+E:\USER\Escritorio\SistemaTicketV2\AsoftyTicketsSistema\Backend\SistemaTickets\bin\Debug\net7.0\MySql.Data.dll
+E:\USER\Escritorio\SistemaTicketV2\AsoftyTicketsSistema\Backend\SistemaTickets\bin\Debug\net7.0\MySqlConnector.dll
+E:\USER\Escritorio\SistemaTicketV2\AsoftyTicketsSistema\Backend\SistemaTickets\bin\Debug\net7.0\Newtonsoft.Json.dll
+E:\USER\Escritorio\SistemaTicketV2\AsoftyTicketsSistema\Backend\SistemaTickets\bin\Debug\net7.0\Pomelo.EntityFrameworkCore.MySql.dll
+E:\USER\Escritorio\SistemaTicketV2\AsoftyTicketsSistema\Backend\SistemaTickets\bin\Debug\net7.0\Swashbuckle.AspNetCore.Swagger.dll
+E:\USER\Escritorio\SistemaTicketV2\AsoftyTicketsSistema\Backend\SistemaTickets\bin\Debug\net7.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+E:\USER\Escritorio\SistemaTicketV2\AsoftyTicketsSistema\Backend\SistemaTickets\bin\Debug\net7.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+E:\USER\Escritorio\SistemaTicketV2\AsoftyTicketsSistema\Backend\SistemaTickets\bin\Debug\net7.0\System.Configuration.ConfigurationManager.dll
+E:\USER\Escritorio\SistemaTicketV2\AsoftyTicketsSistema\Backend\SistemaTickets\bin\Debug\net7.0\System.Diagnostics.DiagnosticSource.dll
+E:\USER\Escritorio\SistemaTicketV2\AsoftyTicketsSistema\Backend\SistemaTickets\bin\Debug\net7.0\System.Drawing.Common.dll
+E:\USER\Escritorio\SistemaTicketV2\AsoftyTicketsSistema\Backend\SistemaTickets\bin\Debug\net7.0\System.IdentityModel.Tokens.Jwt.dll
+E:\USER\Escritorio\SistemaTicketV2\AsoftyTicketsSistema\Backend\SistemaTickets\bin\Debug\net7.0\System.IO.Pipelines.dll
+E:\USER\Escritorio\SistemaTicketV2\AsoftyTicketsSistema\Backend\SistemaTickets\bin\Debug\net7.0\System.Security.Cryptography.ProtectedData.dll
+E:\USER\Escritorio\SistemaTicketV2\AsoftyTicketsSistema\Backend\SistemaTickets\bin\Debug\net7.0\System.Security.Permissions.dll
+E:\USER\Escritorio\SistemaTicketV2\AsoftyTicketsSistema\Backend\SistemaTickets\bin\Debug\net7.0\System.Text.Encodings.Web.dll
+E:\USER\Escritorio\SistemaTicketV2\AsoftyTicketsSistema\Backend\SistemaTickets\bin\Debug\net7.0\System.Text.Json.dll
+E:\USER\Escritorio\SistemaTicketV2\AsoftyTicketsSistema\Backend\SistemaTickets\bin\Debug\net7.0\System.Threading.Channels.dll
+E:\USER\Escritorio\SistemaTicketV2\AsoftyTicketsSistema\Backend\SistemaTickets\bin\Debug\net7.0\System.Windows.Extensions.dll
+E:\USER\Escritorio\SistemaTicketV2\AsoftyTicketsSistema\Backend\SistemaTickets\bin\Debug\net7.0\ZstdSharp.dll
+E:\USER\Escritorio\SistemaTicketV2\AsoftyTicketsSistema\Backend\SistemaTickets\bin\Debug\net7.0\runtimes\win\lib\netcoreapp3.0\Microsoft.Win32.SystemEvents.dll
+E:\USER\Escritorio\SistemaTicketV2\AsoftyTicketsSistema\Backend\SistemaTickets\bin\Debug\net7.0\runtimes\win-x64\native\comerr64.dll
+E:\USER\Escritorio\SistemaTicketV2\AsoftyTicketsSistema\Backend\SistemaTickets\bin\Debug\net7.0\runtimes\win-x64\native\gssapi64.dll
+E:\USER\Escritorio\SistemaTicketV2\AsoftyTicketsSistema\Backend\SistemaTickets\bin\Debug\net7.0\runtimes\win-x64\native\k5sprt64.dll
+E:\USER\Escritorio\SistemaTicketV2\AsoftyTicketsSistema\Backend\SistemaTickets\bin\Debug\net7.0\runtimes\win-x64\native\krb5_64.dll
+E:\USER\Escritorio\SistemaTicketV2\AsoftyTicketsSistema\Backend\SistemaTickets\bin\Debug\net7.0\runtimes\win-x64\native\krbcc64.dll
+E:\USER\Escritorio\SistemaTicketV2\AsoftyTicketsSistema\Backend\SistemaTickets\bin\Debug\net7.0\runtimes\unix\lib\netcoreapp3.0\System.Drawing.Common.dll
+E:\USER\Escritorio\SistemaTicketV2\AsoftyTicketsSistema\Backend\SistemaTickets\bin\Debug\net7.0\runtimes\win\lib\netcoreapp3.0\System.Drawing.Common.dll
+E:\USER\Escritorio\SistemaTicketV2\AsoftyTicketsSistema\Backend\SistemaTickets\bin\Debug\net7.0\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+E:\USER\Escritorio\SistemaTicketV2\AsoftyTicketsSistema\Backend\SistemaTickets\bin\Debug\net7.0\runtimes\browser\lib\net7.0\System.Text.Encodings.Web.dll
+E:\USER\Escritorio\SistemaTicketV2\AsoftyTicketsSistema\Backend\SistemaTickets\bin\Debug\net7.0\runtimes\win\lib\netcoreapp3.0\System.Windows.Extensions.dll
+E:\USER\Escritorio\SistemaTicketV2\AsoftyTicketsSistema\Backend\SistemaTickets\obj\Debug\net7.0\SistemaTickets.csproj.AssemblyReference.cache
+E:\USER\Escritorio\SistemaTicketV2\AsoftyTicketsSistema\Backend\SistemaTickets\obj\Debug\net7.0\SistemaTickets.GeneratedMSBuildEditorConfig.editorconfig
+E:\USER\Escritorio\SistemaTicketV2\AsoftyTicketsSistema\Backend\SistemaTickets\obj\Debug\net7.0\SistemaTickets.AssemblyInfoInputs.cache
+E:\USER\Escritorio\SistemaTicketV2\AsoftyTicketsSistema\Backend\SistemaTickets\obj\Debug\net7.0\SistemaTickets.AssemblyInfo.cs
+E:\USER\Escritorio\SistemaTicketV2\AsoftyTicketsSistema\Backend\SistemaTickets\obj\Debug\net7.0\SistemaTickets.csproj.CoreCompileInputs.cache
+E:\USER\Escritorio\SistemaTicketV2\AsoftyTicketsSistema\Backend\SistemaTickets\obj\Debug\net7.0\SistemaTickets.MvcApplicationPartsAssemblyInfo.cs
+E:\USER\Escritorio\SistemaTicketV2\AsoftyTicketsSistema\Backend\SistemaTickets\obj\Debug\net7.0\SistemaTickets.MvcApplicationPartsAssemblyInfo.cache
+E:\USER\Escritorio\SistemaTicketV2\AsoftyTicketsSistema\Backend\SistemaTickets\obj\Debug\net7.0\staticwebassets\msbuild.SistemaTickets.Microsoft.AspNetCore.StaticWebAssets.props
+E:\USER\Escritorio\SistemaTicketV2\AsoftyTicketsSistema\Backend\SistemaTickets\obj\Debug\net7.0\staticwebassets\msbuild.build.SistemaTickets.props
+E:\USER\Escritorio\SistemaTicketV2\AsoftyTicketsSistema\Backend\SistemaTickets\obj\Debug\net7.0\staticwebassets\msbuild.buildMultiTargeting.SistemaTickets.props
+E:\USER\Escritorio\SistemaTicketV2\AsoftyTicketsSistema\Backend\SistemaTickets\obj\Debug\net7.0\staticwebassets\msbuild.buildTransitive.SistemaTickets.props
+E:\USER\Escritorio\SistemaTicketV2\AsoftyTicketsSistema\Backend\SistemaTickets\obj\Debug\net7.0\staticwebassets.pack.json
+E:\USER\Escritorio\SistemaTicketV2\AsoftyTicketsSistema\Backend\SistemaTickets\obj\Debug\net7.0\staticwebassets.build.json
+E:\USER\Escritorio\SistemaTicketV2\AsoftyTicketsSistema\Backend\SistemaTickets\obj\Debug\net7.0\staticwebassets.development.json
+E:\USER\Escritorio\SistemaTicketV2\AsoftyTicketsSistema\Backend\SistemaTickets\obj\Debug\net7.0\scopedcss\bundle\SistemaTickets.styles.css
+E:\USER\Escritorio\SistemaTicketV2\AsoftyTicketsSistema\Backend\SistemaTickets\obj\Debug\net7.0\SistemaTickets.csproj.CopyComplete
+E:\USER\Escritorio\SistemaTicketV2\AsoftyTicketsSistema\Backend\SistemaTickets\obj\Debug\net7.0\SistemaTickets.dll
+E:\USER\Escritorio\SistemaTicketV2\AsoftyTicketsSistema\Backend\SistemaTickets\obj\Debug\net7.0\refint\SistemaTickets.dll
+E:\USER\Escritorio\SistemaTicketV2\AsoftyTicketsSistema\Backend\SistemaTickets\obj\Debug\net7.0\SistemaTickets.pdb
+E:\USER\Escritorio\SistemaTicketV2\AsoftyTicketsSistema\Backend\SistemaTickets\obj\Debug\net7.0\SistemaTickets.genruntimeconfig.cache
+E:\USER\Escritorio\SistemaTicketV2\AsoftyTicketsSistema\Backend\SistemaTickets\obj\Debug\net7.0\ref\SistemaTickets.dll

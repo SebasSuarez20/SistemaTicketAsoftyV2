@@ -1,0 +1,132 @@
+* {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.containe_Login {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  width: 100%;
+  background-image: url('../../../assets/img/sistema_logo.jpg');
+}
+
+.form_Login {
+  width: 300px;
+  height: auto;
+  padding: 20px;
+  border-radius: 20px;
+  border: 2px solid #fff;
+  position: relative;
+  background-color: transparent;
+  backdrop-filter: blur(25px);
+}
+
+.bx_input {
+  margin-top: 62px;
+  display: flex;
+  flex-direction: column;
+}
+
+
+input[type="text"],
+input[type="password"] {
+  padding: 10px;
+  border: 2px solid #fff;
+  width: 100%;
+  border-radius: 25px;
+  outline: none;
+  background-color: transparent;
+  color: #fff;
+}
+
+.input_Login {
+  /* width: 93%; */
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-bottom: 21px;
+}
+
+label {
+  position: absolute;
+  left: 10px;
+  font-size: 12px;
+  color: #fff;
+  transition: .2s;
+}
+
+input:valid+label,
+input:focus+label {
+  background-color: #fff;
+  color: black;
+  transform: translate(10px, -20px);
+  padding: 2px 5px;
+  font-size: 10px;
+  border-radius: 4px;
+}
+
+.h2_login {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 10px 20px;
+  background-color: #fff;
+  border-radius: 0 0 10px 10px;
+}
+
+.h2_login::before {
+  position: absolute;
+  content: "";
+  top: 0;
+  left: -30px;
+  width: 30px;
+  height: 30px;
+  background-color: transparent;
+  box-shadow: 15px 0 0 0 #fff;
+  border-top-right-radius: 50%;
+}
+
+.h2_login::after {
+  position: absolute;
+  content: "";
+  top: 0;
+  right: -30px;
+  width: 30px;
+  height: 30px;
+  background-color: transparent;
+  box-shadow: -15px 0 0 0 #fff;
+  border-top-left-radius: 50%;
+}
+
+.btn_Login {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.btn_Login button {
+  width: 100%;
+  padding: 7px;
+  border-radius: 20px;
+  border: 2px solid #fff;
+  background-color: transparent;
+  color: #fff;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn_Login button:hover {
+
+  background-color: #fff;
+  color: black;
+  cursor: pointer;
+  transform: scale(1.0);
+}

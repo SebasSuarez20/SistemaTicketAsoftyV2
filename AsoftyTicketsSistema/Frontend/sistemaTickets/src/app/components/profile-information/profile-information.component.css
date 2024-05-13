@@ -1,0 +1,73 @@
+.container {
+    color: #7e8083;
+    width: 88%;
+    margin-top: 56px;
+    justify-content: center;
+    padding: 5px;
+    float: right;
+    margin-right: 6%;
+    font-family: 'Poppins', sans-serif;
+}
+
+.bx_body {
+    height: auto;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #a4a4a4;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 10px 0 rgba(0, 0, 0, 0.19);
+}
+
+.bx_img {
+    width: 151px;
+    height: 151px;
+    border-radius: 100%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 10px 0 rgba(0, 0, 0, 0.19)
+}
+
+.bx_img img {
+    width: 100%;
+    border-radius: 100%;
+}
+
+.bx_conta {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.bx_camp {
+    width: 72%;
+    margin-top: 3rem;
+}
+
+.bx_divInput {
+    display: flex;
+    justify-content: space-around;
+}
+
+.bx_inpLab {
+    display: flex;
+    flex-direction: column;
+    width: 38%;
+    margin-bottom: 1rem;
+}
+
+.bx_btn {
+    display: flex;
+    justify-content: end;
+    width: 94%;
+}
+
+.bx_btn button {
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    font-weight: bold;
+    background-color: #9b9a9a;
+    width: 80px;
+    height: 24px;
+    cursor: pointer;
+}

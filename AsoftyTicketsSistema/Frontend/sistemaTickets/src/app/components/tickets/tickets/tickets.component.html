@@ -1,0 +1,111 @@
+<div class="container_inicio">
+    <div class="bx_inicio">
+
+        <mat-horizontal-stepper [linear]="isLinear" #stepper="matHorizontalStepper">
+            <form [formGroup]="this.formTicket" enctype="multipart/form-data">
+
+                <mat-step>
+                    <ng-template matStepLabel>Area</ng-template>
+                    <small>Seleccione el area al que deseas reportar el ticket</small>
+                    <div class="bx_Areas">
+                        &nbsp;
+                        &nbsp;
+                        <mat-accordion>
+
+                            <div class="radion_button">
+                                <input type="radio" style="cursor: pointer;" formControlName="Aerea"
+                                    [value]="'holis'">&nbsp;
+                                <label>holis</label>
+                            </div>
+                        </mat-accordion>
+
+                        <div class="container_btn">
+                            <div class="bx_btn">
+                                <button>Anterior</button>
+                            </div>
+                            <div class="bx_btn">
+                                <button>Siguiente</button>
+                            </div>
+                        </div>
+                    </div>
+
+                </mat-step>
+
+
+                <mat-step [stepControl]="secondFormGroup">
+                    <ng-template matStepLabel>Descripción</ng-template>
+                    <div class="container_Descripcion">
+                        <div class="container_inputLabel">
+                            <div class="bx_Asunto">
+                                <label for="">Asunto</label>
+                                <input type="text" formControlName="Title">
+                            </div>
+                            <div class="bx_Asunto">
+                                <label for="">Prioridad</label>
+                                <select formControlName="Priority">
+                                    <option *ngFor="let item of codeGenPriority" [value]="item.Value">{{item.Code}}
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="bx_AsuntoDescri_textarea">
+                            <label for="">Descripción</label>
+                            <textarea name="" id="" cols="30" rows="10" formControlName="Description"></textarea>
+                        </div>
+
+                        <div class="bx_AsuntoDescri">
+                            <label for="">adjuntar</label>
+                            <small> captura de pantalla del problema</small>
+                            <small class="small_text">Presione la tecla "E" para cerrar la vista de la imagen</small>
+
+                            <div class="img-adj">
+                                <div class="bx-img" id="first">
+                                    <div class="bx_addImg">
+                                        <input type="file" id="first" class="input_file" (change)="loadImg($event,0)">
+                                        <img [src]="this.imageFirst" class="img_file" alt="">
+                                    </div>
+                                </div>
+                                <div class="bx-img" id="second">
+                                    <div class="bx_addImg">
+                                        <input class="input_file" type="file" id="first" (change)="loadImg($event,1)">
+                                        <img [src]="this.imageSecond" class="img_file" alt="">
+                                    </div>
+                                </div>
+                                <div class="bx-img" id="three">
+                                    <div class="bx_addImg">
+                                        <input type="file" id="first" class="input_file" (change)="loadImg($event,2)">
+                                        <img [src]="this.imageThree" class="img_file" alt="">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="btn-ver">
+                                <div (click)="this.showImage(1)" class="zoom">
+                                    {{this.imageFirst!='' ? 'Zoom' : ''}}</div>
+                                <div (click)="this.showImage(2)" class="zoom">
+                                    {{this.imageSecond!='' ? 'Zoom' : ''}}</div>
+                                <div (click)="this.showImage(3)" class="zoom">
+                                    {{this.imageThree!='' ? 'Zoom' : ''}}</div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="container_btn">
+                        <div class="bx_btn">
+                            <button>Anterior</button>
+                        </div>
+                        <div class="bx_btn">
+                            <button (click)="this.saveTickets()">Crear Ticket</button>
+                        </div>
+                    </div>
+                </mat-step>
+            </form>
+        </mat-horizontal-stepper>
+
+
+    </div>
+    <ng-container *ngIf="this.isVisible">
+        <app-imagen-popup-zoom [imgZoom]="this.imageZoom"></app-imagen-popup-zoom>
+    </ng-container>
+</div>

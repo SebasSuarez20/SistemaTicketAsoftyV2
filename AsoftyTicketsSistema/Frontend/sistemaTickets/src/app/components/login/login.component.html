@@ -1,0 +1,20 @@
+<div class="containe_Login" [formGroup]="this.formlogin">
+  <div class="form_Login">
+    <div class="h2_login">
+      <h2>Bienvenido</h2>
+    </div>
+    <div class="bx_input">
+      <div class="input_Login">
+        <input type="text" formControlName="user" required>
+        <label>Usuario</label>
+      </div>
+      <div class="input_Login">
+        <input type="password" formControlName="password" required>
+        <label>Contraseña</label>
+      </div>
+    </div>
+    <div class="btn_Login">
+      <button (click)="this.accessLogin()">Ingresar</button>
+    </div>
+  </div>
+</div>

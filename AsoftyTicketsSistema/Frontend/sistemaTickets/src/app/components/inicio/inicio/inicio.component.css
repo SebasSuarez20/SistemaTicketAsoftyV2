@@ -1,0 +1,38 @@
+.inicio_container {
+    color: #7e8083;
+    width: 96%;
+    margin-top: 4px;
+    justify-content: center;
+    padding: 5px;
+    float: right;
+    margin-right: 2%;
+    font-family: 'Poppins', sans-serif;
+}
+
+.inicio_bx {
+    height: auto;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #a4a4a4;
+    /* padding: 20px; */
+    background-color: #fff;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 10px 0 rgba(0, 0, 0, 0.19);
+    margin-bottom: 29px;
+}
+
+table.mat-mdc-table.mdc-data-table__table.cdk-table.mat-elevation-z8 {
+    box-shadow: none;
+}
+
+#h3Table {
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.table_title {
+    padding: 7px 0px 0px 14px;
+    background-color: #dfdfdf;
+    color: #999999;
+    border-radius: 5px 5px 0px 0px;
+}

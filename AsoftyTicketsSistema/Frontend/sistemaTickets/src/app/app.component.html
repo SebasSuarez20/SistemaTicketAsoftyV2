@@ -1,0 +1,7 @@
+<ng-container *ngIf="!this.islogged.loggedSystem()">
+  <app-login></app-login>
+</ng-container>
+
+<ng-container *ngIf="this.islogged.loggedSystem()">
+  <app-header></app-header>
+</ng-container>

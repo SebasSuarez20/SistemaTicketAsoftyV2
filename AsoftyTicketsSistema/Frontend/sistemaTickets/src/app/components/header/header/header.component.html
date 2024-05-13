@@ -1,0 +1,99 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+    [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="(isHandset$ | async) === false">
+
+    <div class="bx_toolbar" style="display: flex;justify-content: center;align-items: center;text-align: center;">
+    </div>
+    <div class="container_bx">
+      <div class="bx_Avatar">
+        <div class="iconAvatar"
+          [ngStyle]="{'background': this.photoProfile!='' ? '#ffff' : 'linear-gradient(to right, #25e7ad, #116466)'}">
+          <ng-container *ngIf="this.photoProfile!='';else templateNotImage">
+            <img src="http://localhost:2024/files/{{this.photoProfile}}" alt="user">
+          </ng-container>
+          <ng-template #templateNotImage>
+            <small>{{this.nameUser.split(' ')[0].charAt(0)}} {{this.nameUser.split(' ')[1].charAt(0)}}</small>
+          </ng-template>
+        </div>
+        <div class="labelAvatar">
+          <small style="color: black;">{{this.nameUser}}</small>
+        </div>
+      </div>
+
+      <div class="container_MenuTickets">
+        <mat-nav-list>
+          <mat-list-item [routerLink]="'c751439d0db3883ac1c8e816327adcab'">
+            <div class="icon_TicketsHome">
+              <mat-icon>receipt</mat-icon>
+              <span>Tickets</span>
+            </div>
+          </mat-list-item>
+
+        </mat-nav-list>
+      </div>
+
+      <div class="container_MenuTickets">
+        <mat-nav-list>
+          <mat-list-item routerLink="/ProfileInformation">
+            <div class="icon_TicketsHome">
+              <span>User</span>
+            </div>
+          </mat-list-item>
+
+        </mat-nav-list>
+      </div>
+
+
+
+
+    </div>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar>
+      <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()"
+        *ngIf="isHandset$ | async">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <div class="bx_menuTitle">
+        <div class="spanH2">
+          <small>Sistema de Tickets: Tu solución está en camino.</small>
+        </div>
+
+
+
+        <div class="userName_menu">
+          <div class="imgUser">
+            <div class="bx_img"
+              [ngStyle]="{'background': this.photoProfile!='' ? '#ffff' : 'linear-gradient(to right, #25e7ad, #116466)'}">
+              <ng-container *ngIf="this.photoProfile!='';else templateNotImage">
+                <img src="http://localhost:2024/files/{{this.photoProfile}}" alt="user">
+              </ng-container>
+              <ng-template #templateNotImage>
+                <small>{{this.nameUser.split(' ')[0].charAt(0)}} {{this.nameUser.split(' ')[1].charAt(0)}}</small>
+              </ng-template>
+            </div>
+            <div class="bx_userName">
+              <small class="userName">{{this.nameUser}}</small>
+              <small class="role">{{this.rol}}</small>
+            </div>
+          </div>
+
+
+          <div class="menu">
+            <button mat-button [matMenuTriggerFor]="menu"><mat-icon>reorder</mat-icon></button>
+            <mat-menu class="mat-menu" #menu="matMenu" xPosition="before">
+              <button mat-menu-item (click)="this.signIn()">
+                <small>
+                  <i class="fa-solid fa-right-to-bracket"></i>
+                  <b> Cerrar Sesión</b>
+                </small>
+              </button>
+            </mat-menu>
+
+          </div>
+        </div>
+      </div>
+    </mat-toolbar>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>
