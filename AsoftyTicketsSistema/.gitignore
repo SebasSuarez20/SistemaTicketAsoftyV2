@@ -4,7 +4,8 @@ obj/
 .vs/
 *.user
 *.suo
-
+/.vscode/
+node_modules
 # Archivos de registro
 *.log
 
