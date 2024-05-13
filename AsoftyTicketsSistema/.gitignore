@@ -1,0 +1,11 @@
+# Ignorar directorios y archivos generados automáticamente por .NET
+bin/
+obj/
+.vs/
+*.user
+*.suo
+
+# Archivos de registro
+*.log
+
+# Dependiendo de tu entorno de desarrollo y herramientas específicas, es posible que necesites agregar más patrones de archivo para ignorar otros tipos de archivos generados automáticamente.
