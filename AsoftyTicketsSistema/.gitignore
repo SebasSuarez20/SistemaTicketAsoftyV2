@@ -1,12 +1,9 @@
-# Ignorar directorios y archivos generados automáticamente por .NET
+# Ignorar archivos binarios generados
+*.dll
+*.exe
+*.pdb
+
+# Ignorar archivos de salida del compilador
 bin/
 obj/
-.vs/
-*.user
-*.suo
-/.vscode/
-node_modules
-# Archivos de registro
-*.log
 
-# Dependiendo de tu entorno de desarrollo y herramientas específicas, es posible que necesites agregar más patrones de archivo para ignorar otros tipos de archivos generados automáticamente.
