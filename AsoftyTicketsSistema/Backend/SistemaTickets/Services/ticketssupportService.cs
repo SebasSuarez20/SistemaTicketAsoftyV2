@@ -110,7 +110,7 @@ namespace SistemaTickets.Services
                 Nombre = s.Title,
                 Descripcion = s.Subject,
                 Estado = s.Status,
-                Asignacion = (Rol == 1) ? true : false,
+                Asignacion = (Rol == 1) ? s.AssignedTo : null,
             }).ToList();
         }
     }

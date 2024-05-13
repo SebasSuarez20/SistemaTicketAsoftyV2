@@ -76,7 +76,7 @@ export class DashboardInicioComponent implements OnInit {
         nombre: '',
         descripcion: '',
         estado: '',
-        asignacion: false
+        asignacion: null
       };
 
       res.forEach(e => {
@@ -86,11 +86,13 @@ export class DashboardInicioComponent implements OnInit {
         element.estado = e.estado;
         element.descripcion = e.descripcion;
         element.asignacion = e.asignacion;
-        if (element.asignacion == false) delete element.asignacion;
+        if (element.asignacion == null) delete element.asignacion;
         this.dataSource.data.push(element);
       });
 
-      this.displayedColumns = this.dataSource.data.length != 0 ? Object.keys(this.dataSource.data[0]) : Object.keys(respTable).filter(c => this.isValidRol != true ? c != 'asignacion' : c);
+      this.displayedColumns = this.dataSource.data.length != 0 ? Object.keys(this.dataSource.data[0]) :
+        Object.keys(respTable).filter(c => this.isValidRol != true ? c != 'asignacion' : c);
+
       this.displayedColumns.push("Acciones")
     })
   }

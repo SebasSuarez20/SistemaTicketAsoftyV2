@@ -3,5 +3,5 @@ export interface ITicketMapAndSup {
   nombre: string;
   descripcion: string;
   estado: string;
-  asignacion: boolean;
+  asignacion: number | null;
 }
