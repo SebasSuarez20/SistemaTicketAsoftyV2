@@ -12,7 +12,7 @@ namespace SistemaTickets.Model
         public string? Title { get; set; }
         public string Aerea { get; set; }
         public string? Description { get; set; }
-        public string? Status { get; set; } = "Open";
+        public string? Status { get; set; }
         public string? Priority { get; set; }
         public string? PhotoDescription { get; set; }
         public int? AssignedTo { get; set; }

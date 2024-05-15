@@ -10,6 +10,8 @@ import { Idle } from '@ng-idle/core';
 import { TicketsServicesHttpService } from 'src/app/services/ticketsServicesHttp/tickets-services-http.service';
 import { MatTableDataSource } from '@angular/material/table';
 import { ITicketMapAndSup } from 'src/app/Model/ITicketMapAndSup';
+import { HubConnectionService } from 'src/app/services/hub/hub-connection.service';
+import { ObserverService } from 'src/app/services/observer.service';
 
 @Component({
   selector: 'app-dashboard-inicio',
@@ -44,11 +46,16 @@ export class DashboardInicioComponent implements OnInit {
   public codeGenStatus!: ICodeGen[];
   public isValid: boolean = true;
   public isValidRol: boolean = false;
+  public resultUsername: number[] = [];
 
   constructor(private breakpointObserver: BreakpointObserver, private codeGenericService: CodeGenService, private data_Service: LoginService,
-    public dialog: MatDialog, private idle: Idle, private cd: ChangeDetectorRef, private logged: LoginService, private serviceHttp: TicketsServicesHttpService) {
+    public dialog: MatDialog, private idle: Idle, private cd: ChangeDetectorRef, private serviceHttp: TicketsServicesHttpService,
+    private hubConnection: HubConnectionService, private serviceObserver: ObserverService) {
     this.dataSource = new MatTableDataSource();
     if (this.data_Service.dataLogged().rolCode === 1) this.isValidRol = true;
+    this.serviceObserver.getUniqueObservable().subscribe(() => {
+      this.GetAllMapAndSup();
+    });
   }
 
 
@@ -68,15 +75,25 @@ export class DashboardInicioComponent implements OnInit {
     this.idle.watch();
   }
 
+  public UpdateItemTicket(event: any, data: ITicketMapAndSup, index: number) {
+
+    this.hubConnection.invokeSendMessageToClient(parseInt(event.target.value), this.resultUsername[index], data.no);
+
+  }
+
   public GetAllMapAndSup() {
+
     this.serviceHttp.connectApiGet(`ticketssupport/GetAllMapAndSup`).then((res: Partial<ITicketMapAndSup[]>) => {
+
+      let infoData: Partial<ITicketMapAndSup>[] = [];
 
       let respTable: Partial<ITicketMapAndSup> = {
         no: null,
         nombre: '',
         descripcion: '',
         estado: '',
-        asignacion: null
+        asignacion: null,
+        username: -1
       };
 
       res.forEach(e => {
@@ -86,14 +103,17 @@ export class DashboardInicioComponent implements OnInit {
         element.estado = e.estado;
         element.descripcion = e.descripcion;
         element.asignacion = e.asignacion;
-        if (element.asignacion == null) delete element.asignacion;
-        this.dataSource.data.push(element);
+        if (element.asignacion == -1) delete element.asignacion;
+        if (this.isValid) this.resultUsername.push(e.username);
+        delete element.username;
+        infoData.push(element);
       });
+
+      this.dataSource.data = infoData;
 
       this.displayedColumns = this.dataSource.data.length != 0 ? Object.keys(this.dataSource.data[0]) :
         Object.keys(respTable).filter(c => this.isValidRol != true ? c != 'asignacion' : c);
-
-      this.displayedColumns.push("Acciones")
+      if (!this.isValidRol) this.displayedColumns.push("Acciones")
     })
   }
 

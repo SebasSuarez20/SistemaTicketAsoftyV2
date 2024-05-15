@@ -4,7 +4,7 @@ using Microsoft.Extensions.FileProviders;
 using Microsoft.IdentityModel.Tokens;
 using SistemaPoscloud.Services.ServicesConfig.ExtensionsConfig;
 using SistemaTickets.Data;
-using SistemaTickets.Services;
+using SistemaTickets.Services.SignalR;
 using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);

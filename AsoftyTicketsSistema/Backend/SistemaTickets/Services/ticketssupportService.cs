@@ -93,25 +93,27 @@ namespace SistemaTickets.Services
             }
         }
 
-        public async Task<object> getAllTickets()
-        {
-            return null;
-        }
-
         public async Task<object> getAllMapAndSup()
         {
-            var respontForRol = await _dbHandlerTicketMapAndSupView.
-                GetAllAsyncForAll((Rol == 2) ? s=>s.AssignedTo == User : 
-                (Rol == 3) ? s => s.UserName == User : null);
-
-            return respontForRol.Select(s => new
+            try
             {
-                No = s.Consecutive,
-                Nombre = s.Title,
-                Descripcion = s.Subject,
-                Estado = s.Status,
-                Asignacion = (Rol == 1) ? s.AssignedTo : null,
-            }).ToList();
+                var respontForRol = await _dbHandlerTicketMapAndSupView.
+               GetAllAsyncForAll((Rol == 2) ? s => s.AssignedTo == User :
+               (Rol == 3) ? s => s.UserName == User : null);
+
+                return respontForRol.Select(s => new
+                {
+                    No = s.Consecutive,
+                    Nombre = s.Title,
+                    Descripcion = s.Subject,
+                    Estado = s.Status,
+                    Asignacion = (Rol == 1) ? s.AssignedTo ?? 0 : -1,
+                    Username = s.UserName
+                }).ToList();
+            }catch(Exception ex)
+            {
+                return ex.Message;
+            }
         }
     }
 }

@@ -83,7 +83,8 @@ import { NotFoundComponent } from './components/shared/404/not-found/not-found.c
     NgIdleKeepaliveModule
   ],
   providers: [
-    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorInterceptor, multi: true }
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorInterceptor, multi: true },
+    DashboardInicioComponent
   ],
   bootstrap: [AppComponent]
 })

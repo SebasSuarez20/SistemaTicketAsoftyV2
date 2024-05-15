@@ -19,12 +19,14 @@ namespace SistemaTickets.Repository
         private bool disposed = false;
         private readonly IJwt _authJwt;
         public string userName;
+        public DateTime today = DateTime.Now;
 
         public RepositoryServices(appDbContext context,IJwt authJwt)
         {
             _context = context;
             _authJwt = authJwt;
             this.userName = _authJwt.GetUserName();
+            
         }
 
         protected DbSet<t> entitySet => _context.Set<t>();
@@ -75,19 +77,24 @@ namespace SistemaTickets.Repository
 
             try
             {
-                Dictionary<string, int> dictionayWh_ = new Dictionary<string, int>();
+
+                Dictionary<string,object> dictionayWh_ = new Dictionary<string, object>();
                 var propery_wh = entity.GetType().GetProperties();
 
                 var _ = _wh.GetType().GetProperties().Where(s => s.GetValue(_wh) != null)
                     .Select(p => new { Name = p.Name, Value = p.GetValue(_wh) });
 
-                foreach (var property in _) { dictionayWh_.Add(property.Name, (int)property.Value); }
+                //Validamos si hay un campo adicional en el modelo con el Date_Update 
+                //Que nos ayudara a validar en que momento se actualizo la informacion.
+                var _whereTime = $"{propery_wh.Where(s => s.Name == "Date_Update")
+                    .Select(s => $",{s.Name} = 'null'").FirstOrDefault()}";
 
+                foreach (var property in _) { dictionayWh_.Add(property.Name,property.Value); }
 
-                var set_ = $"{string.Join(", ", propery_wh.Where(s => s.Name != "Idcontrol" && s.Name != "UserName")
+                var set_ = $"{string.Join(", ", propery_wh.Where(s => s.Name != "Idcontrol" && s.Name != "UserName" && s.Name != "Date_Update")
                .Select(s => $"{s.Name} = {(s.PropertyType == typeof(string) && !string.IsNullOrEmpty((string?)s.GetValue(entity)) ?
                $"'{s.GetValue(entity)}'" : s.PropertyType == typeof(string) && string.IsNullOrEmpty((string?)s.GetValue(entity)) ? "null" 
-               : s.GetValue(entity))}"))}";
+               : s.GetValue(entity))}"))} {_whereTime.Replace("null", today.ToString("yyyy-MM-dd H:mm:ss"))}";
 
 
                 string Sql = $"UPDATE {typeof(t).Name} SET {set_}" +
