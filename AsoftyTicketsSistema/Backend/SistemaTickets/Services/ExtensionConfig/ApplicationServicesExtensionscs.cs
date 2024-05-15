@@ -25,7 +25,7 @@ namespace SistemaPoscloud.Services.ServicesConfig.ExtensionsConfig
             services.AddTransient<IJwt, AuthServices>();
             services.AddTransient<IticketsSupport,ticketssupportService>();
             services.AddTransient<IFile,fileService>();
-            services.AddTransient<IUser, userService>();
+            services.AddTransient<IHubconnection, HubService>();
 
             //DbHandler(IRepository)
             services.AddTransient<IdbHandler<Users>, RepositoryServices<Users>>();

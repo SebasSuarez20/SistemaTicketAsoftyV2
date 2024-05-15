@@ -4,4 +4,5 @@ export interface ITicketMapAndSup {
   descripcion: string;
   estado: string;
   asignacion: number | null;
+  username: number;
 }

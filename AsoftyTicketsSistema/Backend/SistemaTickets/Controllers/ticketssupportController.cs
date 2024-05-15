@@ -21,11 +21,6 @@ namespace SistemaTickets.Controllers
             this._service = service;
         }
 
-        [HttpGet("GetAllTickets")]
-        public async Task<object> GetAllTickets()
-        {
-            return await _service.getAllTickets();
-        }
 
         [HttpPost("CreateTickets")]
         public async Task<object> CreateTickets([FromForm] CreateTicketModel model)

@@ -23,7 +23,7 @@ namespace SistemaTickets.Services.Jwt
         public int GetRoleUser()
         {
             var getRol = _contextAccessor.HttpContext?.User.FindFirst(ClaimTypes.Role);
-            return int.Parse(getRol.Value);
+            return int.Parse(getRol?.Value);
         }
 
         public string GetIdHub()
