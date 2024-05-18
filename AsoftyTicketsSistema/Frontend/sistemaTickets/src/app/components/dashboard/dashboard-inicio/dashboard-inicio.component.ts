@@ -110,10 +110,10 @@ export class DashboardInicioComponent implements OnInit {
       });
 
       this.dataSource.data = infoData;
-
       this.displayedColumns = this.dataSource.data.length != 0 ? Object.keys(this.dataSource.data[0]) :
         Object.keys(respTable).filter(c => this.isValidRol != true ? c != 'asignacion' : c);
-      if (!this.isValidRol) this.displayedColumns.push("Acciones")
+
+      if (!this.isValidRol) this.displayedColumns.push("Acciones");
     })
   }
 
