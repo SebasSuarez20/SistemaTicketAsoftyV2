@@ -2,6 +2,6 @@
 {
     public abstract class DbUsername
     {
-        public int? UserName { get; set; } = default;
+        public int UserName { get; set; } = -1;
     }
 }
