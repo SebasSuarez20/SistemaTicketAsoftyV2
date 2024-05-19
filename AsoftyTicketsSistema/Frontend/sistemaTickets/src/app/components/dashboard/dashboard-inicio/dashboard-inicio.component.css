@@ -22,16 +22,10 @@
 
 .grid-container {
   display: flex;
-  height: 146px;
+  justify-content: space-between;
+  /* margin-bottom: 4rem; */
 }
 
-.dashboard-card-1, .dashboard-card-2, .dashboard-card-3, .dashboard-card-4 {
-  position: absolute;
-  top: 15px;
-  left: 15px;
-  right: 15px;
-  bottom: 15px;
-}
 
 .more-button {
   position: absolute;
@@ -55,36 +49,40 @@
 }
 
 .dashboard-card-1 {
-  height: 100px; 
-  background: linear-gradient(to right,#F7CE68, #FBAB7E);
-      display: flex;
+  height: 100px;
+    background: linear-gradient(to right, #F7CE68, #FBAB7E);
+    display: flex;
     justify-content: center;
     padding: 16px;
+    width: 22%;
 }
 
 .dashboard-card-2 {
-  height: 100px; 
-  background: linear-gradient(to right, #7791f1, #8770bd);
-      display: flex;
+  height: 100px;
+    background: linear-gradient(to right, #7791f1, #8770bd);
+    display: flex;
     justify-content: center;
     padding: 16px;
+    width: 22%;
 
 }
 
 .dashboard-card-3 {
-  height: 100px; 
-  background: linear-gradient(to right, #fbc2a5, #ff4360);
-      display: flex;
+  height: 100px;
+    background: linear-gradient(to right, #fbc2a5, #ff4360);
+    display: flex;
     justify-content: center;
     padding: 16px;
+    width: 22%;
 }
 
 .dashboard-card-4 {
-  height: 100px; 
-  background: linear-gradient(to right, #25e7ad, #116466);
-      display: flex;
+  height: 100px;
+    background: linear-gradient(to right, #25e7ad, #116466);
+    display: flex;
     justify-content: center;
     padding: 16px;
+    width: 22%;
 }
 
 .Conta_textAndnum {
@@ -120,7 +118,8 @@
 .cont_addAndstatus {
   display: flex;
   justify-content: end;
-  width: 99%;
+  width: 100%;
+  margin-bottom: 2rem;
 }
 
 .btn_add button {
@@ -230,4 +229,24 @@
 .bx_btn mat-icon {
   font-size: 16px;
   color: #7e8083;
+}
+
+.mat-grid-tile-content {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 39%;
+  padding: 0;
+  margin: 0;
+}
+
+.UniTd select {
+  border: 1px solid #999999;
+  color: #999999;
+  border-radius: 5px;
 }
