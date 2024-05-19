@@ -1,8 +1,5 @@
 ﻿using SistemaTickets.Interface;
-using SistemaTickets.Interface.IJwt;
 using SistemaTickets.Model;
-using System.Security.Claims;
-using System.Security.Principal;
 
 namespace SistemaTickets.Services
 {

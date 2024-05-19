@@ -77,7 +77,7 @@ namespace SistemaTickets.Services.SignalR
 
         public override async Task OnDisconnectedAsync(Exception exception)
         {
-            Users result = await serviceUser.getInfoUser(int.Parse(_httpContextAccessor.HttpContext.User.FindFirst("miHub").Value));
+            Users result = await serviceUser.getInfoUser(int.Parse(_httpContextAccessor.HttpContext?.User?.FindFirst("miHub")?.Value));
             result.HasConnection = null;
             await serviceUser.updateUser(result);
             await base.OnDisconnectedAsync(exception);
