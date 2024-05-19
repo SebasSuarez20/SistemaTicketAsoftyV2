@@ -2,11 +2,9 @@
 using SistemaTickets.Interface.IModel;
 using SistemaTickets.Model;
 using System.Security.Claims;
-using static Org.BouncyCastle.Math.EC.ECCurve;
 using System.Text;
 using System.IdentityModel.Tokens.Jwt;
 using System.Dynamic;
-using SistemaTickets.Interface.IJwt;
 
 namespace SistemaTickets.Services
 {

@@ -1,6 +1,7 @@
 ﻿using SistemaTickets.Interface.IJwt;
 using SistemaTickets.Interface.IModel;
 using SistemaTickets.Model;
+using SistemaTickets.Services.Jwt;
 using System.Dynamic;
 using System.IO;
 
@@ -11,14 +12,16 @@ namespace SistemaTickets.Services
 
         private readonly IdbHandler<Users> _dbHandlerUser;
         private readonly IConfiguration _configuration;
-        private readonly IJwt _authJwt;
+        private readonly IHttpContextAccessor Icontext;
+        private string user;
 
-        public fileService(IConfiguration configuration,IJwt authJwt, IdbHandler<Users> dbHandlerUser)
+        public fileService(IConfiguration configuration,IdbHandler<Users> dbHandlerUser, IHttpContextAccessor icontext)
         {
 
             _configuration = configuration;
-            _authJwt = authJwt;
             _dbHandlerUser = dbHandlerUser;
+            Icontext = icontext;
+            user = AuthService.GetUserName(Icontext);
         }
 
         public async Task<object> createFile(IFormFile file)
@@ -29,7 +32,7 @@ namespace SistemaTickets.Services
             
             try
             {
-                string pathfile = $"Support{this._authJwt.GetUserName()}";
+                string pathfile = $"Support{user}";
                 string random = $"{Guid.NewGuid().ToString()}.jpg";
                 string strlPath = _configuration["pathFile:path"].Replace("\\","/") + $"/{pathfile}";
                 List<Users> taskUser =(List<Users>) await _dbHandlerUser.GetAllAsyncForAll();
@@ -40,7 +43,7 @@ namespace SistemaTickets.Services
                     isFlag = false;
                     Directory.CreateDirectory(strlPath);
                     taskUser.First().PhotoPerfil = pathfile+$"/{random}";
-                    await _dbHandlerUser.UpdateAsyncAll(taskUser.First(),new Users { Idcontrol = int.Parse(this._authJwt.GetUserName())});
+                    await _dbHandlerUser.UpdateAsyncAll(taskUser.First(),new Users { Idcontrol = int.Parse(user) });
                     createDirectoryAndFile(file, combinePath);
                 }
                 else{
@@ -49,7 +52,7 @@ namespace SistemaTickets.Services
                      string fileDeletePath = $"{strlPath}/{taskUser.First()?.PhotoPerfil.Split('/')[1]}";
                      File.Delete($"{fileDeletePath}");
                      taskUser.First().PhotoPerfil = pathfile + $"/{random}";
-                     await _dbHandlerUser.UpdateAsyncAll(taskUser.First(), new Users { Idcontrol = int.Parse(this._authJwt.GetUserName()) });
+                     await _dbHandlerUser.UpdateAsyncAll(taskUser.First(), new Users { Idcontrol = int.Parse(user)});
                      createDirectoryAndFile(file,combinePath);
                     }
                 }
