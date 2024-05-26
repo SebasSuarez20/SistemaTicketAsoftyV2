@@ -1,6 +1,6 @@
 ﻿namespace SistemaTickets.Model
 {
-    public class CreateTicketModel
+    public class createTicketModel
     {
 
         public string? header { get; set; }

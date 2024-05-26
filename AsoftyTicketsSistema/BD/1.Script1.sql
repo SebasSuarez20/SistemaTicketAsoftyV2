@@ -7,14 +7,15 @@ CREATE TABLE Users(
      NameSupport VARCHAR(50) NOT NULL,
      Surname VARCHAR(50) NOT NULL,
      Identification VARCHAR(50) NOT NULL,
-     Username VARCHAR(50) NOT NULL,
+     nameUser VARCHAR(50) NOT NULL,
      Password VARCHAR(50) NOT NULL,
      Email VARCHAR(80) NOT NULL,
      RegistrationDate DATETIME DEFAULT CURRENT_TIMESTAMP,
      PhotoPerfil VARCHAR(255) NULL,
-	 Enabled BIT(1) NOT NULL DEFAULT TRUE,
+	 Enabled BOOl NOT NULL DEFAULT TRUE,
      RoleCode INT NOT NULL,
      hasConnection VARCHAR(50) NULL,
+     Username INT NOT NULL,
      PRIMARY KEY(Idcontrol)
 );
 
@@ -31,7 +32,7 @@ CREATE TABLE ticketssupport (
     AssignedTo INT NULL,
     Date_Update DATETIME NULL,
 	RegistrationDate DATETIME DEFAULT CURRENT_TIMESTAMP,
-    Enabled BIT(1) NOT NULL DEFAULT TRUE,
+    Enabled BOOL NOT NULL,
 	Username INT NOT NULL,
     PRIMARY KEY(Idcontrol),
     INDEX(AssignedTo)
@@ -44,7 +45,7 @@ CREATE TABLE ticketHasMapping (
     HasUnique VARCHAR(35) NOT NULL,
     Message TEXT NOT NULL,
 	RegistrationDate DATETIME DEFAULT CURRENT_TIMESTAMP,
-    Enabled BIT(1) NOT NULL DEFAULT TRUE,
+    Enabled BOOL NOT NULL,
 	Username INT NOT NULL,
     PRIMARY KEY(Idcontrol),
     INDEX(Username),

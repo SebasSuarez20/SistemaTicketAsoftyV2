@@ -39,8 +39,9 @@ ORDER BY tick.Consecutive DESC LIMIT 1;
 #Creacion de vista para el DashBoard 
 CREATE VIEW TicketMapAndSupView AS
 SELECT 
-    ts.Idcontrol, ts.Consecutive,ts.Title, 
-	ts.Description AS Subject, 
+    ts.Idcontrol, ts.Consecutive, 
+	ts.Aerea AS Area,
+    ts.Priority AS Priority,
     (CASE ts.Status 
     WHEN "Open" THEN "Abierto"
     WHEN "InProgress" THEN "En Proceso"
@@ -54,6 +55,6 @@ SELECT
 FROM ticketssupport ts
 LEFT JOIN tickethasmapping thm ON
 	ts.Consecutive = thm.Consecutive 
-WHERE ts.Enabled = TRUE
+    AND thm.Enabled = true
 GROUP BY ts.Consecutive,thm.HasUnique
 ORDER BY ts.Consecutive;

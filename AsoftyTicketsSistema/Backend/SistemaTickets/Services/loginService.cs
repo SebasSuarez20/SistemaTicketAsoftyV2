@@ -28,12 +28,12 @@ namespace SistemaTickets.Services
             {
                 dynamic response = new ExpandoObject();
 
-                var resultAuth = await _dbHandlerSupport.GetAllAsyncForAll(s => s.userName == user && s.Password == pswd);
+                var resultAuth = await _dbHandlerSupport.GetAllAsyncForAll(s => s.nameUser == user && s.Password == pswd);
 
                 if (resultAuth.Count() != 0)
                 {
                     response.idControl = resultAuth.First().Idcontrol;
-                    response.username = resultAuth.First()?.userName;
+                    response.username = resultAuth.First()?.nameUser;
                     response.rolCode = resultAuth.First()?.RoleCode;
                     response.nameUser = resultAuth.First()?.NameSupport;
                     response.surName = resultAuth.First()?.Surname;

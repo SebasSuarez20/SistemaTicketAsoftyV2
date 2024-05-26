@@ -1,9 +1,9 @@
-﻿using SistemaTickets.Interface.IJwt;
+﻿
 using System.Security.Claims;
 
 namespace SistemaTickets.Services.Jwt
 {
-    public static class AuthService
+    public static class authService
     {
 
         public static string GetUserName(IHttpContextAccessor _context)
@@ -20,7 +20,7 @@ namespace SistemaTickets.Services.Jwt
 
         public static string GetIdHub(IHttpContextAccessor _context)
         {
-            var idHub = _context.HttpContext?.User?.FindFirst(ClaimTypes.Authentication);
+            var idHub = _context.HttpContext?.User?.FindFirst("miHub");
             return idHub.Value.ToString() ?? "-1";
         }
     }

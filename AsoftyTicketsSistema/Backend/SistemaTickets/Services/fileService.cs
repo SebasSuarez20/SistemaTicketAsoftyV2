@@ -1,9 +1,7 @@
-﻿using SistemaTickets.Interface.IJwt;
-using SistemaTickets.Interface.IModel;
+﻿using SistemaTickets.Interface.IModel;
 using SistemaTickets.Model;
 using SistemaTickets.Services.Jwt;
 using System.Dynamic;
-using System.IO;
 
 namespace SistemaTickets.Services
 {
@@ -21,7 +19,7 @@ namespace SistemaTickets.Services
             _configuration = configuration;
             _dbHandlerUser = dbHandlerUser;
             Icontext = icontext;
-            user = AuthService.GetUserName(Icontext);
+            user = authService.GetUserName(Icontext);
         }
 
         public async Task<object> createFile(IFormFile file)

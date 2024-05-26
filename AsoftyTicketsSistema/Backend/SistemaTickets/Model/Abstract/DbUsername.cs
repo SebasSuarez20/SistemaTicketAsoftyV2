@@ -1,7 +1,15 @@
-﻿namespace SistemaTickets.Model.Abstract
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace SistemaTickets.Model.Abstract
 {
-    public abstract class DbUsername
+    public abstract class dbUsername
     {
-        public int UserName { get; set; } = -1;
+
+        [Key]
+        public int? Idcontrol { get; set; } = null;
+        [Column]
+        public int? Username { get; set; } = null;
+        
     }
 }

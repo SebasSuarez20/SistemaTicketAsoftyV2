@@ -1,13 +1,9 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿
 using Microsoft.AspNetCore.SignalR;
-using MySqlX.XDevAPI.Common;
 using SistemaTickets.Interface;
-using SistemaTickets.Interface.IJwt;
-using SistemaTickets.Interface.IModel;
 using SistemaTickets.Model;
-using System;
 using System.Security.Claims;
-using System.Threading.Tasks;
+
 
 namespace SistemaTickets.Services.SignalR
 {
@@ -77,7 +73,7 @@ namespace SistemaTickets.Services.SignalR
 
         public override async Task OnDisconnectedAsync(Exception exception)
         {
-            Users result = await serviceUser.getInfoUser(int.Parse(_httpContextAccessor.HttpContext?.User?.FindFirst("miHub")?.Value));
+            Users result = await serviceUser.getInfoUser(int.Parse(_httpContextAccessor.HttpContext?.User?.FindFirst("miHub")?.Value ?? "2"));
             result.HasConnection = null;
             await serviceUser.updateUser(result);
             await base.OnDisconnectedAsync(exception);
