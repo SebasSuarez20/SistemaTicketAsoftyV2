@@ -1,8 +1,9 @@
 export interface ITicketMapAndSup {
   no: number | null;
-  nombre: string;
-  descripcion: string;
+  aerea: string;
+  prioridad: string;
   estado: string;
+  hasUnique: string;
   asignacion: number | null;
   username: number;
 }

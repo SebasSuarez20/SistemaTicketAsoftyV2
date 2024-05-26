@@ -114,7 +114,6 @@ export class TicketsComponent {
     let form = new FormData();
     form.append('header', JSON.stringify(ModelTickets));
 
-
     this.imageDescription.forEach((e: File) => {
       form.append('files', e);
     })

@@ -1,6 +1,4 @@
-import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
-import { elementAt, map } from 'rxjs/operators';
-import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
+import { ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
 import { CodeGenService } from 'src/app/services/code-gen.service';
 import { ICodeGen } from 'src/app/Model/ICodeGen';
 import { MatDialog } from '@angular/material/dialog';
@@ -12,33 +10,15 @@ import { MatTableDataSource } from '@angular/material/table';
 import { ITicketMapAndSup } from 'src/app/Model/ITicketMapAndSup';
 import { HubConnectionService } from 'src/app/services/hub/hub-connection.service';
 import { ObserverService } from 'src/app/services/observer.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-dashboard-inicio',
   templateUrl: './dashboard-inicio.component.html',
   styleUrls: ['./dashboard-inicio.component.css']
 })
-export class DashboardInicioComponent implements OnInit {
-  /** Based on the screen size, switch from standard to one column per row */
-  cards = this.breakpointObserver.observe(Breakpoints.Handset).pipe(
-    map(({ matches }) => {
-      if (matches) {
-        return [
-          { title: 'Card 1', cols: 1, rows: 1 },
-          { title: 'Card 2', cols: 1, rows: 1 },
-          { title: 'Card 3', cols: 1, rows: 1 },
-          { title: 'Card 4', cols: 1, rows: 1 }
-        ];
-      }
+export class DashboardInicioComponent implements OnInit, OnDestroy {
 
-      return [
-        { title: 'Card 1', cols: 2, rows: 1 },
-        { title: 'Card 2', cols: 1, rows: 1 },
-        { title: 'Card 3', cols: 1, rows: 2 },
-        { title: 'Card 4', cols: 1, rows: 1 }
-      ];
-    })
-  );
 
   public isVisible: boolean = false;
   public displayedColumns: string[] = [];
@@ -47,13 +27,15 @@ export class DashboardInicioComponent implements OnInit {
   public isValid: boolean = true;
   public isValidRol: boolean = false;
   public resultUsername: number[] = [];
+  public suscription: Subscription;
+  public strlUnique: string[] = [];
 
-  constructor(private breakpointObserver: BreakpointObserver, private codeGenericService: CodeGenService, private data_Service: LoginService,
+  constructor(private codeGenericService: CodeGenService, private data_Service: LoginService,
     public dialog: MatDialog, private idle: Idle, private cd: ChangeDetectorRef, private serviceHttp: TicketsServicesHttpService,
     private hubConnection: HubConnectionService, private serviceObserver: ObserverService) {
     this.dataSource = new MatTableDataSource();
     if (this.data_Service.dataLogged().rolCode === 1) this.isValidRol = true;
-    this.serviceObserver.getUniqueObservable().subscribe(() => {
+    this.suscription = this.serviceObserver.getUniqueObservable().subscribe(() => {
       this.GetAllMapAndSup();
     });
   }
@@ -62,14 +44,15 @@ export class DashboardInicioComponent implements OnInit {
   ngOnInit(): void {
     this.codeGenStatus = this.codeGenericService.loadCode('Status');
     this.getStatusApp();
-    this.GetAllMapAndSup();
   }
 
+  ngOnDestroy(): void {
+    this.suscription.unsubscribe();
+  }
 
   public OpenCreateTicket() {
     this.dialog.open(TicketsComponent)
   }
-
 
   private getStatusApp() {
     this.idle.watch();
@@ -81,16 +64,22 @@ export class DashboardInicioComponent implements OnInit {
 
   }
 
+  public navigateUrl(index: number) {
+    console.log(this.strlUnique[index]);
+  }
+
   public GetAllMapAndSup() {
 
     this.serviceHttp.connectApiGet(`ticketssupport/GetAllMapAndSup`).then((res: Partial<ITicketMapAndSup[]>) => {
 
       let infoData: Partial<ITicketMapAndSup>[] = [];
+      this.strlUnique = [];
+
 
       let respTable: Partial<ITicketMapAndSup> = {
         no: null,
-        nombre: '',
-        descripcion: '',
+        aerea: '',
+        prioridad: '',
         estado: '',
         asignacion: null,
         username: -1
@@ -99,22 +88,26 @@ export class DashboardInicioComponent implements OnInit {
       res.forEach(e => {
         let element = { ...respTable };
         element.no = e.no;
-        element.nombre = e.nombre;
+        element.aerea = e.aerea;
         element.estado = e.estado;
-        element.descripcion = e.descripcion;
+        element.prioridad = e.prioridad;
         element.asignacion = e.asignacion;
+        this.strlUnique.push(e.hasUnique);
         if (element.asignacion == -1) delete element.asignacion;
         if (this.isValid) this.resultUsername.push(e.username);
         delete element.username;
         infoData.push(element);
       });
 
+
       this.dataSource.data = infoData;
       this.displayedColumns = this.dataSource.data.length != 0 ? Object.keys(this.dataSource.data[0]) :
         Object.keys(respTable).filter(c => this.isValidRol != true ? c != 'asignacion' : c);
 
-      if (!this.isValidRol) this.displayedColumns.push("Acciones");
+      if (!this.isValidRol) this.displayedColumns.push("Chat");
     })
   }
+
+
 
 }

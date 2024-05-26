@@ -35,7 +35,7 @@ import { ToastrModule } from "ngx-toastr";
 import { ProfileInformationComponent } from './components/profile-information/profile-information.component';
 import { NgIdleKeepaliveModule } from '@ng-idle/keepalive';
 import { NotFoundComponent } from './components/shared/404/not-found/not-found.component';
-
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 
 @NgModule({
@@ -80,7 +80,8 @@ import { NotFoundComponent } from './components/shared/404/not-found/not-found.c
       preventDuplicates: true,
       positionClass: 'toast-top-center' // Esta línea establece la posición en la parte inferior derecha
     }),
-    NgIdleKeepaliveModule
+    NgIdleKeepaliveModule,
+    MatTooltipModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorInterceptor, multi: true },
