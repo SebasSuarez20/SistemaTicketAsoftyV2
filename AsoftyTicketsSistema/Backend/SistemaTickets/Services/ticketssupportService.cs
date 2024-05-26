@@ -1,5 +1,4 @@
 ﻿using Newtonsoft.Json;
-using SistemaTickets.Interface.IJwt;
 using SistemaTickets.Interface.IModel;
 using SistemaTickets.Model;
 using SistemaTickets.Model.View;
@@ -27,11 +26,11 @@ namespace SistemaTickets.Services
              _config = config;
             _dbHandlerconsecTicket = dbHandlerconsecTicket;
             _dbHandlerTicketMapAndSupView = dbHandlerTicketMapAndSupView;
-            Rol = AuthService.GetRoleUser(Icontext);
-            User = int.Parse(AuthService.GetUserName(Icontext));
+            Rol = authService.GetRoleUser(Icontext);
+            User = int.Parse(authService.GetUserName(Icontext));
         }
 
-        public async Task<object> createTickets(CreateTicketModel model)
+        public async Task<object> createTickets(createTicketModel model)
         {
 
             dynamic response = new ExpandoObject();
@@ -50,7 +49,7 @@ namespace SistemaTickets.Services
                 modelHeader.Description = jsonObject.description;
                 modelHeader.Priority = jsonObject.priority;
                 modelHeader.PhotoDescription = jsonObject.photoDescription;
-                modelHeader.Status =Status.Open;
+                modelHeader.Status =Status.Open.ToString();
 
                 await _dbHandlerTickets.CreateAllAsync(modelHeader);
                 var DirectoryForDate = $"{filesSupport}/Observations{modelHeader.Consecutive}";
@@ -91,16 +90,16 @@ namespace SistemaTickets.Services
             {
                 var respontForRol = await _dbHandlerTicketMapAndSupView.
                GetAllAsyncForAll((Rol == 2) ? s => s.AssignedTo == User :
-               (Rol == 3) ? s => s.UserName == User : null);
+               (Rol == 3) ? s => s.Username == User : null);
 
                 return respontForRol.Select(s => new
                 {
                     No = s.Consecutive,
-                    Nombre = s.Title,
-                    Descripcion = s.Subject,
+                    Area = s.Area,
+                    Prioridad = s.Priority,
                     Estado = s.Status,
                     Asignacion = (Rol == 1) ? s.AssignedTo ?? 0 : -1,
-                    Username = s.UserName
+                    Username = s.Username
                 }).ToList();
             }catch(Exception ex)
             {

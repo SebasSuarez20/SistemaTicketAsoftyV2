@@ -22,14 +22,14 @@ namespace SistemaPoscloud.Services.ServicesConfig.ExtensionsConfig
             services.AddTransient<ILogin,loginService>();
             services.AddTransient<IticketsSupport,ticketssupportService>();
             services.AddTransient<IFile,fileService>();
-            services.AddTransient<IHubconnection, HubService>();
+            services.AddTransient<IHubconnection, hubService>();
 
             //DbHandler(IRepository)
-            services.AddTransient<IdbHandler<Users>, RepositoryServices<Users>>();
-            services.AddTransient<IdbHandler<ticketssupport>, RepositoryServices<ticketssupport>>();
-            services.AddTransient<IdbHandler<consecticketview>, RepositoryServices<consecticketview>>();
-            services.AddTransient<IdbHandler<TicketMapAndSupView>, RepositoryServices<TicketMapAndSupView>>();
-            services.AddTransient<IdbHandler<CodeGeneric>, RepositoryServices<CodeGeneric>>();
+            services.AddTransient<IdbHandler<Users>, repositoryServices<Users>>();
+            services.AddTransient<IdbHandler<ticketssupport>, repositoryServices<ticketssupport>>();
+            services.AddTransient<IdbHandler<consecticketview>, repositoryServices<consecticketview>>();
+            services.AddTransient<IdbHandler<TicketMapAndSupView>, repositoryServices<TicketMapAndSupView>>();
+            services.AddTransient<IdbHandler<codeGeneric>, repositoryServices<codeGeneric>>();
         }
     }
 }

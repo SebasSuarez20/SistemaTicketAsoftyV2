@@ -2,7 +2,7 @@
 
 namespace SistemaTickets.Model
 {
-    public class CodeGeneric
+    public class codeGeneric
     {
         public int? Code { get; set; }
         public string? Name { get; set; }

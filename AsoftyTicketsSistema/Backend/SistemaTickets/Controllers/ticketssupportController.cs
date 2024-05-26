@@ -23,7 +23,7 @@ namespace SistemaTickets.Controllers
 
 
         [HttpPost("CreateTickets")]
-        public async Task<object> CreateTickets([FromForm] CreateTicketModel model)
+        public async Task<object> CreateTickets([FromForm] createTicketModel model)
         {
             return Ok(await _service.createTickets(model));
         }

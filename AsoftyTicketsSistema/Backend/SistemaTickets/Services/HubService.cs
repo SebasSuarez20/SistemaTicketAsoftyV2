@@ -3,13 +3,13 @@ using SistemaTickets.Model;
 
 namespace SistemaTickets.Services
 {
-    public class HubService : IHubconnection
+    public class hubService : IHubconnection
     {
 
         private readonly IdbHandler<Users> _dbHandlerUser;
         private readonly IdbHandler<ticketssupport> _dbHandlerTickets;
 
-        public HubService(IdbHandler<Users> dbHandlerUser, IdbHandler<ticketssupport> dbHandlerTickets) {
+        public hubService(IdbHandler<Users> dbHandlerUser, IdbHandler<ticketssupport> dbHandlerTickets) {
         
             _dbHandlerUser = dbHandlerUser;
             _dbHandlerTickets = dbHandlerTickets;

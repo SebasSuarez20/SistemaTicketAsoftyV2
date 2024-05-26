@@ -5,6 +5,6 @@ namespace SistemaTickets.Interface.IModel
     public interface IticketsSupport
     {
         public Task<object> getAllMapAndSup();
-        public Task<object> createTickets(CreateTicketModel model);
+        public Task<object> createTickets(createTicketModel model);
     }
 }

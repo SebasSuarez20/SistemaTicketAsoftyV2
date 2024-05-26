@@ -1,37 +1,29 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Infrastructure;
-using Microsoft.EntityFrameworkCore.Query.SqlExpressions;
-using Microsoft.IdentityModel.Tokens;
-using MySql.Data.MySqlClient;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using MySqlX.XDevAPI.Common;
 using SistemaTickets.Data;
-using SistemaTickets.Interface.IJwt;
-using SistemaTickets.Model;
-using SistemaTickets.Model.Abstract;
 using SistemaTickets.Services;
 using SistemaTickets.Services.Jwt;
-using System.Linq;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq.Expressions;
-using System.Reflection;
+using System.Reflection.Metadata;
 
 namespace SistemaTickets.Repository
 {
-    public class RepositoryServices<T> : IdbHandler<T> where T : class
+    public class repositoryServices<T> : IdbHandler<T> where T : class
     {
         private readonly IHttpContextAccessor Icontext;
         private readonly appDbContext _context;
         private bool disposed = false;
-        public string userName;
-        public int rol;
-        DateTime today;
+        protected string userName;
+        protected int rol;
 
-
-        public RepositoryServices(appDbContext context, IHttpContextAccessor _Icontext)
+        public repositoryServices(appDbContext context, IHttpContextAccessor _Icontext)
         {
             Icontext = _Icontext;
             _context = context;
-            this.userName = AuthService.GetUserName(Icontext);
-            this.rol = AuthService.GetRoleUser(Icontext);
-            this.today = DateTime.Now;
+            this.userName = authService.GetUserName(Icontext);
+            this.rol = authService.GetRoleUser(Icontext);
         }
 
         protected DbSet<T> entitySet => _context.Set<T>();
@@ -76,19 +68,35 @@ namespace SistemaTickets.Repository
         {
             try
             {
+                Dictionary<string, object> result = new Dictionary<string, object>();
                 var property = entity.GetType().GetProperties(); // las propiedades de la entidad.
-              
-                //Verifica todo lo que no venga en null para tomar esos valores.
-                var columns = property.Where(c => Nullable.GetUnderlyingType(c.PropertyType) == null);
 
-                var Query = $"INSERT INTO {entity.GetType().Name} ({string.Join(", ", columns.Select(s=>s.Name))}) " +
-                    $"VALUES ({string.Join(", ", columns.Select(c => $"@{c.Name}"))})";
+                //Verifica todo lo que no venga en null para NO tomar esos valores.
+                var columns = property.Where(c => c.GetValue(entity) != null);
 
-                var result = columns.Select(p => new
-                MySqlConnector.MySqlParameter($"@{p.Name}", p.Name != "UserName" ? $"{p.GetValue(entity).ToString()}" : 
-                int.Parse(this.userName))).ToArray();
+                foreach (var c in columns)
+                {
+                    var getValue = columns.Where(s => s.Name == c.Name).Select(s => s.GetValue(entity)).First() ?? "null";
+                    var typeOf = columns.Where(s => s.Name == c.Name).Select(s => s.PropertyType.GenericTypeArguments.Count()!=0 ? s.PropertyType.GenericTypeArguments[0].Name : s.PropertyType.Name).First();
+                     if (c.Name.StartsWith("date"))
+                    {
+                        DateTime date = (DateTime)getValue;
+                        result.Add(c.Name, date.ToString("yyyy-MM-dd H:mm:ss"));
+                    }
+                    else
+                    {
+                        result.Add(c.Name, typeOf.Contains("String") ? $"{getValue.ToString()}" : getValue);
+                    }
+                }
+                //Le agregamos el username para que siempre en la consulta aparezca.
+                result.Add("Username", this.userName);
 
-                _context.Database.ExecuteSqlRaw(Query, result);
+                var Query = $"INSERT INTO {entity.GetType().Name} ({string.Join(", ", result.Select(s=>s.Key))}) " +
+                    $"VALUES ({string.Join(", ", result.Select(s => $"@{s.Key}"))})";
+
+                var parameters=  result.Select(d => new MySqlConnector.MySqlParameter($"@{d.Key}",d.Value)).ToArray();
+
+                await _context.Database.ExecuteSqlRawAsync(Query, parameters);
             }catch(Exception ex)
             {
                 Console.WriteLine(ex.Message);
@@ -100,33 +108,48 @@ namespace SistemaTickets.Repository
 
             try
             {
-              
                 Dictionary<string,object> dictionayWh_ = new Dictionary<string, object>();
-                var propery_wh = entity.GetType().GetProperties();
+                Dictionary<string,object> queryStrl = new Dictionary<string, object>();
+                var property_wh = entity.GetType().GetProperties();
+
+                var ignoreFields = property_wh.
+                  Where(s => s.CustomAttributes.Count() >= 1)
+                 .Where(s => s.CustomAttributes.First().AttributeType.Name == "KeyAttribute"
+                 || s.CustomAttributes.Last().AttributeType.Name == "ColumnAttribute").
+                 Select(s => s.Name).ToList();
+
+
+                 foreach (var c in property_wh)
+                {
+                    var getValue = property_wh.Where(s => s.Name == c.Name).Select(s => s.GetValue(entity))?.First() ?? "";
+                    var typeOf = property_wh.Where(x=>x.Name == c.Name).Select(x=>x.PropertyType.GenericTypeArguments.Count()!=0 ? x.PropertyType.GenericTypeArguments[0].Name : x.PropertyType.Name).First();
+
+                    if (c.Name.StartsWith("date"))
+                    {
+                        DateTime date = (DateTime)getValue;
+                        queryStrl.Add(c.Name, date.ToString("yyyy-MM-dd H:mm:ss"));
+                    }
+                    else
+                    {
+                        queryStrl.Add(c.Name, typeOf.Contains("String") ? string.IsNullOrEmpty((string)getValue) ? "''" : $"'{getValue.ToString()}'" : getValue);
+                    }
+                }
 
                 var _ = _wh.GetType().GetProperties().Where(s => s.GetValue(_wh) != null)
                     .Select(p => new { Name = p.Name, Value = p.GetValue(_wh) });
 
-                //Validamos si hay un campo adicional en el modelo con el Date_Update 
-                //Que nos ayudara a validar en que momento se actualizo la informacion.
-                var _whereTime = $"{propery_wh.Where(s => s.Name == "Date_Update")
-                    .Select(s => $",{s.Name} = 'null'").FirstOrDefault()}";
-
                 foreach (var property in _) { dictionayWh_.Add(property.Name,property.Value); }
 
-                var set_ = $"{string.Join(", ", propery_wh.Where(s => s.Name != "Idcontrol" && s.Name != "UserName" && 
-                s.Name != "Date_Update" && s.Name!="Enabled")
-                  .Select(s => $"{s.Name} = {(s.PropertyType != typeof(int) ?  $"{s.GetValue(entity).ToString()}"
-                  : s.GetValue(entity))}"))} {_whereTime.Replace("null", today.ToString("yyyy-MM-dd H:mm:ss"))}";
-
+                var set_ = $"{string.Join(", ", queryStrl.Where(s => !ignoreFields.Contains(s.Key))
+                  .Select(s => $"{s.Key} = {(s.Value)}"))}";
 
                 string Sql = $"UPDATE {typeof(T).Name} SET {set_.Replace("''","null")}" +
-                $" WHERE {dictionayWh_.Select(s => $"{s.Key} = @{s.Key} ").FirstOrDefault()}" +
+                $" WHERE {dictionayWh_.Select(s => $"{s.Key} = @{s.Key}").FirstOrDefault()}" +
                 $" AND Enabled = True;";
 
                 var paramsMysql = dictionayWh_.Select(s => new MySqlConnector.MySqlParameter(s.Key, s.Value)).ToArray();
 
-                _context.Database.ExecuteSqlRaw(Sql, paramsMysql);
+                await _context.Database.ExecuteSqlRawAsync(Sql, paramsMysql);
             }catch(Exception ex)
             {
                 Console.WriteLine(ex.Message);

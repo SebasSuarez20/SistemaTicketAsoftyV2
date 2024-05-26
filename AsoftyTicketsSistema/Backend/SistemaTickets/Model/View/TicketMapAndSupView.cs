@@ -1,18 +1,18 @@
 ﻿using SistemaTickets.Model.Abstract;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace SistemaTickets.Model.View
 {
-    public class TicketMapAndSupView : DbUsername
+    public class TicketMapAndSupView : dbUsername
     {
-        [Key]
-        public int? Idcontrol { get; set; }
         public int? Consecutive { get; set; }
-        public string? Title { get; set; }
-        public string? Subject { get; set; }
+        public string? Area { get; set; }
+        public string? Priority { get; set; }
         public string? Status { get; set; }
         public int? AssignedTo { get; set; }
         public string? HasUnique { get; set; }
+        [Column]
         public bool? Enabled { get; set; }
     }
 }
