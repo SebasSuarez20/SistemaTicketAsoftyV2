@@ -23,5 +23,11 @@ namespace SistemaTickets.Controllers
             return _service.authLoginSupport(user, pswd);
         }
 
+        [HttpGet("SpExample")]
+        public IActionResult spExample(string user, string pswd)
+        {
+            return Ok(_service.authLoginSupport(user,pswd));
+        }
+
     }
 }

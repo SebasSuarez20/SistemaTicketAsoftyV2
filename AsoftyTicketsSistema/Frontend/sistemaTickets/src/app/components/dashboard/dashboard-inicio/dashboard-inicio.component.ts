@@ -11,12 +11,28 @@ import { ITicketMapAndSup } from 'src/app/Model/ITicketMapAndSup';
 import { HubConnectionService } from 'src/app/services/hub/hub-connection.service';
 import { ObserverService } from 'src/app/services/observer.service';
 import { Subscription } from 'rxjs';
+import { trigger, state, style, transition, animate } from "@angular/animations";
 import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-dashboard-inicio',
   templateUrl: './dashboard-inicio.component.html',
   styleUrls: ['./dashboard-inicio.component.css'],
+  animations: [
+    trigger('appearSmoothly', [
+      state('NotVisible', style({
+        opacity: 0,
+        transform: 'scale(0.5)'
+      })),
+      state('yesVisible', style({
+        opacity: 1,
+        transform: 'scale(1)'
+      })),
+      transition('NotVisible <=> yesVisible', [
+        animate('0.8s cubic-bezier(0.25, 0.8, 0.25, 1)')
+      ])
+    ])
+  ]
 })
 export class DashboardInicioComponent implements OnInit, OnDestroy {
   public isVisible: boolean = false;
@@ -28,17 +44,12 @@ export class DashboardInicioComponent implements OnInit, OnDestroy {
   public resultUsername: number[] = [];
   public suscription: Subscription;
   public strlUnique: string[] = [];
+  public StatusVisible: string = 'NotVisible';
+  public isVisibleLoading: boolean = true;
 
-  constructor(
-    private codeGenericService: CodeGenService,
-    private data_Service: LoginService,
-    public dialog: MatDialog,
-    private idle: Idle,
-    private cd: ChangeDetectorRef,
-    private serviceHttp: TicketsServicesHttpService,
-    private hubConnection: HubConnectionService,
-    private serviceObserver: ObserverService
-  ) {
+  constructor(private codeGenericService: CodeGenService, private data_Service: LoginService,
+    public dialog: MatDialog, private idle: Idle, private cd: ChangeDetectorRef, private serviceHttp: TicketsServicesHttpService,
+    private hubConnection: HubConnectionService, private serviceObserver: ObserverService) {
     this.dataSource = new MatTableDataSource();
     if (this.data_Service.dataLogged().rolCode === 1) this.isValidRol = true;
     this.suscription = this.serviceObserver
@@ -50,11 +61,23 @@ export class DashboardInicioComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.codeGenStatus = this.codeGenericService.loadCode('Status');
-    this.getStatusApp();
+
+    setTimeout(() => {
+      this.triggerVisiblity();
+    }, 1700);
   }
+
 
   ngOnDestroy(): void {
     this.suscription.unsubscribe();
+  }
+
+  public triggerVisiblity() {
+    this.StatusVisible = this.StatusVisible === 'NotVisible' ? 'yesVisible' : 'NotVisible';
+  }
+
+  public loadingComponent() {
+
   }
 
   public OpenCreateTicket() {
@@ -65,12 +88,10 @@ export class DashboardInicioComponent implements OnInit, OnDestroy {
     this.idle.watch();
   }
 
-  public UpdateItemTicket(event: any, data: ITicketMapAndSup, index: number) {
-    this.hubConnection.invokeSendMessageToClient(
-      parseInt(event.target.value),
-      this.resultUsername[index],
-      data.no
-    );
+  public async UpdateItemTicket(event: any, data: ITicketMapAndSup, index: number) {
+
+    this.hubConnection.invokeSendMessageToClient(parseInt(event.target.value), this.resultUsername[index], data.no);
+
   }
 
   public navigateUrl(index: number) {
@@ -119,9 +140,13 @@ export class DashboardInicioComponent implements OnInit, OnDestroy {
                 );
 
           if (!this.isValidRol) this.displayedColumns.push('Chat');
+          
         } else if (res.status == 404) {
           this.resMessage = res.message;
         }
+        setTimeout(() => {
+          this.isVisibleLoading = false;
+        }, 1200);
       });
   }
 }

@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Http.HttpResults;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using MySqlX.XDevAPI.Common;
 using SistemaTickets.Data;
@@ -46,7 +47,29 @@ namespace SistemaTickets.Repository
                 return await Sql.ToListAsync();
             }catch(Exception ex)
             {
-                Console.WriteLine(ex.Message);
+                exceptionFolder(ex,"GetAllAsync");
+                return null;
+            }
+        }
+
+        public async Task<IEnumerable<T>> GetAllAsyncSp(string nameSp, T e)
+        {
+            try
+            {
+                List<object> resultE = new List<object>();
+                var property = e.GetType().GetProperties();
+
+
+                var taskResult = property
+                  .Select(s => new { Value = s.GetValue(e) })
+              .Where(x => x.Value != null);
+
+                var p = $"CALL {nameSp}({string.Join(",", taskResult.Select(x => $"{x.Value}"))})";
+
+                return await entitySet.FromSqlRaw($"CALL {nameSp}({string.Join(",", taskResult.Select(x => $"{x.Value}"))})").ToListAsync();
+            }
+            catch(Exception ex){
+                exceptionFolder(ex, "GetSpAllAsync");
                 return null;
             }
         }
@@ -58,11 +81,13 @@ namespace SistemaTickets.Repository
                 return await entitySet.FromSqlRaw($"CALL {nameSp}()").ToListAsync();
             }catch(Exception ex)
             {
-                Console.WriteLine(ex.Message);
+                exceptionFolder(ex,"GetSPAsync");
                 return null;
             }
            
         }
+
+
 
         public async Task CreateAllAsync(T entity)
         {
@@ -99,7 +124,7 @@ namespace SistemaTickets.Repository
                 await _context.Database.ExecuteSqlRawAsync(Query, parameters);
             }catch(Exception ex)
             {
-                Console.WriteLine(ex.Message);
+                exceptionFolder(ex,"InsertAsync");
             }
         }
        
@@ -152,7 +177,7 @@ namespace SistemaTickets.Repository
                 await _context.Database.ExecuteSqlRawAsync(Sql, paramsMysql);
             }catch(Exception ex)
             {
-                Console.WriteLine(ex.Message);
+               exceptionFolder(ex,"UpdateAsync");
             }
         }
 
@@ -171,6 +196,26 @@ namespace SistemaTickets.Repository
         {
             Dispose(true);
             GC.SuppressFinalize(this);
+        }
+
+        public  void exceptionFolder(Exception ex,string action)
+        {
+            string folderPath = @"C:/Logs";
+            DateTime today = DateTime.Now;
+
+            if (!Directory.Exists(folderPath)) Directory.CreateDirectory(folderPath);
+
+  
+            string logFileName = $"{today.ToString("yyyy_MM_dd")}.txt";
+            string logFilePath = Path.Combine(folderPath, logFileName);
+
+ 
+            using (StreamWriter sw = new StreamWriter(logFilePath, append: true))
+            {
+                sw.WriteLine($"{today} || ${ex.Message} || ${action}");
+                sw.WriteLine();
+                sw.Close();
+            }
         }
 
        

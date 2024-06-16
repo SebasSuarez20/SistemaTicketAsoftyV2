@@ -1,152 +1,167 @@
-<div class="container_inicio">
-  <h2>Administra tus tickets</h2>
-  <div class="bx_inicio">
+<div class="content" *ngIf="!this.isVisibleLoading">
+  <div class="container_inicio" [@appearSmoothly]="this.StatusVisible">
+    <h2>Administra tus tickets</h2>
+    <div class="bx_inicio">
 
-    <div class="cont_addAndstatus">
-      <div class="btn_add" appAccessRolUser>
-        <button (click)="this.OpenCreateTicket()"><mat-icon>add</mat-icon></button>
+      <div class="cont_addAndstatus">
+        <div class="btn_add" appAccessRolUser>
+          <button (click)="this.OpenCreateTicket()"><mat-icon>add</mat-icon></button>
+        </div>
+        <div class="bx_status">
+          <label>Filtrar por estado</label>
+          <select>
+            <option *ngFor="let item of this.codeGenStatus" [value]="item.Value">{{item.Code}}</option>
+          </select>
+        </div>
       </div>
-      <div class="bx_status">
-        <label>Filtrar por estado</label>
-        <select>
-          <option *ngFor="let item of this.codeGenStatus" [value]="item.Value">{{item.Code}}</option>
-        </select>
+
+      <div class="grid-container">
+        <mat-card class="dashboard-card-1">
+          <mat-card-content>
+            <div class="Conta_textAndnum">
+              <div class="bx_text">
+                <h2 class="h2Title">Pendientes</h2>
+                <small>Tickets pendientes</small>
+              </div>
+
+              <div class="bx_img">
+                <img src="../../../../assets/img/Pendiente.gif" alt="">
+              </div>
+
+              <div class="bx_num">
+                <h2>0</h2>
+              </div>
+            </div>
+          </mat-card-content>
+        </mat-card>
+
+        <mat-card class="dashboard-card-2">
+          <mat-card-content>
+            <div class="Conta_textAndnum">
+              <div class="bx_text">
+                <h2 class="h2Title">En proceso</h2>
+                <small>Tickets en proceso</small>
+              </div>
+
+              <div class="bx_img">
+                <img src="../../../../assets/img/EnProceso.gif" alt="">
+              </div>
+
+              <div class="bx_num">
+                <h2>0</h2>
+              </div>
+            </div>
+
+          </mat-card-content>
+
+          <mat-card-content class="dashboard-card-content">
+          </mat-card-content>
+        </mat-card>
+
+        <mat-card class="dashboard-card-3">
+          <mat-card-content>
+            <div class="Conta_textAndnum">
+              <div class="bx_text">
+                <h2 class="h2Title">Cancelados</h2>
+                <small>Tickets cancelado</small>
+              </div>
+
+              <div class="bx_img">
+                <img src="../../../../assets/img/cancelado.gif" alt="">
+              </div>
+
+              <div class="bx_num">
+                <h2>0</h2>
+              </div>
+            </div>
+          </mat-card-content>
+        </mat-card>
+
+        <mat-card class="dashboard-card-4">
+          <mat-card-content>
+
+            <div class="Conta_textAndnum">
+              <div class="bx_text">
+                <h2 class="h2Title">Resueltos</h2>
+                <small>Tickets resueltos</small>
+              </div>
+
+              <div class="bx_img">
+                <img src="../../../../assets/img/verificado.gif" alt="">
+              </div>
+
+              <div class="bx_num">
+                <h2>0</h2>
+              </div>
+            </div>
+
+          </mat-card-content>
+        </mat-card>
+
       </div>
     </div>
 
-    <div class="grid-container">
-      <mat-card class="dashboard-card-1">
-        <mat-card-content>
-          <div class="Conta_textAndnum">
-            <div class="bx_text">
-              <h2 class="h2Title">Pendientes</h2>
-              <small>Tickets pendientes</small>
-            </div>
+  </div>
 
-            <div class="bx_img">
-              <img src="../../../../assets/img/Pendiente.gif" alt="">
-            </div>
+  <div class="container_inicio" [@appearSmoothly]="this.StatusVisible">
+    <h2>Consulta tus tickets</h2>
+    <div class="bx_inicio">
 
-            <div class="bx_num">
-              <h2>0</h2>
-            </div>
-          </div>
-        </mat-card-content>
-      </mat-card>
+      <div class="table">
+        <mat-table id="matTables" mat-table [dataSource]="dataSource" class="mat-elevation-z8 demo-table" matSort>
+          <ng-container *ngFor="let columns of displayedColumns">
+            <ng-container matColumnDef="{{columns}}" *ngIf="columns !='Chat' && columns!= 'asignacion'">
+              <th class="UniTh" mat-header-cell *matHeaderCellDef>{{columns | uppercase}}</th>
+              <td class="UniTd" mat-cell *matCellDef="let element">{{element[columns]}}</td>
+            </ng-container>
 
-      <mat-card class="dashboard-card-2">
-        <mat-card-content>
-          <div class="Conta_textAndnum">
-            <div class="bx_text">
-              <h2 class="h2Title">En proceso</h2>
-              <small>Tickets en proceso</small>
-            </div>
+            <ng-container matColumnDef="{{columns}}" *ngIf="columns=='asignacion'">
+              <th class="UniTh" mat-header-cell *matHeaderCellDef>{{columns | uppercase}}</th>
+              <td class="UniTd" mat-cell *matCellDef="let element; index as index">
+                <select style="text-align: center;" [value]="element[columns]"
+                  (change)="this.UpdateItemTicket($event,element,index)">
+                  <option value="0">No ha asignado</option>
+                  <option value="1">Juan Sebastian</option>
+                  <option value="2">Giovanny Vasquez</option>
+                </select>
+              </td>
+            </ng-container>
 
-            <div class="bx_img">
-              <img src="../../../../assets/img/EnProceso.gif" alt="">
-            </div>
+            <ng-container matColumnDef="{{columns}}" *ngIf="columns == 'Chat'">
+              <th class="UniTh" mat-header-cell *matHeaderCellDef>{{columns | uppercase}}</th>
+              <td class="UniTd" mat-cell *matCellDef="let element;index as index">
+                <button class="bx_btn">
+                  <mat-icon (click)="this.navigateUrl(index)"
+                    matTooltip="{{this.strlUnique[index] ? 'estamos disponibles para chatear.' : 'en este momento no estamos disponibles para chatear'}}"
+                    [matTooltipPosition]="'left'"
+                    [ngStyle]="{'color': this.strlUnique[index] ? '#93A0FF' : '#F7AA97'}">chat</mat-icon>
+                </button>
+              </td>
+            </ng-container>
 
-            <div class="bx_num">
-              <h2>0</h2>
-            </div>
-          </div>
-
-        </mat-card-content>
-
-        <mat-card-content class="dashboard-card-content">
-        </mat-card-content>
-      </mat-card>
-
-      <mat-card class="dashboard-card-3">
-        <mat-card-content>
-          <div class="Conta_textAndnum">
-            <div class="bx_text">
-              <h2 class="h2Title">Cancelados</h2>
-              <small>Tickets cancelado</small>
-            </div>
-
-            <div class="bx_img">
-              <img src="../../../../assets/img/cancelado.gif" alt="">
-            </div>
-
-            <div class="bx_num">
-              <h2>0</h2>
-            </div>
-          </div>
-        </mat-card-content>
-      </mat-card>
-
-      <mat-card class="dashboard-card-4">
-        <mat-card-content>
-
-          <div class="Conta_textAndnum">
-            <div class="bx_text">
-              <h2 class="h2Title">Resueltos</h2>
-              <small>Tickets resueltos</small>
-            </div>
-
-            <div class="bx_img">
-              <img src="../../../../assets/img/verificado.gif" alt="">
-            </div>
-
-            <div class="bx_num">
-              <h2>0</h2>
-            </div>
-          </div>
-
-        </mat-card-content>
-      </mat-card>
+          
+          </ng-container>
+        
+          <tr class="UniTrD" mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr class="UniTrC" mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </mat-table>
+      <span class="messageData">{{this.resMessage}}</span>
+      </div>
 
     </div>
   </div>
-
 </div>
 
-
-<div class="container_inicio">
-  <h2>Consulta tus tickets</h2>
-  <div class="bx_inicio">
-
-    <div class="table">
-      <mat-table id="matTables" mat-table [dataSource]="dataSource" class="mat-elevation-z8 demo-table" matSort>
-        <ng-container *ngFor="let columns of displayedColumns">
-          <ng-container matColumnDef="{{columns}}" *ngIf="columns !='Chat' && columns!= 'asignacion'">
-            <th class="UniTh" mat-header-cell *matHeaderCellDef>{{columns | uppercase}}</th>
-            <td class="UniTd" mat-cell *matCellDef="let element">{{element[columns]}}</td>
-          </ng-container>
-
-          <ng-container matColumnDef="{{columns}}" *ngIf="columns=='asignacion'">
-            <th class="UniTh" mat-header-cell *matHeaderCellDef>{{columns | uppercase}}</th>
-            <td class="UniTd" mat-cell *matCellDef="let element; index as index">
-              <select style="text-align: center;" [value]="element[columns]"
-                (change)="this.UpdateItemTicket($event,element,index)">
-                <option value="0">No ha asignado</option>
-                <option value="1">Juan Sebastian</option>
-                <option value="2">Giovanny Vasquez</option>
-              </select>
-            </td>
-          </ng-container>
-
-          <ng-container matColumnDef="{{columns}}" *ngIf="columns == 'Chat'">
-            <th class="UniTh" mat-header-cell *matHeaderCellDef>{{columns | uppercase}}</th>
-            <td class="UniTd" mat-cell *matCellDef="let element;index as index">
-              <button class="bx_btn">
-                <mat-icon (click)="this.navigateUrl(index)"
-                  matTooltip="{{this.strlUnique[index] ? 'estamos disponibles para chatear.' : 'en este momento no estamos disponibles para chatear'}}"
-                  [matTooltipPosition]="'left'"
-                  [ngStyle]="{'color': this.strlUnique[index] ? '#93A0FF' : '#F7AA97'}">chat</mat-icon>
-              </button>
-            </td>
-          </ng-container>
-
-          
-        </ng-container>
-        
-        <tr class="UniTrD" mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-        <tr class="UniTrC" mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-      </mat-table>
-      <span class="messageData">{{this.resMessage}}</span>
+<div class="content-loading" *ngIf="this.isVisibleLoading">
+  <div class="wrapper">
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="shadow"></div>
+    <div class="shadow"></div>
+    <div class="shadow"></div>
+    <div class="loadingBx">
+      <h4>Cargando ....</h4>
     </div>
-
   </div>
 </div>

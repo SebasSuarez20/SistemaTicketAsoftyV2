@@ -8,6 +8,7 @@ namespace SistemaTickets.Services
 
         public Task<IEnumerable<T>> GetAllAsyncForAll(Expression<Func<T, bool>> _where = null);
         public Task<IEnumerable<T>> GetCodeAsyncAll(string nameSp);
+        public Task<IEnumerable<T>> GetAllAsyncSp(string nameSp,T e);
         public Task CreateAllAsync(T entity);
         public Task UpdateAsyncAll(T entity, object _wh);
     }

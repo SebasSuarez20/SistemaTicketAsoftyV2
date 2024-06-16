@@ -22,7 +22,13 @@ namespace SistemaTickets.Controllers
             return _service.authLoginSupport(user, pswd);
         }
 
-   
+
+        [HttpGet("spExample")]
+        public Task<object> spExample()
+        {
+            return _service.spExample();
+        }
+
 
     }
 }
