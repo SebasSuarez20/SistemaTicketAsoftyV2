@@ -45,7 +45,7 @@ namespace SistemaTickets.Services.SignalR
 
             string[] message = { "Se te ha asignado un nuevo ticket. Por favor, verifica.", $"El Ticket #{consecutive} ha sido asignado.Ahora puede iniciar el chat"};
 
-            Users connectLogged = await serviceUser.getInfoUser(int.Parse(_httpContextAccessor.HttpContext.User.FindFirst("miHub").Value));
+            Users connectLogged = await serviceUser.getInfoUser(int.Parse(_httpContextAccessor?.HttpContext?.User?.FindFirst("miHub")?.Value ?? "-1"));
             Users connectOfAssigned = await serviceUser.getInfoUser(assigned);
             Users connectOfCompany =await  serviceUser.getInfoUser(username);
 
