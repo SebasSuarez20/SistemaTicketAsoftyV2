@@ -11,13 +11,14 @@ import { ITicketMapAndSup } from 'src/app/Model/ITicketMapAndSup';
 import { HubConnectionService } from 'src/app/services/hub/hub-connection.service';
 import { ObserverService } from 'src/app/services/observer.service';
 import { Subscription } from 'rxjs';
-import { trigger, state, style, transition, animate } from "@angular/animations";
 import Swal from 'sweetalert2';
+import { trigger, state, style, transition, animate } from "@angular/animations";
 
 @Component({
   selector: 'app-dashboard-inicio',
   templateUrl: './dashboard-inicio.component.html',
   styleUrls: ['./dashboard-inicio.component.css'],
+
   animations: [
     trigger('appearSmoothly', [
       state('NotVisible', style({
@@ -35,6 +36,7 @@ import Swal from 'sweetalert2';
   ]
 })
 export class DashboardInicioComponent implements OnInit, OnDestroy {
+
   public isVisible: boolean = false;
   public displayedColumns: string[] = [];
   public dataSource: MatTableDataSource<Partial<ITicketMapAndSup>>;
@@ -46,6 +48,7 @@ export class DashboardInicioComponent implements OnInit, OnDestroy {
   public strlUnique: string[] = [];
   public StatusVisible: string = 'NotVisible';
   public isVisibleLoading: boolean = true;
+  public resMessage: string;
 
   constructor(private codeGenericService: CodeGenService, private data_Service: LoginService,
     public dialog: MatDialog, private idle: Idle, private cd: ChangeDetectorRef, private serviceHttp: TicketsServicesHttpService,
@@ -64,7 +67,7 @@ export class DashboardInicioComponent implements OnInit, OnDestroy {
 
     setTimeout(() => {
       this.triggerVisiblity();
-    }, 1700);
+    }, 2250);
   }
 
 
@@ -74,6 +77,7 @@ export class DashboardInicioComponent implements OnInit, OnDestroy {
 
   public triggerVisiblity() {
     this.StatusVisible = this.StatusVisible === 'NotVisible' ? 'yesVisible' : 'NotVisible';
+    console.log(this.StatusVisible);
   }
 
   public loadingComponent() {
@@ -98,7 +102,6 @@ export class DashboardInicioComponent implements OnInit, OnDestroy {
     console.log(this.strlUnique[index]);
   }
 
-  public resMessage: string;
 
   public GetAllMapAndSup() {
     this.serviceHttp
@@ -136,17 +139,19 @@ export class DashboardInicioComponent implements OnInit, OnDestroy {
             this.dataSource.data.length != 0
               ? Object.keys(this.dataSource.data[0])
               : Object.keys(respTable).filter((c) =>
-                  this.isValidRol != true ? c != 'asignacion' : c
-                );
+                this.isValidRol != true ? c != 'asignacion' : c
+              );
 
           if (!this.isValidRol) this.displayedColumns.push('Chat');
           
         } else if (res.status == 404) {
           this.resMessage = res.message;
         }
+
         setTimeout(() => {
           this.isVisibleLoading = false;
-        }, 1200);
+        }, 1800);
+
       });
   }
 }
