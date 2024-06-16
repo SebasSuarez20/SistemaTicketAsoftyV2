@@ -139,16 +139,26 @@
               </td>
             </ng-container>
           </ng-container>
-
-          <tr class="UniTrD" mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-          <tr class="UniTrC" mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-        </mat-table>
-      </div>
-
+          <ng-container matColumnDef="{{columns}}" *ngIf="columns == 'Chat'">
+            <th class="UniTh" mat-header-cell *matHeaderCellDef>{{columns | uppercase}}</th>
+            <td class="UniTd" mat-cell *matCellDef="let element;index as index">
+              <button class="bx_btn">
+                <mat-icon (click)="this.navigateUrl(index)"
+                  matTooltip="{{this.strlUnique[index] ? 'estamos disponibles para chatear.' : 'en este momento no estamos disponibles para chatear'}}"
+                  [matTooltipPosition]="'left'"
+                  [ngStyle]="{'color': this.strlUnique[index] ? '#93A0FF' : '#F7AA97'}">chat</mat-icon>
+              </button>
+            </td>
+          </ng-container>
+        </ng-container>
+        
+        <tr class="UniTrD" mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr class="UniTrC" mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </mat-table>
+      <span class="messageData">{{this.resMessage}}</span>
     </div>
   </div>
 </div>
-
 <div class="content-loading" *ngIf="this.isVisibleLoading">
   <div class="wrapper">
     <div class="circle"></div>
