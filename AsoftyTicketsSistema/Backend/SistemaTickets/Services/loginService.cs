@@ -5,6 +5,7 @@ using System.Security.Claims;
 using System.Text;
 using System.IdentityModel.Tokens.Jwt;
 using System.Dynamic;
+using SistemaTickets.Model.View;
 
 namespace SistemaTickets.Services
 {
@@ -13,13 +14,15 @@ namespace SistemaTickets.Services
     {
 
         private readonly IdbHandler<Users> _dbHandlerSupport;
+        private readonly IdbHandler<ticketSupportViewChats> _db;
         private IConfiguration _config;
 
 
-        public loginService(IdbHandler<Users> dbHandlerSupport,IConfiguration config)
+        public loginService(IdbHandler<Users> dbHandlerSupport, IdbHandler<ticketSupportViewChats> db ,IConfiguration config)
         {
             this._dbHandlerSupport = dbHandlerSupport;
             this._config = config;
+            this._db = db;
         }
 
         public async Task<object> authLoginSupport(string user,string pswd)
@@ -75,6 +78,13 @@ namespace SistemaTickets.Services
 
             return rstToken;
 
+        }
+
+        public async Task<object> spExample()
+        {
+            ticketSupportViewChats instance = new ticketSupportViewChats();
+            instance.Consecutive = 1;
+            return await _db.GetAllAsyncSp("GetChatsForConsecutive", instance);
         }
     }
 }

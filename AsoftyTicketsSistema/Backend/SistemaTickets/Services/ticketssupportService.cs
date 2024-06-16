@@ -88,7 +88,6 @@ namespace SistemaTickets.Services
         {
             try
             {
-
                 dynamic response = new ExpandoObject();
 
                 var respontForRol = await _dbHandlerTicketMapAndSupView.

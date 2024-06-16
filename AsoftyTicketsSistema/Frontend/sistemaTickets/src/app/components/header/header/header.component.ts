@@ -78,13 +78,13 @@ export class HeaderComponent implements OnInit, OnDestroy {
         })
       });
     }
+
+    setTimeout(() => {
+      this.hubconnection.connectionStart(this.data_Service.dataLogged().idControl);
+    }, 1000);
   }
 
   ngOnInit(): void {
-    this.hubconnection.connectionStart(this.data_Service.dataLogged().idControl);
-    setTimeout(() => {
-      this.hubconnection.invokeUpdate((this.data_Service.dataLogged().idControl));
-    }, 1000);
   }
 
 

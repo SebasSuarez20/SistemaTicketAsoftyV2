@@ -30,13 +30,22 @@ CREATE TABLE ticketssupport (
     Priority ENUM('S', 'M', 'L') NOT NULL,
     PhotoDescription VARCHAR(255) NULL,
     AssignedTo INT NULL,
-    Date_Update DATETIME NULL,
 	RegistrationDate DATETIME DEFAULT CURRENT_TIMESTAMP,
     Enabled BOOL NOT NULL,
 	Username INT NOT NULL,
     PRIMARY KEY(Idcontrol),
-    INDEX(AssignedTo)
+    INDEX(AssignedTo),
+    FOREIGN KEY (AssignedTo) REFERENCES Users(Idcontrol)
 );
+
+-- Añadir índice a la columna Status
+ALTER TABLE ticketssupport
+ADD INDEX idx_status (Status);
+
+-- Añadir índice a la columna Priority
+ALTER TABLE ticketssupport
+ADD INDEX idx_priority (Priority);
+
 
 
 CREATE TABLE ticketHasMapping (
@@ -48,8 +57,9 @@ CREATE TABLE ticketHasMapping (
     Enabled BOOL NOT NULL,
 	Username INT NOT NULL,
     PRIMARY KEY(Idcontrol),
-    INDEX(Username),
-    FOREIGN KEY (Username) REFERENCES Users(Idcontrol)
+    INDEX(Username,Consecutive),
+    FOREIGN KEY (Username) REFERENCES Users(Idcontrol),
+    FOREIGN KEY (Consecutive) REFERENCES ticketssupport(Consecutive)
 );
 
   
