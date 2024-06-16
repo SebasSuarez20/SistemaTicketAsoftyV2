@@ -34,6 +34,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   constructor(private breakpointObserver: BreakpointObserver, private data_Service: LoginService, private router: Router, private idle: Idle, private cd: ChangeDetectorRef,
     public dialog: MatDialog, private toast: LibraryMessageService, private hubconnection: HubConnectionService, public encryptService: DataEncryptionService) {
+
     this.nameUser = `${this.data_Service.dataLogged()?.nameUser ?? ""} ${this.data_Service.dataLogged()?.surName ?? ""}`;
     this.photoProfile = this.data_Service.dataLogged()?.photo ?? "";
 
@@ -45,39 +46,42 @@ export class HeaderComponent implements OnInit, OnDestroy {
     else if (this.role == 3) this.rol = "Empresa";
 
 
-    if (this.data_Service.loggedSystem()) {
-      this.idle.setIdle(15 * 60 * 1000);
-      this.idle.setTimeout(15 * 60 * 100);
-      this.idle.setInterrupts(DEFAULT_INTERRUPTSOURCES);
 
 
-      this.idle.onIdleEnd.subscribe(() => {
-        cd.detectChanges();
-        Swal.close();
-      });
+    console.log("Holis")
+    this.idle.setIdle(10 * 60 * 1000);  // Configura el tiempo de inactividad a 10 minutos (600,000 milisegundos)
+    this.idle.setTimeout(10 * 60 * 1000);  // Configura el tiempo de espera a 10 minutos (600,000 milisegundos)    
+    this.idle.setInterrupts(DEFAULT_INTERRUPTSOURCES);
 
 
-      this.idle.onTimeout.subscribe(() => {
-        this.dialog.closeAll();
-        this.toast.InfoMessagge("La sesión se está cerrando", "Adios!!").then(() => {
-        }).then(() => {
-          this.signIn();
-        })
-      });
+    this.idle.onIdleEnd.subscribe(() => {
+      cd.detectChanges();
+      Swal.close();
+    });
 
-      this.idle.onIdleStart.subscribe(() => {
-        Swal.fire({
-          icon: 'warning',
-          title: 'Atencion!!!',
-          text: 'Has estado inactivo por un tiempo. La sesión se cerrará en 5 segundos. Para continuar, realiza alguna acción.',
-          timer: 5000,
-          toast: true,
-          timerProgressBar: true,
-          showCancelButton: false,
-          showConfirmButton: false
-        })
-      });
-    }
+
+    this.idle.onTimeout.subscribe(() => {
+      this.dialog.closeAll();
+      this.toast.InfoMessagge("La sesión se está cerrando", "Adios!!").then(() => {
+      }).then(() => {
+        this.signIn();
+      })
+    });
+
+    this.idle.onIdleStart.subscribe(() => {
+      console.log("Holis")
+      Swal.fire({
+        icon: 'warning',
+        title: 'Atencion!!!',
+        text: 'Has estado inactivo por un tiempo. La sesión se cerrará en 5 segundos. Para continuar, realiza alguna acción.',
+        timer: 5000,
+        toast: true,
+        timerProgressBar: true,
+        showCancelButton: false,
+        showConfirmButton: false
+      })
+    });
+
 
     setTimeout(() => {
       this.hubconnection.connectionStart(this.data_Service.dataLogged().idControl);
@@ -85,6 +89,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
+    this.idle.watch();
   }
 
 

@@ -36,6 +36,7 @@ import { trigger, state, style, transition, animate } from "@angular/animations"
   ]
 })
 export class DashboardInicioComponent implements OnInit, OnDestroy {
+
   public isVisible: boolean = false;
   public displayedColumns: string[] = [];
   public dataSource: MatTableDataSource<Partial<ITicketMapAndSup>>;
@@ -47,6 +48,7 @@ export class DashboardInicioComponent implements OnInit, OnDestroy {
   public strlUnique: string[] = [];
   public StatusVisible: string = 'NotVisible';
   public isVisibleLoading: boolean = true;
+  public resMessage: string;
 
   constructor(
     private codeGenericService: CodeGenService,
@@ -72,7 +74,7 @@ export class DashboardInicioComponent implements OnInit, OnDestroy {
 
     setTimeout(() => {
       this.triggerVisiblity();
-    }, 1700);
+    }, 2250);
   }
 
 
@@ -82,6 +84,7 @@ export class DashboardInicioComponent implements OnInit, OnDestroy {
 
   public triggerVisiblity() {
     this.StatusVisible = this.StatusVisible === 'NotVisible' ? 'yesVisible' : 'NotVisible';
+    console.log(this.StatusVisible);
   }
 
   public loadingComponent() {
@@ -106,7 +109,6 @@ export class DashboardInicioComponent implements OnInit, OnDestroy {
     console.log(this.strlUnique[index]);
   }
 
-  public resMessage: string;
 
   public GetAllMapAndSup() {
     this.serviceHttp
@@ -144,24 +146,18 @@ export class DashboardInicioComponent implements OnInit, OnDestroy {
             this.dataSource.data.length != 0
               ? Object.keys(this.dataSource.data[0])
               : Object.keys(respTable).filter((c) =>
-                  this.isValidRol != true ? c != 'asignacion' : c
-                );
+                this.isValidRol != true ? c != 'asignacion' : c
+              );
 
           if (!this.isValidRol) this.displayedColumns.push('Chat');
         } else if (res.status == 404) {
           this.resMessage = res.message;
         }
+
+        setTimeout(() => {
+          this.isVisibleLoading = false;
+        }, 1800);
+
       });
-
-      this.dataSource.data = infoData;
-      this.displayedColumns = this.dataSource.data.length != 0 ? Object.keys(this.dataSource.data[0]) :
-        Object.keys(respTable).filter(c => this.isValidRol != true ? c != 'asignacion' : c);
-
-      if (!this.isValidRol) this.displayedColumns.push("Chat");
-
-      setTimeout(() => {
-        this.isVisibleLoading = false;
-      }, 1200);
-    })
   }
 }
