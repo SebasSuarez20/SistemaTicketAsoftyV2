@@ -20,6 +20,7 @@ export class HubConnectionService {
   public connectionStart(id: number) {
     this.connectionHub.start().then(() => {
       this.SignalRlistening(1);
+      this.invokeUpdate(id);
       this.test();
     }).catch(() => {
       console.error('Connection Error.');
