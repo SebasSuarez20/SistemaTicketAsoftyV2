@@ -250,3 +250,36 @@
   color: #999999;
   border-radius: 5px;
 }
+
+@keyframes blinkCursor {
+  50% {
+    border-right-color: transparent;
+  }
+}
+
+@keyframes typeAndDelete {
+  0%,
+  10% {
+    width: 0;
+  }
+  45%,
+  55% {
+    width: 20em;
+  }
+  90%,
+  100% {
+    width: 0;
+  }
+}
+
+
+.messageData {
+  padding: 0px 0px 0px 4px;
+    display: inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 0.2em solid #464d52; 
+    animation: typeAndDelete 8s steps(22) infinite,
+      blinkCursor 0.5s step-end infinite alternate;
+    margin-top: 1.5em;
+  }

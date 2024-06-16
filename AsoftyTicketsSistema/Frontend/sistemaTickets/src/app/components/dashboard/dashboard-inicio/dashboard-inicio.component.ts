@@ -11,15 +11,14 @@ import { ITicketMapAndSup } from 'src/app/Model/ITicketMapAndSup';
 import { HubConnectionService } from 'src/app/services/hub/hub-connection.service';
 import { ObserverService } from 'src/app/services/observer.service';
 import { Subscription } from 'rxjs';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-dashboard-inicio',
   templateUrl: './dashboard-inicio.component.html',
-  styleUrls: ['./dashboard-inicio.component.css']
+  styleUrls: ['./dashboard-inicio.component.css'],
 })
 export class DashboardInicioComponent implements OnInit, OnDestroy {
-
-
   public isVisible: boolean = false;
   public displayedColumns: string[] = [];
   public dataSource: MatTableDataSource<Partial<ITicketMapAndSup>>;
@@ -30,16 +29,24 @@ export class DashboardInicioComponent implements OnInit, OnDestroy {
   public suscription: Subscription;
   public strlUnique: string[] = [];
 
-  constructor(private codeGenericService: CodeGenService, private data_Service: LoginService,
-    public dialog: MatDialog, private idle: Idle, private cd: ChangeDetectorRef, private serviceHttp: TicketsServicesHttpService,
-    private hubConnection: HubConnectionService, private serviceObserver: ObserverService) {
+  constructor(
+    private codeGenericService: CodeGenService,
+    private data_Service: LoginService,
+    public dialog: MatDialog,
+    private idle: Idle,
+    private cd: ChangeDetectorRef,
+    private serviceHttp: TicketsServicesHttpService,
+    private hubConnection: HubConnectionService,
+    private serviceObserver: ObserverService
+  ) {
     this.dataSource = new MatTableDataSource();
     if (this.data_Service.dataLogged().rolCode === 1) this.isValidRol = true;
-    this.suscription = this.serviceObserver.getUniqueObservable().subscribe(() => {
-      this.GetAllMapAndSup();
-    });
+    this.suscription = this.serviceObserver
+      .getUniqueObservable()
+      .subscribe(() => {
+        this.GetAllMapAndSup();
+      });
   }
-
 
   ngOnInit(): void {
     this.codeGenStatus = this.codeGenericService.loadCode('Status');
@@ -51,7 +58,7 @@ export class DashboardInicioComponent implements OnInit, OnDestroy {
   }
 
   public OpenCreateTicket() {
-    this.dialog.open(TicketsComponent)
+    this.dialog.open(TicketsComponent);
   }
 
   private getStatusApp() {
@@ -59,55 +66,62 @@ export class DashboardInicioComponent implements OnInit, OnDestroy {
   }
 
   public UpdateItemTicket(event: any, data: ITicketMapAndSup, index: number) {
-
-    this.hubConnection.invokeSendMessageToClient(parseInt(event.target.value), this.resultUsername[index], data.no);
-
+    this.hubConnection.invokeSendMessageToClient(
+      parseInt(event.target.value),
+      this.resultUsername[index],
+      data.no
+    );
   }
 
   public navigateUrl(index: number) {
     console.log(this.strlUnique[index]);
   }
 
+  public resMessage: string;
+
   public GetAllMapAndSup() {
+    this.serviceHttp
+      .connectApiGet(`ticketssupport/GetAllMapAndSup`)
+      .then((res: any) => {
+        if (res.status == 200) {
+          let infoData: Partial<ITicketMapAndSup>[] = [];
+          this.strlUnique = [];
 
-    this.serviceHttp.connectApiGet(`ticketssupport/GetAllMapAndSup`).then((res: Partial<ITicketMapAndSup[]>) => {
+          let respTable: Partial<ITicketMapAndSup> = {
+            no: null,
+            aerea: '',
+            prioridad: '',
+            estado: '',
+            asignacion: null,
+            username: -1,
+          };
 
-      let infoData: Partial<ITicketMapAndSup>[] = [];
-      this.strlUnique = [];
+          res.data.forEach((e) => {
+            let element = { ...respTable };
+            element.no = e.no;
+            element.aerea = e.aerea;
+            element.estado = e.estado;
+            element.prioridad = e.prioridad;
+            element.asignacion = e.asignacion;
+            this.strlUnique.push(e.hasUnique);
+            if (element.asignacion == -1) delete element.asignacion;
+            if (this.isValid) this.resultUsername.push(e.username);
+            delete element.username;
+            infoData.push(element);
+          });
 
+          this.dataSource.data = infoData;
+          this.displayedColumns =
+            this.dataSource.data.length != 0
+              ? Object.keys(this.dataSource.data[0])
+              : Object.keys(respTable).filter((c) =>
+                  this.isValidRol != true ? c != 'asignacion' : c
+                );
 
-      let respTable: Partial<ITicketMapAndSup> = {
-        no: null,
-        aerea: '',
-        prioridad: '',
-        estado: '',
-        asignacion: null,
-        username: -1
-      };
-
-      res.forEach(e => {
-        let element = { ...respTable };
-        element.no = e.no;
-        element.aerea = e.aerea;
-        element.estado = e.estado;
-        element.prioridad = e.prioridad;
-        element.asignacion = e.asignacion;
-        this.strlUnique.push(e.hasUnique);
-        if (element.asignacion == -1) delete element.asignacion;
-        if (this.isValid) this.resultUsername.push(e.username);
-        delete element.username;
-        infoData.push(element);
+          if (!this.isValidRol) this.displayedColumns.push('Chat');
+        } else if (res.status == 404) {
+          this.resMessage = res.message;
+        }
       });
-
-
-      this.dataSource.data = infoData;
-      this.displayedColumns = this.dataSource.data.length != 0 ? Object.keys(this.dataSource.data[0]) :
-        Object.keys(respTable).filter(c => this.isValidRol != true ? c != 'asignacion' : c);
-
-      if (!this.isValidRol) this.displayedColumns.push("Chat");
-    })
   }
-
-
-
 }

@@ -88,19 +88,37 @@ namespace SistemaTickets.Services
         {
             try
             {
+
+                dynamic response = new ExpandoObject();
+
                 var respontForRol = await _dbHandlerTicketMapAndSupView.
                GetAllAsyncForAll((Rol == 2) ? s => s.AssignedTo == User :
                (Rol == 3) ? s => s.Username == User : null);
 
-                return respontForRol.Select(s => new
+                if (respontForRol.Any())
                 {
-                    No = s.Consecutive,
-                    Area = s.Area,
-                    Prioridad = s.Priority,
-                    Estado = s.Status,
-                    Asignacion = (Rol == 1) ? s.AssignedTo ?? 0 : -1,
-                    Username = s.Username
-                }).ToList();
+                    return new
+                    {
+                        status = 200,
+                        data = respontForRol.Select(s => new
+                        {
+                            No = s.Consecutive,
+                            Area = s.Area,
+                            Prioridad = s.Priority,
+                            Estado = s.Status,
+                            Asignacion = (Rol == 1) ? s.AssignedTo ?? 0 : -1,
+                            Username = s.Username
+                        }).ToList()
+                    };
+
+                }
+                else
+                {
+                    response.status = 404;
+                    response.message = "No tiene información en estos momentos...";
+                    return response;
+                   
+                }
             }catch(Exception ex)
             {
                 return ex.Message;
