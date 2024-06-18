@@ -87,8 +87,6 @@ namespace SistemaTickets.Repository
            
         }
 
-
-
         public async Task CreateAllAsync(T entity)
         {
             try
@@ -127,7 +125,7 @@ namespace SistemaTickets.Repository
                 exceptionFolder(ex,"InsertAsync");
             }
         }
-       
+      
         public  async Task UpdateAsyncAll(T entity, object _wh)
         {
 

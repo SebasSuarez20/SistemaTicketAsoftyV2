@@ -24,9 +24,9 @@ namespace SistemaTickets.Controllers
 
 
         [HttpGet("spExample")]
-        public Task<object> spExample()
+        public string spExample()
         {
-            return _service.spExample();
+            return _service.generate();
         }
 
 

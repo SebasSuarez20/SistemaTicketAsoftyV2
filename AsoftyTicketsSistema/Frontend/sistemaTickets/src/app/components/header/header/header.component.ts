@@ -45,12 +45,8 @@ export class HeaderComponent implements OnInit, OnDestroy {
     else if (this.role == 2) this.rol = "Soporte";
     else if (this.role == 3) this.rol = "Empresa";
 
-
-
-
-    console.log("Holis")
-    this.idle.setIdle(10 * 60 * 1000);  // Configura el tiempo de inactividad a 10 minutos (600,000 milisegundos)
-    this.idle.setTimeout(10 * 60 * 1000);  // Configura el tiempo de espera a 10 minutos (600,000 milisegundos)    
+    this.idle.setIdle(600);  // Configura el tiempo de inactividad a 5 minutos (300,000 milisegundos)
+    this.idle.setTimeout(5);  // Configura el tiempo de espera a 10 segundos (10,000 milisegundos)    
     this.idle.setInterrupts(DEFAULT_INTERRUPTSOURCES);
 
 
@@ -69,7 +65,6 @@ export class HeaderComponent implements OnInit, OnDestroy {
     });
 
     this.idle.onIdleStart.subscribe(() => {
-      console.log("Holis")
       Swal.fire({
         icon: 'warning',
         title: 'Atencion!!!',
@@ -95,6 +90,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.hubconnection.closeConnection();
+    this.idle.stop();
   }
 
 

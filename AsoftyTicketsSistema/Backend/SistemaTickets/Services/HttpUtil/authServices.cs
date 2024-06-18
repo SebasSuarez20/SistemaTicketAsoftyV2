@@ -1,4 +1,5 @@
 ﻿
+using QRCoder;
 using System.Security.Claims;
 
 namespace SistemaTickets.Services.Jwt
@@ -22,6 +23,19 @@ namespace SistemaTickets.Services.Jwt
         {
             var idHub = _context.HttpContext?.User?.FindFirst("miHub");
             return idHub.Value.ToString() ?? "-1";
+        }
+
+        public static string  generateCodeQr()
+        {
+
+            QRCodeGenerator qrGenerator = new QRCodeGenerator();
+            QRCodeData dataQr = qrGenerator.CreateQrCode("Hola stella", QRCodeGenerator.ECCLevel.Q);
+
+            PngByteQRCode imageQr = new PngByteQRCode(dataQr);
+            byte[] base64Qr = imageQr.GetGraphic(20);
+            string resultBase64 = Convert.ToBase64String(base64Qr);
+
+            return resultBase64;
         }
     }
 }
