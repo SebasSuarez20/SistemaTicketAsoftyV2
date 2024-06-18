@@ -36,7 +36,7 @@ import { ProfileInformationComponent } from './components/profile-information/pr
 import { NgIdleKeepaliveModule } from '@ng-idle/keepalive';
 import { NotFoundComponent } from './components/shared/404/not-found/not-found.component';
 import { MatTooltipModule } from '@angular/material/tooltip';
-
+import { EmployeeComponent } from './components/shared/Consult/employee/employee.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +49,8 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     ImagenPopupZoomComponent,
     AccessRolUserDirective,
     NotFoundComponent,
-    ProfileInformationComponent
+    ProfileInformationComponent,
+    EmployeeComponent
   ],
   imports: [
     BrowserModule,
