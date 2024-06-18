@@ -91,7 +91,7 @@ namespace SistemaTickets.Services
 
                 dynamic response = new ExpandoObject();
 
-                var taskForRol = await _dbHandlerTicketMapAndSupView.
+                var respontForRol = await _dbHandlerTicketMapAndSupView.
                GetAllAsyncForAll((Rol == 2) ? s => s.AssignedTo == User :
                (Rol == 3) ? s => s.Username == User : null);
 
@@ -100,7 +100,7 @@ namespace SistemaTickets.Services
                     return new
                     {
                         status = 200,
-                        data = taskForRol.Select(s => new
+                        data = respontForRol.Select(s => new
                         {
                             No = s.Consecutive,
                             Area = s.Area,
