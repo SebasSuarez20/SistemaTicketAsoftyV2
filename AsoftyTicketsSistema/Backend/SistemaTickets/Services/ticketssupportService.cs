@@ -88,6 +88,7 @@ namespace SistemaTickets.Services
         {
             try
             {
+
                 dynamic response = new ExpandoObject();
 
                 var respontForRol = await _dbHandlerTicketMapAndSupView.
@@ -105,7 +106,8 @@ namespace SistemaTickets.Services
                             Area = s.Area,
                             Prioridad = s.Priority,
                             Estado = s.Status,
-                            Asignacion = (Rol == 1) ? s.AssignedTo ?? 0 : -1,
+                            HasUnique = s.HasUnique,
+                    Asignacion = (Rol == 1) ? s.AssignedTo ?? 0 : -1,
                             Username = s.Username
                         }).ToList()
                     };

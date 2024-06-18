@@ -7,6 +7,7 @@
 
 .sidenav {
   width: 200px;
+  background-color: #7380ec;
 }
 
 .sidenav .mat-toolbar {
@@ -20,20 +21,22 @@
 }
 
 
-.icon_TicketsHome {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 46%;
-  margin-left: 36px;
-}
-
 .icon_Tickets {
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 57%;
+  margin-left: 24px;
+  color: #fff;
+}
+
+.icon_person {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 66%;
   margin-left: 28px;
+  color: #fff;
 }
 
 .bx_TicketsMenu {
@@ -48,7 +51,6 @@ mat-nav-list.mat-mdc-nav-list.mat-mdc-list-base.mdc-list.ng-tns-c31-1 {
   display: flex;
   flex-direction: column;
   height: auto;
-  margin-top: 22%;
 }
 
 .iconAvatar {
@@ -68,6 +70,7 @@ mat-nav-list.mat-mdc-nav-list.mat-mdc-list-base.mdc-list.ng-tns-c31-1 {
   font-size: 30px;
   color: #f5f5f5;
   margin-top: 2rem;
+  margin-bottom: 3rem;
 }
 
 .labelAvatar {
@@ -83,6 +86,7 @@ mat-nav-list.mat-mdc-nav-list.mat-mdc-list-base.mdc-list.ng-tns-c31-1 {
   justify-content: center;
   font-size: 13px;
   font-weight: 500;
+  color: #fff;
 }
 
 .iconAvatar img {
@@ -108,7 +112,7 @@ mat-nav-list.mat-mdc-nav-list.mat-mdc-list-base.mdc-list.ng-tns-c31-1 {
 .menu button {
   border: none;
   cursor: pointer;
-  color: rgb(153 153 153);
+  color: #fff;
 }
 
 .iconAvatar small {
@@ -120,7 +124,6 @@ mat-nav-list.mat-mdc-nav-list.mat-mdc-list-base.mdc-list.ng-tns-c31-1 {
 }
 
 .bx_img {
-  background-color: red;
   width: 52px;
   height: 50px;
   border-radius: 100%;
@@ -142,19 +145,18 @@ mat-nav-list.mat-mdc-nav-list.mat-mdc-list-base.mdc-list.ng-tns-c31-1 {
 
 .imgUser {
   display: flex;
-  /* width: 36%; */
   justify-content: space-between;
   align-items: center;
 }
 
 .userName {
-  color: black;
+  color: #fff;
   font-size: 13px;
   height: 13px;
 }
 
 .role {
-  color: black;
+  color: #fff;
   font-size: 11px;
   font-weight: 500;
 }
@@ -168,7 +170,6 @@ mat-nav-list.mat-mdc-nav-list.mat-mdc-list-base.mdc-list.ng-tns-c31-1 {
 }
 
 .userName_menu {
-  /* width: 28%; */
   display: flex;
   justify-content: space-evenly;
   align-items: center;
@@ -178,5 +179,7 @@ mat-nav-list.mat-mdc-nav-list.mat-mdc-list-base.mdc-list.ng-tns-c31-1 {
   font-size: 2px;
 }
 
-
-
+mat-toolbar {
+  background-color: #7380ec;
+  color: #fff;
+}
