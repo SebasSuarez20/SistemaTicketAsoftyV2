@@ -9,7 +9,7 @@
     font-family: 'Poppins', sans-serif;
 }
 
-.bx_body {
+/* .bx_body {
     height: auto;
     border-radius: 8px;
     display: flex;
@@ -18,7 +18,8 @@
     padding: 20px;
     background-color: #fff;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 10px 0 rgba(0, 0, 0, 0.19);
-}
+} */
+
 
 .bx_img {
     width: 151px;
@@ -39,26 +40,25 @@
 }
 
 .bx_camp {
-    width: 72%;
     margin-top: 3rem;
 }
 
 .bx_divInput {
     display: flex;
     justify-content: space-around;
+    margin-bottom: 1rem;
 }
 
 .bx_inpLab {
     display: flex;
     flex-direction: column;
-    width: 38%;
+    width: 22%;
     margin-bottom: 1rem;
 }
 
 .bx_btn {
     display: flex;
-    justify-content: end;
-    width: 94%;
+    justify-content: center;
 }
 
 .bx_btn button {
@@ -66,8 +66,22 @@
     border-radius: 5px;
     color: #fff;
     font-weight: bold;
-    background-color: #9b9a9a;
+    background-color: #257cc8;
     width: 80px;
     height: 24px;
     cursor: pointer;
+}
+
+.bx_inpLab input {
+    height: 24px;
+    color: grey;
+    border: 1px solid grey;
+    border-radius: 5px;
+}
+
+.bx_inpLab select {
+    height: 27px;
+    color: grey;
+    border: 1px solid grey;
+    border-radius: 5px;
 }

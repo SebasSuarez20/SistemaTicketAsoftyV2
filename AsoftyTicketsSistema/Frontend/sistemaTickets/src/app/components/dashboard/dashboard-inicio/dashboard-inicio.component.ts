@@ -50,16 +50,9 @@ export class DashboardInicioComponent implements OnInit, OnDestroy {
   public isVisibleLoading: boolean = true;
   public resMessage: string;
 
-  constructor(
-    private codeGenericService: CodeGenService,
-    private data_Service: LoginService,
-    public dialog: MatDialog,
-    private idle: Idle,
-    private cd: ChangeDetectorRef,
-    private serviceHttp: TicketsServicesHttpService,
-    private hubConnection: HubConnectionService,
-    private serviceObserver: ObserverService
-  ) {
+  constructor(private codeGenericService: CodeGenService, private data_Service: LoginService,
+    public dialog: MatDialog, private idle: Idle, private cd: ChangeDetectorRef, private serviceHttp: TicketsServicesHttpService,
+    private hubConnection: HubConnectionService, private serviceObserver: ObserverService) {
     this.dataSource = new MatTableDataSource();
     if (this.data_Service.dataLogged().rolCode === 1) this.isValidRol = true;
     this.suscription = this.serviceObserver
@@ -147,6 +140,7 @@ export class DashboardInicioComponent implements OnInit, OnDestroy {
               );
 
           if (!this.isValidRol) this.displayedColumns.push('Chat');
+          
         } else if (res.status == 404) {
           this.resMessage = res.message;
         }

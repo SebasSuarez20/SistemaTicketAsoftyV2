@@ -7,7 +7,7 @@
     <div class="container_bx">
       <div class="bx_Avatar">
         <div class="iconAvatar"
-          [ngStyle]="{'background': this.photoProfile!='' ? '#ffff' : 'linear-gradient(to right, #25e7ad, #116466)'}">
+          [ngStyle]="{'background': this.photoProfile!='' ? '#ffff' : 'linear-gradient(to right, rgb(113 95 255), rgb(84 111 255))'}">
           <ng-container *ngIf="this.photoProfile!='';else templateNotImage">
             <img src="http://localhost:2024/files/{{this.photoProfile}}" alt="user">
           </ng-container>
@@ -16,14 +16,14 @@
           </ng-template>
         </div>
         <div class="labelAvatar">
-          <small style="color: black;">{{this.nameUser}}</small>
+          <small>{{this.nameUser}}</small>
         </div>
       </div>
 
       <div class="container_MenuTickets">
         <mat-nav-list>
           <mat-list-item [routerLink]="'c751439d0db3883ac1c8e816327adcab'">
-            <div class="icon_TicketsHome">
+            <div class="icon_Tickets">
               <mat-icon>receipt</mat-icon>
               <span>Tickets</span>
             </div>
@@ -34,9 +34,10 @@
 
       <div class="container_MenuTickets">
         <mat-nav-list>
-          <mat-list-item routerLink="/ProfileInformation">
-            <div class="icon_TicketsHome">
-              <span>User</span>
+          <mat-list-item [routerLink]="'14014e6a570327892015d91391f0756bc8c84d3594c867af4cefb5a7e9fb4eac'">
+            <div class="icon_person">
+              <mat-icon>person</mat-icon>
+              <span>Empleado</span>
             </div>
           </mat-list-item>
 
@@ -64,7 +65,7 @@
         <div class="userName_menu">
           <div class="imgUser">
             <div class="bx_img"
-              [ngStyle]="{'background': this.photoProfile!='' ? '#ffff' : 'linear-gradient(to right, #25e7ad, #116466)'}">
+              [ngStyle]="{'background': this.photoProfile!='' ? '#ffff' : 'linear-gradient(to right, rgb(113 95 255), rgb(84 111 255))'}">
               <ng-container *ngIf="this.photoProfile!='';else templateNotImage">
                 <img src="http://localhost:2024/files/{{this.photoProfile}}" alt="user">
               </ng-container>
