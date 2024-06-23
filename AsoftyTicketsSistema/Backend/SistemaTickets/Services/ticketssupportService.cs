@@ -26,8 +26,8 @@ namespace SistemaTickets.Services
              _config = config;
             _dbHandlerconsecTicket = dbHandlerconsecTicket;
             _dbHandlerTicketMapAndSupView = dbHandlerTicketMapAndSupView;
-            Rol = authService.GetRoleUser(Icontext);
-            User = int.Parse(authService.GetUserName(Icontext));
+            Rol = authorizeServices.GetRoleUser(Icontext);
+            User = int.Parse(authorizeServices.GetUserName(Icontext));
         }
 
         public async Task<object> createTickets(createTicketModel model)

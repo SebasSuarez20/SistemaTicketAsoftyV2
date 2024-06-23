@@ -21,13 +21,13 @@ CREATE VIEW TicketMapAndSupView AS
     WHEN "InProgress" THEN "En Proceso"
     END) AS Status,
 	ts.AssignedTo, 
-    thm.HasUnique,
+    ch.HasUnique,
     ts.Enabled,
     ts.Username
 FROM ticketssupport ts
-LEFT JOIN tickethasmapping thm ON
-	ts.Consecutive = thm.Consecutive 
-    AND thm.Enabled = TRUE
+LEFT JOIN chatOfMapping ch ON
+	ch.Consecutive  = ts.Consecutive
+    AND ch.Enabled = TRUE
 WHERE ts.Enabled = TRUE AND (ts.Status<>"Close" AND ts.Status<>"Result")
-GROUP BY ts.Consecutive,thm.HasUnique
+GROUP BY ts.Consecutive,ch.HasUnique
 ORDER BY ts.Consecutive;

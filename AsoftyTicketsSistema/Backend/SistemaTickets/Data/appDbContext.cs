@@ -13,7 +13,6 @@ namespace SistemaTickets.Data
         public DbSet<consecticketview> consecticketview { get; set; }
         public DbSet<TicketMapAndSupView> TicketMapAndSupView { get; set; }
         public DbSet<codeGeneric> CodeGeneric { get; set; }
-
         public DbSet<ticketSupportViewChats> ticketSupportViewChats { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

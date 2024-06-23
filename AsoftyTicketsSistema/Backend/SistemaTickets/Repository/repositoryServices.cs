@@ -23,8 +23,8 @@ namespace SistemaTickets.Repository
         {
             Icontext = _Icontext;
             _context = context;
-            this.userName = authService.GetUserName(Icontext);
-            this.rol = authService.GetRoleUser(Icontext);
+            this.userName = authorizeServices.GetUserName(Icontext);
+            this.rol = authorizeServices.GetRoleUser(Icontext);
         }
 
         protected DbSet<T> entitySet => _context.Set<T>();
@@ -87,8 +87,6 @@ namespace SistemaTickets.Repository
            
         }
 
-
-
         public async Task CreateAllAsync(T entity)
         {
             try
@@ -127,7 +125,7 @@ namespace SistemaTickets.Repository
                 exceptionFolder(ex,"InsertAsync");
             }
         }
-       
+      
         public  async Task UpdateAsyncAll(T entity, object _wh)
         {
 

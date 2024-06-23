@@ -3,7 +3,7 @@ import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
 import { LoginService } from 'src/app/services/login.service';
-import { AccessRolUserDirective } from 'src/app/directive/access-rol-user.directive';
+import { AccessRolUserDirective } from 'src/app/Directive/access-rol-user.directive';
 import { Router } from '@angular/router';
 import { DEFAULT_INTERRUPTSOURCES, Idle } from '@ng-idle/core';
 import Swal from 'sweetalert2';
@@ -41,16 +41,13 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
 
     this.role = this.data_Service.dataLogged().rolCode;
+
     if (this.role == 1) this.rol = "Administrador";
     else if (this.role == 2) this.rol = "Soporte";
     else if (this.role == 3) this.rol = "Empresa";
 
-
-
-
-    console.log("Holis")
-    this.idle.setIdle(10 * 60 * 1000);  // Configura el tiempo de inactividad a 10 minutos (600,000 milisegundos)
-    this.idle.setTimeout(10 * 60 * 1000);  // Configura el tiempo de espera a 10 minutos (600,000 milisegundos)    
+    this.idle.setIdle(600);
+    this.idle.setTimeout(5);
     this.idle.setInterrupts(DEFAULT_INTERRUPTSOURCES);
 
 
@@ -69,7 +66,6 @@ export class HeaderComponent implements OnInit, OnDestroy {
     });
 
     this.idle.onIdleStart.subscribe(() => {
-      console.log("Holis")
       Swal.fire({
         icon: 'warning',
         title: 'Atencion!!!',
@@ -81,7 +77,6 @@ export class HeaderComponent implements OnInit, OnDestroy {
         showConfirmButton: false
       })
     });
-
 
     setTimeout(() => {
       this.hubconnection.connectionStart(this.data_Service.dataLogged().idControl);
@@ -95,14 +90,18 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.hubconnection.closeConnection();
+    this.idle.stop();
   }
 
 
   public signIn() {
     this.data_Service.closeSession();
-    let routstrl = `/${this.encryptService.Getencryption('login')}`;
+    let routstrl = `/${this.encryptService.getEncryption('login')}`;
     this.router.navigateByUrl(routstrl);
   }
+
+
+
 
 
 
