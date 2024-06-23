@@ -26,8 +26,8 @@ CREATE TABLE ticketssupport (
     Title VARCHAR(255) NOT NULL,
     Description TEXT NOT NULL,
     Aerea VARCHAR(20) NOT NULL,
-    Status ENUM("Open","InProgres","Result","Close") NOT NULL,
-    Priority ENUM('S', 'M', 'L') NOT NULL,
+    Status ENUM('1','2','3','4') NOT NULL COMMENT "Open,InProgress,Result,Close",
+    Priority ENUM('1', '2', '3') NOT NULL COMMENT "S,M,L",
     PhotoDescription VARCHAR(255) NULL,
     AssignedTo INT NULL,
 	RegistrationDate DATETIME DEFAULT CURRENT_TIMESTAMP,
@@ -48,7 +48,7 @@ ADD INDEX idx_priority (Priority);
 
 
 
-CREATE TABLE ticketHasMapping (
+CREATE TABLE chatOfMapping (
     Idcontrol INT NOT NULL AUTO_INCREMENT,
     Consecutive INT NOT NULL,
     HasUnique VARCHAR(35) NOT NULL,

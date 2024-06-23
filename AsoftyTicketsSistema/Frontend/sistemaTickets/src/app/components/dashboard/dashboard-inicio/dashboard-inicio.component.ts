@@ -93,10 +93,6 @@ export class DashboardInicioComponent implements OnInit, OnDestroy {
     this.dialog.open(TicketsComponent);
   }
 
-  private getStatusApp() {
-    this.idle.watch();
-  }
-
   public async UpdateItemTicket(event: any, data: ITicketMapAndSup, index: number) {
 
     this.hubConnection.invokeSendMessageToClient(parseInt(event.target.value), this.resultUsername[index], data.no);

@@ -36,7 +36,7 @@ export class LoginComponent implements OnInit {
         this.toast.successMessage(res.message, ' Felicidades!!! ').then(() => {
           sessionStorage.setItem('_data', JSON.stringify(res));
           sessionStorage.setItem('token', res.token);
-          this.router.navigateByUrl(`/${this.encryptService.Getencryption("Ticket")}`);
+          this.router.navigateByUrl(`/${this.encryptService.getEncryption("Ticket")}`);
         })
       } else {
         Swal.fire({

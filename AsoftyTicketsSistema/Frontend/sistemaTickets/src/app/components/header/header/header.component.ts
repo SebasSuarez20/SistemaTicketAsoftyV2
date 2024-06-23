@@ -3,7 +3,7 @@ import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
 import { LoginService } from 'src/app/services/login.service';
-import { AccessRolUserDirective } from 'src/app/directive/access-rol-user.directive';
+import { AccessRolUserDirective } from 'src/app/Directive/access-rol-user.directive';
 import { Router } from '@angular/router';
 import { DEFAULT_INTERRUPTSOURCES, Idle } from '@ng-idle/core';
 import Swal from 'sweetalert2';
@@ -41,12 +41,13 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
 
     this.role = this.data_Service.dataLogged().rolCode;
+
     if (this.role == 1) this.rol = "Administrador";
     else if (this.role == 2) this.rol = "Soporte";
     else if (this.role == 3) this.rol = "Empresa";
 
-    this.idle.setIdle(600);  // Configura el tiempo de inactividad a 5 minutos (300,000 milisegundos)
-    this.idle.setTimeout(5);  // Configura el tiempo de espera a 10 segundos (10,000 milisegundos)    
+    this.idle.setIdle(600);
+    this.idle.setTimeout(5);
     this.idle.setInterrupts(DEFAULT_INTERRUPTSOURCES);
 
 
@@ -77,7 +78,6 @@ export class HeaderComponent implements OnInit, OnDestroy {
       })
     });
 
-
     setTimeout(() => {
       this.hubconnection.connectionStart(this.data_Service.dataLogged().idControl);
     }, 1000);
@@ -96,9 +96,12 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   public signIn() {
     this.data_Service.closeSession();
-    let routstrl = `/${this.encryptService.Getencryption('login')}`;
+    let routstrl = `/${this.encryptService.getEncryption('login')}`;
     this.router.navigateByUrl(routstrl);
   }
+
+
+
 
 
 

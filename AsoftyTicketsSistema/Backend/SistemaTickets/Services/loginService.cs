@@ -81,9 +81,6 @@ namespace SistemaTickets.Services
 
         }
 
-        public string generate()
-        {
-            return authService.generateCodeQr();
-        }
+   
     }
 }

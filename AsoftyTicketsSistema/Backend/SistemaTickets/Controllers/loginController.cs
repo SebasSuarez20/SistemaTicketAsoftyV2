@@ -22,13 +22,5 @@ namespace SistemaTickets.Controllers
             return _service.authLoginSupport(user, pswd);
         }
 
-
-        [HttpGet("spExample")]
-        public string spExample()
-        {
-            return _service.generate();
-        }
-
-
     }
 }
