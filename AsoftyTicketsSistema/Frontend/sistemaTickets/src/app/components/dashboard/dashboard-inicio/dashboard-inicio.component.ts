@@ -65,9 +65,7 @@ export class DashboardInicioComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.codeGenStatus = this.codeGenericService.loadCode('Status');
 
-    setTimeout(() => {
-      this.triggerVisiblity();
-    }, 2250);
+
   }
 
 
@@ -88,10 +86,6 @@ export class DashboardInicioComponent implements OnInit, OnDestroy {
     this.dialog.open(TicketsComponent);
   }
 
-  private getStatusApp() {
-    this.idle.watch();
-  }
-
   public async UpdateItemTicket(event: any, data: ITicketMapAndSup, index: number) {
 
     this.hubConnection.invokeSendMessageToClient(parseInt(event.target.value), this.resultUsername[index], data.no);
@@ -104,6 +98,9 @@ export class DashboardInicioComponent implements OnInit, OnDestroy {
 
 
   public GetAllMapAndSup() {
+
+
+
     this.serviceHttp
       .connectApiGet(`ticketssupport/GetAllMapAndSup`)
       .then((res: any) => {
@@ -150,8 +147,12 @@ export class DashboardInicioComponent implements OnInit, OnDestroy {
 
         setTimeout(() => {
           this.isVisibleLoading = false;
-        }, 1800);
+        }, 880);
 
+      }).then(() => {
+        setTimeout(() => {
+          this.triggerVisiblity();
+        }, 1000);
       });
   }
 }

@@ -6,6 +6,7 @@ using System.Text;
 using System.IdentityModel.Tokens.Jwt;
 using System.Dynamic;
 using SistemaTickets.Model.View;
+using SistemaTickets.Services.Jwt;
 
 namespace SistemaTickets.Services
 {
@@ -80,11 +81,6 @@ namespace SistemaTickets.Services
 
         }
 
-        public async Task<object> spExample()
-        {
-            ticketSupportViewChats instance = new ticketSupportViewChats();
-            instance.Consecutive = 1;
-            return await _db.GetAllAsyncSp("GetChatsForConsecutive", instance);
-        }
+   
     }
 }

@@ -2,8 +2,9 @@
 *.dll
 *.exe
 *.pdb
-
+*.csproj
 # Ignorar archivos de salida del compilador
 bin/
 obj/
-
+# Ignorar node_modules
+node_modules/

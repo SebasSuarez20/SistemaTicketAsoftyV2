@@ -30,7 +30,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatDialogModule } from '@angular/material/dialog';
 import { ImagenPopupZoomComponent } from './components/tickets/popupImage/imagen-popup-zoom/imagen-popup-zoom.component';
-import { AccessRolUserDirective } from './directive/access-rol-user.directive';
+import { AccessRolUserDirective } from './Directive/access-rol-user.directive';
 import { ToastrModule } from "ngx-toastr";
 import { ProfileInformationComponent } from './components/profile-information/profile-information.component';
 import { NgIdleKeepaliveModule } from '@ng-idle/keepalive';

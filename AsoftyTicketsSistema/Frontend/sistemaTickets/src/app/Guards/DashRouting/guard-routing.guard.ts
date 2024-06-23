@@ -13,7 +13,7 @@ export class GuardRoutingGuard implements CanActivate {
 
   canActivate(): boolean {
     if (this.logged.loggedSystem()) return true;
-    let routstrl = `/${this.encryptService.Getencryption('login')}`;
+    let routstrl = `/${this.encryptService.getEncryption('login')}`;
     this.router.navigateByUrl(routstrl);
     return false;
   }

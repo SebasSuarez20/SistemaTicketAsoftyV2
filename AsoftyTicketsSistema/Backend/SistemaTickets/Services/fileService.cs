@@ -19,7 +19,7 @@ namespace SistemaTickets.Services
             _configuration = configuration;
             _dbHandlerUser = dbHandlerUser;
             Icontext = icontext;
-            user = authService.GetUserName(Icontext);
+            user = authorizeServices.GetUserName(Icontext);
         }
 
         public async Task<object> createFile(IFormFile file)

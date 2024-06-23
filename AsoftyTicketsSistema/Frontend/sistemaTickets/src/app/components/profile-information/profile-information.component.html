@@ -1,9 +1,9 @@
 <div class="container">
     <div class="bx_body">
         <div class="bx_conta">
-            <div class="bx_img">
-                <img src="../../../assets/img/test.jpg" alt="">
-            </div>
+
+            <img [src]="'data:image/png;base64,' + resultCode">
+
             <div class="bx_camp">
 
                 <div class="bx_divInput">
@@ -91,9 +91,8 @@
                         <input type="email">
                     </div>
                 </div>
-                
                 <div class="bx_btn">
-                    <button>Guardar</button>
+                    <button (click)="this.createCodeQr()">Save</button>
                 </div>
             </div>
         </div>
