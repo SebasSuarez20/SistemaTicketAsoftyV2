@@ -37,6 +37,7 @@ import { NgIdleKeepaliveModule } from '@ng-idle/keepalive';
 import { NotFoundComponent } from './components/shared/404/not-found/not-found.component';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { EmployeeComponent } from './components/shared/Consult/employee/employee.component';
+import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 
 @NgModule({
   declarations: [
@@ -82,7 +83,9 @@ import { EmployeeComponent } from './components/shared/Consult/employee/employee
       positionClass: 'toast-top-center' // Esta línea establece la posición en la parte inferior derecha
     }),
     NgIdleKeepaliveModule,
-    MatTooltipModule
+    MatTooltipModule,
+    MatPaginatorModule
+
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorInterceptor, multi: true },

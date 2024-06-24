@@ -17,8 +17,8 @@ CREATE VIEW TicketMapAndSupView AS
 	ts.Aerea AS Area,
     ts.Priority AS Priority,
     (CASE ts.Status 
-    WHEN "Open" THEN "Abierto"
-    WHEN "InProgress" THEN "En Proceso"
+    WHEN 1 THEN "Abierto"
+    WHEN 2 THEN "En Proceso"
     END) AS Status,
 	ts.AssignedTo, 
     ch.HasUnique,

@@ -24,17 +24,14 @@ export class HeaderComponent implements OnInit, OnDestroy {
   public photoProfile: string = '';
   public role: number;
   public rol: string = ""
+  public MONTH: string[] = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio",
+    "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
+  public date: Date;
 
-
-  isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.XSmall)
-    .pipe(
-      map(result => result.matches),
-      shareReplay()
-    );
 
   constructor(private breakpointObserver: BreakpointObserver, private data_Service: LoginService, private router: Router, private idle: Idle, private cd: ChangeDetectorRef,
     public dialog: MatDialog, private toast: LibraryMessageService, private hubconnection: HubConnectionService, public encryptService: DataEncryptionService) {
-
+    this.date = new Date();
     this.nameUser = `${this.data_Service.dataLogged()?.nameUser ?? ""} ${this.data_Service.dataLogged()?.surName ?? ""}`;
     this.photoProfile = this.data_Service.dataLogged()?.photo ?? "";
 
@@ -83,8 +80,13 @@ export class HeaderComponent implements OnInit, OnDestroy {
     }, 1000);
   }
 
+  public validatorActive?: number;
+
   ngOnInit(): void {
     this.idle.watch();
+    this.effectDashboard();
+    this.validatorActive = 2;
+    document.body.classList.toggle(this.validatorActive % 2 != 0 ? 'white-theme-variables' : 'dark-theme-variables');
   }
 
 
@@ -93,11 +95,49 @@ export class HeaderComponent implements OnInit, OnDestroy {
     this.idle.stop();
   }
 
+  public effectDashboard() {
+    const sideMenu = document.querySelector("aside")
+    const menuBtn = document.querySelector("#menu-btn")
+    const closeBtn = document.querySelector("#close-btn")
+    const themeThoggler = document.querySelector(".theme-toggler")
+
+    //show sidebar
+    menuBtn.addEventListener('click', () => {
+      sideMenu.style.display = 'block'
+    })
+
+    //Close sidebar
+    closeBtn.addEventListener('click', () => {
+      sideMenu.style.display = 'none'
+    })
+
+    //change theme
+    themeThoggler.addEventListener('click', () => {
+      document.body.classList.toggle('white-theme-variables');
+
+      themeThoggler.querySelector('span:nth-child(1)').classList.toggle('active');
+      themeThoggler.querySelector('span:nth-child(2)').classList.toggle('active');
+    })
+
+  }
 
   public signIn() {
-    this.data_Service.closeSession();
-    let routstrl = `/${this.encryptService.getEncryption('login')}`;
-    this.router.navigateByUrl(routstrl);
+
+    Swal.fire({
+      title: '¿Esta seguro de cerrar sesion?',
+      icon: 'info',
+      toast: true,
+      showCancelButton: true,
+      showConfirmButton: true
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.data_Service.closeSession();
+        let routstrl = `/${this.encryptService.getEncryption('login')}`;
+        this.router.navigateByUrl(routstrl);
+      }
+    })
+
+
   }
 
 

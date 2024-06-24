@@ -13,8 +13,10 @@ export class NotFoundComponent {
     Swal.fire({
       icon: 'error',
       text: 'Error: no se encontro ruta elegida.',
-      timer: 2200,
+      timer: 600,
       timerProgressBar: true,
+      showCancelButton: false,
+      showConfirmButton: false,
       toast: true
     }).then(() => {
       this.router.navigateByUrl("/c751439d0db3883ac1c8e816327adcab");

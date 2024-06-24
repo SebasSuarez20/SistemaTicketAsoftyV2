@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
+import { AfterViewInit, ChangeDetectorRef, Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { CodeGenService } from 'src/app/services/code-gen.service';
 import { ICodeGen } from 'src/app/Model/ICodeGen';
 import { MatDialog } from '@angular/material/dialog';
@@ -13,6 +13,8 @@ import { ObserverService } from 'src/app/services/observer.service';
 import { Subscription } from 'rxjs';
 import Swal from 'sweetalert2';
 import { trigger, state, style, transition, animate } from "@angular/animations";
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
 
 @Component({
   selector: 'app-dashboard-inicio',
@@ -35,7 +37,7 @@ import { trigger, state, style, transition, animate } from "@angular/animations"
     ])
   ]
 })
-export class DashboardInicioComponent implements OnInit, OnDestroy {
+export class DashboardInicioComponent implements OnInit, OnDestroy, AfterViewInit {
 
   public isVisible: boolean = false;
   public displayedColumns: string[] = [];
@@ -49,6 +51,9 @@ export class DashboardInicioComponent implements OnInit, OnDestroy {
   public StatusVisible: string = 'NotVisible';
   public isVisibleLoading: boolean = true;
   public resMessage: string;
+
+  @ViewChild(MatPaginator) paginator: MatPaginator;
+  @ViewChild(MatSort) sort: MatSort;
 
   constructor(private codeGenericService: CodeGenService, private data_Service: LoginService,
     public dialog: MatDialog, private idle: Idle, private cd: ChangeDetectorRef, private serviceHttp: TicketsServicesHttpService,
@@ -64,10 +69,12 @@ export class DashboardInicioComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.codeGenStatus = this.codeGenericService.loadCode('Status');
-
-
   }
 
+  ngAfterViewInit(): void {
+    this.dataSource.paginator = this.paginator;
+    this.dataSource.sort = this.sort;
+  }
 
   ngOnDestroy(): void {
     this.suscription.unsubscribe();
@@ -88,7 +95,7 @@ export class DashboardInicioComponent implements OnInit, OnDestroy {
 
   public async UpdateItemTicket(event: any, data: ITicketMapAndSup, index: number) {
 
-    this.hubConnection.invokeSendMessageToClient(parseInt(event.target.value), this.resultUsername[index], data.no);
+    this.hubConnection.invokeSendMessageToClient(parseInt(event.target.value), this.resultUsername[index], data['n.ticket']);
 
   }
 
@@ -100,7 +107,6 @@ export class DashboardInicioComponent implements OnInit, OnDestroy {
   public GetAllMapAndSup() {
 
 
-
     this.serviceHttp
       .connectApiGet(`ticketssupport/GetAllMapAndSup`)
       .then((res: any) => {
@@ -109,8 +115,8 @@ export class DashboardInicioComponent implements OnInit, OnDestroy {
           this.strlUnique = [];
 
           let respTable: Partial<ITicketMapAndSup> = {
-            no: null,
-            aerea: '',
+            "n.ticket": null,
+            area: '',
             prioridad: '',
             estado: '',
             asignacion: null,
@@ -119,8 +125,8 @@ export class DashboardInicioComponent implements OnInit, OnDestroy {
 
           res.data.forEach((e) => {
             let element = { ...respTable };
-            element.no = e.no;
-            element.aerea = e.aerea;
+            element['n.ticket'] = e.no;
+            element.area = e.area;
             element.estado = e.estado;
             element.prioridad = e.prioridad;
             element.asignacion = e.asignacion;
@@ -140,7 +146,7 @@ export class DashboardInicioComponent implements OnInit, OnDestroy {
               );
 
           if (!this.isValidRol) this.displayedColumns.push('Chat');
-          
+
         } else if (res.status == 404) {
           this.resMessage = res.message;
         }
