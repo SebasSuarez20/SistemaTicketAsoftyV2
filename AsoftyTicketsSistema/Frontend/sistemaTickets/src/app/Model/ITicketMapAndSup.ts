@@ -1,6 +1,6 @@
 export interface ITicketMapAndSup {
-  no: number | null;
-  aerea: string;
+  "n.ticket": number | null;
+  area: string;
   prioridad: string;
   estado: string;
   hasUnique: string;

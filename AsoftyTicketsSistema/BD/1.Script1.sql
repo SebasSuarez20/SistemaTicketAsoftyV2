@@ -12,6 +12,7 @@ CREATE TABLE Users(
      Email VARCHAR(80) NOT NULL,
      RegistrationDate DATETIME DEFAULT CURRENT_TIMESTAMP,
      PhotoPerfil VARCHAR(255) NULL,
+     themeColor BOOL NOT NULL DEFAULT FALSE,
 	 Enabled BOOl NOT NULL DEFAULT TRUE,
      RoleCode INT NOT NULL,
      hasConnection VARCHAR(50) NULL,

@@ -15,8 +15,11 @@ namespace SistemaTickets.Model
           public string? Password { get; set; } 
           public string? Email { get;set; }
           public string? HasConnection { get; set; }
+          [Column]
+          public int? themeColor { get; set; } 
           public int? RoleCode { get; set; }
           [Column]
           public int? Enabled { get;  set; }
+
     }
 }

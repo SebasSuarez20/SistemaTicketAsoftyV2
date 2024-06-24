@@ -11,5 +11,7 @@ namespace SistemaTickets.Services
         public Task<IEnumerable<T>> GetAllAsyncSp(string nameSp,T e);
         public Task CreateAllAsync(T entity);
         public Task UpdateAsyncAll(T entity, object _wh);
+        
+        public Task<int>? UpdateForField(string field, object value);
     }
 }

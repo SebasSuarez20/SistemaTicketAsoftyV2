@@ -4,7 +4,7 @@ BEFORE UPDATE ON ticketssupport
 FOR EACH ROW
 BEGIN
 
-    SET @ConsHas  = (SELECT COALESCE(Consecutive, '') FROM tickethasmapping tkh 
+    SET @ConsHas  = (SELECT COALESCE(Consecutive, '') FROM chatOfMapping tkh 
     WHERE tkh.Consecutive = NEW.Consecutive AND tkh.Enabled = TRUE);
 
     IF @ConsHas IS NULL THEN  

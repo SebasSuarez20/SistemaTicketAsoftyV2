@@ -169,114 +169,113 @@
 
 <h1>DashBoard</h1>
 <div class="insights">
-    <div class="sales">
-        <span class="material-symbols-outlined">analytics</span>
-        <div class="middle">
-            <div class="lef">
-                <h3>Total Sales</h3>
-                <h1>$25,024</h1>
-            </div>
-            <div class="progress">
-              <svg>
-                <circle cx="38" cy="38" r="36"></circle>
-              </svg>
-              <div class="number">
-                <p>81%</p>
-              </div>
-            </div>
+  <div class="sales">
+    <span class="material-symbols-outlined">analytics</span>
+    <div class="middle">
+      <div class="lef">
+        <h3>Total Sales</h3>
+        <h1>$25,024</h1>
+      </div>
+      <div class="progress">
+        <svg>
+          <circle cx="38" cy="38" r="36"></circle>
+        </svg>
+        <div class="number">
+          <p>81%</p>
         </div>
-        <small class="text-muted">last 24 Haurs</small>
+      </div>
     </div>
-    <!------------------------------------ end of sale ------------------------------>
-    <div class="expenses">
-        <span class="material-symbols-outlined">bar_chart</span>
-        <div class="middle">
-            <div class="lef">
-                <h3>Total Expenses</h3>
-                <h1>$14,024</h1>
-            </div>
-            <div class="progress">
-              <svg>
-                <circle cx="38" cy="38" r="36"></circle>
-              </svg>
-              <div class="number">
-                <p>65%</p>
-              </div>
-            </div>
+    <small class="text-muted">last 24 Haurs</small>
+  </div>
+  <!------------------------------------ end of sale ------------------------------>
+  <div class="expenses">
+    <span class="material-symbols-outlined">bar_chart</span>
+    <div class="middle">
+      <div class="lef">
+        <h3>Total Expenses</h3>
+        <h1>$14,024</h1>
+      </div>
+      <div class="progress">
+        <svg>
+          <circle cx="38" cy="38" r="36"></circle>
+        </svg>
+        <div class="number">
+          <p>65%</p>
         </div>
-        <small class="text-muted">last 24 Haurs</small>
+      </div>
     </div>
-    <!------------------------------------ end of Expenses ------------------------------>
-    <div class="income">
-        <span class="material-symbols-outlined">stacked_line_chart</span>
-        <div class="middle">
-            <div class="lef">
-                <h3>Total Income</h3>
-                <h1>$10,864</h1>
-            </div>
-            <div class="progress">
-              <svg>
-                <circle cx="38" cy="38" r="36"></circle>
-              </svg>
-              <div class="number">
-                <p>44%</p>
-              </div>
-            </div>
+    <small class="text-muted">last 24 Haurs</small>
+  </div>
+  <!------------------------------------ end of Expenses ------------------------------>
+  <div class="income">
+    <span class="material-symbols-outlined">stacked_line_chart</span>
+    <div class="middle">
+      <div class="lef">
+        <h3>Total Income</h3>
+        <h1>$10,864</h1>
+      </div>
+      <div class="progress">
+        <svg>
+          <circle cx="38" cy="38" r="36"></circle>
+        </svg>
+        <div class="number">
+          <p>44%</p>
         </div>
-        <small class="text-muted">last 24 Haurs</small>
+      </div>
     </div>
-    <!------------------------------------ end of Income ------------------------------>
+    <small class="text-muted">last 24 Haurs</small>
+  </div>
+  <!------------------------------------ end of Income ------------------------------>
 </div>
 <!-- --------------------------end of insights------------------------- -->
- <div class="recent-order">
-    <h2>Recent Orders</h2>
-    <table>
-        <thead>
-            <tr>
-                <th>Product Name</th>
-                <th>Product Number</th>
-                <th>Payment</th>
-                <th>Status</th>
-                <th></th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>Foldable Mini Drone</td>
-                <td>85631</td>
-                <td>Due</td>
-                <td class="warning">Pending</td>
-                <td class="primary">Datails</td>
-            </tr>
-            <tr>
-                <td>Foldable Mini Drone</td>
-                <td>85631</td>
-                <td>Due</td>
-                <td class="warning">Pending</td>
-                <td class="primary">Datails</td>
-            </tr>
-            <tr>
-                <td>Foldable Mini Drone</td>
-                <td>85631</td>
-                <td>Due</td>
-                <td class="warning">Pending</td>
-                <td class="primary">Datails</td>
-            </tr>
-            <tr>
-                <td>Foldable Mini Drone</td>
-                <td>85631</td>
-                <td>Due</td>
-                <td class="warning">Pending</td>
-                <td class="primary">Datails</td>
-            </tr>
-            <tr>
-                <td>Foldable Mini Drone</td>
-                <td>85631</td>
-                <td>Due</td>
-                <td class="warning">Pending</td>
-                <td class="primary">Datails</td>
-            </tr>
-        </tbody>
-    </table>
-    <a href="#">Show all</a>
- </div>
+<div class="recent-order">
+  <h2>Detalles del sistema de gestión de tickets</h2>
+  <div class="btn_add" appAccessRolUser>
+    <button (click)="this.OpenCreateTicket()"><mat-icon>add</mat-icon></button>
+  </div>
+  <div class="table">
+    <mat-form-field>
+      <mat-label>Buscar</mat-label>
+      <input matInput placeholder="Buscar ticket" #input>
+    </mat-form-field>
+    <mat-table id="matTables" [dataSource]="dataSource" class="mat-elevation-z8 demo-table" matSort>
+      <ng-container *ngFor="let columns of displayedColumns">
+        <ng-container matColumnDef="{{columns}}" *ngIf="columns !='Chat' && columns!= 'asignacion'">
+          <th class="UniTh" mat-header-cell *matHeaderCellDef>{{columns | uppercase}}</th>
+          <td class="UniTd" mat-cell *matCellDef="let element">{{element[columns]}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="{{columns}}" *ngIf="columns=='asignacion'">
+          <th class="UniTh" mat-header-cell *matHeaderCellDef>{{columns | uppercase}}</th>
+          <td class="UniTd" mat-cell *matCellDef="let element; index as index">
+            <select style="text-align: center;" [value]="element[columns]"
+              (change)="this.UpdateItemTicket($event,element,index)">
+              <option value="0">No ha asignado</option>
+              <option value="1">Juan Sebastian</option>
+              <option value="2">Giovanny Vasquez</option>
+            </select>
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="{{columns}}" *ngIf="columns == 'Chat'">
+          <th class="UniTh" mat-header-cell *matHeaderCellDef>{{columns | uppercase}}</th>
+          <td class="UniTd" mat-cell *matCellDef="let element;index as index">
+            <button class="bx_btn">
+              <mat-icon (click)="this.navigateUrl(index)"
+                matTooltip="{{this.strlUnique[index] ? 'estamos disponibles para chatear.' : 'en este momento no estamos disponibles para chatear'}}"
+                [matTooltipPosition]="'left'"
+                [ngStyle]="{'color': this.strlUnique[index] ? '#93A0FF' : '#41f1b6'}">chat</mat-icon>
+            </button>
+          </td>
+        </ng-container>
+
+
+      </ng-container>
+
+      <tr class="UniTrD" mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr class="UniTrC" mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </mat-table>
+    <mat-paginator [pageSizeOptions]="[5]" aria-label="Select page of users"></mat-paginator>
+    <span class="messageData">{{this.resMessage}}</span>
+  </div>
+</div>

@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using MySqlX.XDevAPI.Common;
 using SistemaTickets.Data;
+using SistemaTickets.Model;
 using SistemaTickets.Services;
 using SistemaTickets.Services.Jwt;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -168,7 +169,7 @@ namespace SistemaTickets.Repository
 
                 string Sql = $"UPDATE {typeof(T).Name} SET {set_.Replace("''","null")}" +
                 $" WHERE {dictionayWh_.Select(s => $"{s.Key} = @{s.Key}").FirstOrDefault()}" +
-                $" AND Enabled = True;";
+                $" AND Enabled = TRUE;";
 
                 var paramsMysql = dictionayWh_.Select(s => new MySqlConnector.MySqlParameter(s.Key, s.Value)).ToArray();
 
@@ -176,6 +177,25 @@ namespace SistemaTickets.Repository
             }catch(Exception ex)
             {
                exceptionFolder(ex,"UpdateAsync");
+            }
+        }
+
+        public async Task<int>? UpdateForField(string field, object value)
+        {
+            string sql = $"UPDATE {typeof(T).Name} SET {field}='{value}' WHERE Idcontrol=@Idcontrol AND Enabled = TRUE;";
+
+            try{
+
+                var sqlParams = new MySqlConnector.MySqlParameter[]{
+                new MySqlConnector.MySqlParameter("@idControl",this.userName)
+            };
+
+                int response = await _context.Database.ExecuteSqlRawAsync(sql, sqlParams);
+                return response;
+            }catch(Exception ex)
+            {
+                exceptionFolder(ex, "UpdateForField");
+                return -1;
             }
         }
 
@@ -196,7 +216,7 @@ namespace SistemaTickets.Repository
             GC.SuppressFinalize(this);
         }
 
-        public  void exceptionFolder(Exception ex,string action)
+        public  void exceptionFolder(Exception ex,string method)
         {
             string folderPath = @"C:/Logs";
             DateTime today = DateTime.Now;
@@ -210,12 +230,12 @@ namespace SistemaTickets.Repository
  
             using (StreamWriter sw = new StreamWriter(logFilePath, append: true))
             {
-                sw.WriteLine($"{today} || ${ex.Message} || ${action}");
+                sw.WriteLine($"{today} || ${ex.Message} || ${method}");
                 sw.WriteLine();
                 sw.Close();
             }
         }
 
-       
+     
     }
 }
