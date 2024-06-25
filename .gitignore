@@ -1,0 +1,9 @@
+# Ignorar archivos binarios generados
+*.dll
+*.exe
+*.pdb
+# Ignorar archivos de salida del compilador
+bin/
+obj/
+# Ignorar node_modules
+node_modules/
