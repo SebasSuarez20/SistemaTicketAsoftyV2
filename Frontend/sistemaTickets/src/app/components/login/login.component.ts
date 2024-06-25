@@ -28,6 +28,7 @@ export class LoginComponent implements OnInit {
     this.router.navigateByUrl('/login');
   }
   ngOnInit(): void {
+    
   }
 
   public async accessLogin() {
