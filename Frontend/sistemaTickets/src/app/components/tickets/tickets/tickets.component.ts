@@ -87,7 +87,24 @@ export class TicketsComponent {
     if (pos === 1) this.imageZoom = this.imageFirst;
     if (pos === 2) this.imageZoom = this.imageSecond;
     if (pos === 3) this.imageZoom = this.imageThree;
-    this.isVisible = true;
+    this.openBase64(this.imageZoom);
+  }
+
+  public openBase64(plainText: string) {
+    const byteCharacters = atob(plainText.split(',')[1]);
+    const byteNumbers = new Array(byteCharacters.length);
+    for (let i = 0; i < byteCharacters.length; i++) {
+      byteNumbers[i] = byteCharacters.charCodeAt(i);
+    }
+    const byteArray = new Uint8Array(byteNumbers);
+    const blob = new Blob([byteArray], { type: 'image/png' });
+    // Crear una URL para el Blob y abrirla en una nueva pestaña
+    const blobUrl = URL.createObjectURL(blob);
+    window.open(blobUrl, '_blank');
+    // Para liberar recursos, revocamos la URL del Blob después de un tiempo
+    setTimeout(() => {
+      URL.revokeObjectURL(blobUrl);
+    }, 1000);
   }
 
   public async saveTickets() {
