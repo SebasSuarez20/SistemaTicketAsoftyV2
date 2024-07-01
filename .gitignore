@@ -2,7 +2,6 @@
 *.dll
 *.exe
 *.pdb
-*.csproj
 # Ignorar archivos de salida del compilador
 bin/
 obj/
