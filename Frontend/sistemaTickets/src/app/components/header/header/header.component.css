@@ -233,6 +233,7 @@ small {
   height: 2.8rem;
   border-radius: 50%;
   overflow: hidden;
+  text-align: center;
 }
 
 .text-muted {
@@ -302,6 +303,8 @@ aside .sidebar {
 
 aside h3 {
   font-weight: 500;
+  line-height: 20px;
+  margin-top: 16px;
 }
 
 aside .sidebar a {
@@ -833,4 +836,9 @@ main .recent-order a {
   .right .top button span {
       font-size: 2rem;
   }
+}
+
+/* ======================modificaciones miguel======================= */
+.info p {
+  margin: 0;
 }

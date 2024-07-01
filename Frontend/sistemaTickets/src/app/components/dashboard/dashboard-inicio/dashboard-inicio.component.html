@@ -229,15 +229,18 @@
 </div>
 <!-- --------------------------end of insights------------------------- -->
 <div class="recent-order">
-  <h2>Detalles del sistema de gestión de tickets</h2>
-  <div class="btn_add" appAccessRolUser>
-    <button (click)="this.OpenCreateTicket()"><mat-icon>add</mat-icon></button>
+  <div class="bx_btnH2">
+    <h2>Detalles del sistema de gestión de tickets</h2>
+    <div class="btn_add" appAccessRolUser>
+      <button (click)="this.OpenCreateTicket()"><mat-icon>add</mat-icon></button>
+    </div>
   </div>
   <div class="table">
-    <mat-form-field>
-      <mat-label>Buscar</mat-label>
-      <input matInput placeholder="Buscar ticket" #input>
-    </mat-form-field>
+    <form class="fromSearch">
+      <label class="labelSearch" for="search">Search</label>
+      <input required="" pattern=".*\S.*" type="search" class="inputSearch" id="search">
+      <span class="caret"></span>
+    </form>
     <mat-table id="matTables" [dataSource]="dataSource" class="mat-elevation-z8 demo-table" matSort>
       <ng-container *ngFor="let columns of displayedColumns">
         <ng-container matColumnDef="{{columns}}" *ngIf="columns !='Chat' && columns!= 'asignacion'">
