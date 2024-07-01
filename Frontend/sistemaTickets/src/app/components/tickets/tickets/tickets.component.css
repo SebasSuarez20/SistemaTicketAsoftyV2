@@ -1,10 +1,14 @@
 .container_inicio {
-    color: #7e8083;
+    color: var(--color-dark);
     width: 100%;
     margin-top: -6px;
     justify-content: center;
     float: right;
     font-family: 'Poppins', sans-serif;
+    background: var(--color-background);
+    padding: var(--card-padding);
+    box-shadow: var(--box-shadow);
+    transition: all 300ms ease;
 }
 
 .bx_inicio {
@@ -12,31 +16,351 @@
     border-radius: 8px;
     display: flex;
     flex-direction: column;
-    border: 1px solid #a4a4a4;
     padding: 20px;
+}
+
+.TitleH {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.TitleH h2 {
+    color: var(--color-dark);
+}
+
+.TitleH h5 {
+    color: var(--color-dark);
+}
+
+.TitleH hr {
+    width: 100%;
+    height: 0.1rem;
+    background: var(--color-dark);
+    margin-bottom: 1rem;
+}
+
+.bx_container {
+    display: flex;
+    justify-content: space-between;
+    width: 600px;
+}
+
+.bx_field {
+    width: 48%;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+}
+
+.bx_fieldDes {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.btn-ver {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    width: 100%;
+    height: 30px;
+    text-align: center;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.zoom {
+    width: 21%;
+    /* text-align: center; */
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+    cursor: pointer;
+    font-weight: bold;
+}
+
+/* .zoom:nth-child(1) {
+    width: 21%;
+    /* text-align: center; 
+    display: flex;
+    justify-content: center;
+    /* align-items: center; 
+    cursor: pointer;
+    font-weight: bold;
+}
+
+/*.zoom:nth-child(2) {
+    width: 5%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    position: relative;
+    left: 23px;
+    font-weight: bold;
+} */
+
+.img-adj {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.bx-img-container {
+    position: relative;
+}
+
+.bx-img {
+    height: 118px;
+    text-align: center;
+    border-style: dashed solid;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+}
+
+.bx_addImg {
+    position: relative;
+    width: 113px;
+    height: 100%;
+    overflow: hidden;
+    border: 1px solid  var(--color-primary);
+}
+
+.input_file {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.img_file {
+    width: 100%;
+    height: 100%;
+}
+
+.bx_imgS {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+}
+.bx_imgS label {
+    margin-bottom: 1rem;
+}
+
+.bx_field input {
+    height: 28px;
+    border-radius: var(--border-radius-1);
+    background: var(--color-white);
+    transition: all 0.5s;
+    color: var(--color-primary);
+}
+
+.bx_field  input:hover,
+.bx_field  input:focus {
+    border: 1px solid var(--color-primary);
+    padding: 0px 0px 0px 5px;
+}
+
+.bx_field select {
+    height: 27px;
+    border-radius: var(--border-radius-1);
+    background: var(--color-white);
+    transition: all 0.5s;
+    color: var(--color-primary);
+}
+
+.bx_field  select:hover,
+.bx_field  select:focus {
+    border: 1px solid var(--color-primary);
+    padding: 0px 0px 0px 5px;
+}
+
+.bx_fieldDes select {
+    height: 27px;
+    border-radius: var(--border-radius-1);
+    background: var(--color-white);
+    transition: all 0.5s;
+    color: var(--color-primary);
+    margin-bottom: 1rem;
+}
+
+.bx_fieldDes  select:hover,
+.bx_fieldDes  select:focus {
+    border: 1px solid var(--color-primary);
+    padding: 0px 0px 0px 5px;
+}
+
+
+.bx_fieldDes textarea {
+    height: 100px;
+    border-radius: var(--border-radius-1);
+    background: var(--color-white);
+    transition: all 0.5s;
+    color: var(--color-primary);
+    overflow: hidden;
+    resize: none;
+    margin-bottom: 1rem;
+}
+
+.bx_fieldDes  textarea:hover,
+.bx_fieldDes  textarea:focus {
+    border: 1px solid var(--color-primary);
+    padding: 0px 0px 0px 5px;
+}
+
+.buttonBx {
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    border: none;
+    background: none;
+    color: #0f1923;
+    cursor: pointer;
+    position: relative;
+    padding: 8px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 14px;
+    transition: all .15s ease;
+  }
+  
+  .buttonBx::before,
+  .buttonBx::after {
+    content: '';
+    display: block;
+    position: absolute;
+    right: 0;
+    left: 0;
+    height: calc(50% - 5px);
+    border: 1px solid #7D8082;
+    transition: all .15s ease;
+  }
+  
+  .buttonBx::before {
+    top: 0;
+    border-bottom-width: 0;
+  }
+  
+  .buttonBx::after {
+    bottom: 0;
+    border-top-width: 0;
+  }
+  
+  .buttonBx:active,
+  .buttonBx:focus {
+    outline: none;
+  }
+  
+  .buttonBx:active::before,
+  .buttonBx:active::after {
+    right: 3px;
+    left: 3px;
+  }
+  
+  .buttonBx:active::before {
+    top: 3px;
+  }
+  
+  .buttonBx:active::after {
+    bottom: 3px;
+  }
+  
+  .button_lg {
+    position: relative;
+    display: block;
+    padding: 10px 20px;
+    color: #fff;
+    background-color: #0f1923;
+    overflow: hidden;
+    box-shadow: inset 0px 0px 0px 1px transparent;
+  }
+  
+  .button_lg::before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 2px;
+    height: 2px;
+    background-color: #0f1923;
+  }
+  
+  .button_lg::after {
+    content: '';
+    display: block;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 4px;
+    height: 4px;
+    background-color: #0f1923;
+    transition: all .2s ease;
+  }
+  
+  .button_sl {
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: -1px;
+    left: -8px;
+    width: 0;
+    background-color: var(--color-primary);
+    transform: skew(-15deg);
+    transition: all .2s ease;
+  }
+  
+  .button_text {
+    position: relative;
+  }
+  
+  .buttonBx:hover {
+    color: #0f1923;
+  }
+  
+  .buttonBx:hover .button_sl {
+    width: calc(100% + 15px);
+  }
+  
+  .buttonBx:hover .button_lg::after {
     background-color: #fff;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 10px 0 rgba(0, 0, 0, 0.19);
+  }
+  
+
+/* .mat-stepper-horizontal, .mat-stepper-vertical {
+    background: var(--color-background);
 }
 
 .container_btn {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     margin-top: 1rem;
 }
 
-.bx_btn button {
-    border: none;
-    padding: 5px;
-    border-radius: 5px;
-    color: #999999;
-    cursor: pointer;
-    transition: background-color 0.5s ease;
-    transition: color 0.5s ease;
+ .bx_btn button {
+border: none;
+padding: 5px;
+border-radius: 5px;
+color: #999999;
+cursor: pointer;
+transition: background-color 0.5s ease;
+transition: color 0.5s ease;
+background: var(--color-white);
 }
 
+
+
 .bx_btn button:hover {
-    color: #f0f0f0;
-    background-color: #999999;
+    color: var(--color-dark);
+    background: var(--color-primary);
 }
 
 .bx_AsuntoDescri {
@@ -59,26 +383,43 @@
 
 .bx_Asunto label {
     font-weight: 500;
+    color: var(--color-dark);
 }
 
 .bx_Asunto input {
-    border: 1px solid #999999;
-    color: #999999;
+    border:  var(--color-primary);
+    color: var(--color-dark);
+    background: var(--color-white);
     border-radius: 5px;
     height: 21px;
 }
 
+.bx_Asunto input:hover {
+    border: 1px solid  var(--color-primary);
+}
+
 .bx_Asunto select {
-    border: 1px solid #999999;
-    color: #999999;
+    border:  var(--color-primary);
+    color: var(--color-dark);
+    background: var(--color-white);
     border-radius: 5px;
     height: 25px;
 }
 
+.bx_Asunto select:hover {
+    border: 1px solid  var(--color-primary);
+}
+
 .bx_AsuntoDescri_textarea textarea {
-    border: 1px solid #999999;
+    
+    color: var(--color-dark);
+    background: var(--color-white);
     border-radius: 5px;
     resize: none;
+}
+
+.bx_AsuntoDescri_textarea textarea:hover  {
+    border: 1px solid  var(--color-primary);
 }
 
 .container_ticketCreado {
@@ -89,30 +430,30 @@
 
 .bx-img-container {
     position: relative;
-}
+} */
 
-.btn-ver {
+/* .btn-ver {
     display: flex;
     justify-content: space-between;
     flex-direction: row;
     width: 91%;
     height: 30px;
-    /* margin-top: 22px; */
+    margin-top: 22px;
     text-align: center;
     align-items: center;
-}
+} */
 
-.zoom {
+/* .zoom {
     width: 31%;
     text-align: center;
     display: flex;
     font-weight: bold;
     justify-content: center;
-    /* align-items: center; */
+    align-items: center; 
     cursor: pointer;
-    /* left: -28px; */
-    /* position: relative;*/
-}
+    left: -28px; 
+     position: relative;
+} */
 
 /* .zoom:nth-child(1) {
     width: 5%;
@@ -136,21 +477,21 @@
     font-weight: bold;
 } */
 
-.radion_button {
+/* .radion_button {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-}
+} */
 
-.ver-btn {
+/* .ver-btn {
     position: absolute;
     bottom: 10px;
-    /* ajusta la posición vertical según sea necesario */
+    ajusta la posición vertical según sea necesario
     left: 50%;
     transform: translateX(-50%);
-}
+} */
 
-.summaryAndDetail {
+/* .summaryAndDetail {
     height: 47px;
     margin-bottom: 1rem;
     background-color: #e5e5e5;
@@ -159,9 +500,9 @@
     border-radius: 6px;
     padding: 0px 0px 0px 11px;
     cursor: pointer;
-}
+} */
 
-.bx_Asunto {
+/* .bx_Asunto {
     display: flex;
     justify-content: space-between;
 }
@@ -187,6 +528,7 @@
     width: 113px;
     height: 100%;
     overflow: hidden;
+    border: 1px solid  var(--color-primary);
 }
 
 .input_file {
@@ -213,6 +555,11 @@
 
 .small_text {
     margin-bottom: 1rem;
+    color: var(--color-primary);
+}
+
+.bx_AsuntoDescri small {
+    color: var(--color-primary);
 }
 
 .container_inputLabel {
@@ -220,3 +567,7 @@
     justify-content: space-between;
     width: 100%;
 }
+
+ng-template {
+    color: var(--color-dark);
+} */
