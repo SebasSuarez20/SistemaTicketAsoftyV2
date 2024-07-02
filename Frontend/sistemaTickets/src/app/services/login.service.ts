@@ -26,5 +26,6 @@ export class LoginService {
   public closeSession() {
     sessionStorage.removeItem('_data');
     sessionStorage.removeItem('token');
+    sessionStorage.removeItem('_theme');
   }
 }

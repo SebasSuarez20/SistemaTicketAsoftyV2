@@ -2,6 +2,7 @@
 using SistemaTickets.Interface.IModel;
 using SistemaTickets.Model;
 using SistemaTickets.Model.View;
+using SistemaTickets.Services.HttpUtil;
 using SistemaTickets.Services.Jwt;
 using System.Dynamic;
 
@@ -38,41 +39,61 @@ namespace SistemaTickets.Services
             {
                 ticketssupport modelHeader = new ticketssupport();
 
+
                 dynamic jsonObject = JsonConvert.DeserializeObject(model.header);
 
                 var lastConsecutive = await _dbHandlerconsecTicket.GetAllAsyncForAll();
-                var filesSupport = $"{this._config["pathFile:pathCompany"].Replace("\\", "/")}/Company{User}";
-          
-                modelHeader.Consecutive = (int)(lastConsecutive.Count() != 0 ? lastConsecutive.First().consecutive : 0)+1;
-                modelHeader.Aerea = jsonObject.aerea;
+                var filesSupport = $"{this._config["pathFile:pathCompany"].Replace("\\", "/")}/TicketOfCompany_{User}";
+
+                int? resultConsecutive = null;
+
+                if(lastConsecutive.Any() && lastConsecutive != null){
+                    resultConsecutive = (int)lastConsecutive.First().consecutive;
+                }
+                else{
+                    resultConsecutive = 0;
+                }
+
+
+                modelHeader.Consecutive = resultConsecutive+1;
+                modelHeader.Date = jsonObject.date;
                 modelHeader.Title = jsonObject.title;
                 modelHeader.Description = jsonObject.description;
+                modelHeader.Area = jsonObject.aerea;
+                modelHeader.Status = jsonObject.status;
                 modelHeader.Priority = jsonObject.priority;
                 modelHeader.PhotoDescription = jsonObject.photoDescription;
-                modelHeader.Status =Status.Open.ToString();
+                modelHeader.SoftwareApplication = jsonObject.softwareApplication;
+                modelHeader.CodeConnectionSoftware = jsonObject.codeConnectionSoftware ?? null;
+                modelHeader.Enabled = jsonObject.enabled;
 
-                await _dbHandlerTickets.CreateAllAsync(modelHeader);
-                var DirectoryForDate = $"{filesSupport}/Observations{modelHeader.Consecutive}";
 
-                if (model.files!=null)
-                {
-                   
-                    if (!Directory.Exists(filesSupport)) Directory.CreateDirectory(filesSupport);
 
-                    if (!Directory.Exists(DirectoryForDate)) Directory.
-                            CreateDirectory(DirectoryForDate);
+                    await _dbHandlerTickets.CreateAllAsync(modelHeader);
+                    var DirectoryForDate = $"{filesSupport}/ObservationsTicket_{modelHeader.Consecutive}";
 
-                    foreach (var file in model.files)
+                    if (model.files != null)
                     {
 
-                        var pathCombine = Path.Combine(DirectoryForDate, file.FileName);
-                        using (var stream = new FileStream(pathCombine, FileMode.Create))
+                        if (!Directory.Exists(filesSupport)) Directory.CreateDirectory(filesSupport);
+
+                        if (!Directory.Exists(DirectoryForDate)) Directory.
+                                CreateDirectory(DirectoryForDate);
+
+                        foreach (var file in model.files)
                         {
-                            await file.CopyToAsync(stream);
-                            stream.Close();
+
+                            var pathCombine = Path.Combine(DirectoryForDate, file.FileName);
+                            using (var stream = new FileStream(pathCombine, FileMode.Create))
+                            {
+                                await file.CopyToAsync(stream);
+                                stream.Close();
+                            }
                         }
                     }
-                }
+                    response.message = $"Se creo correctamente el ticket #{modelHeader.Consecutive}";
+
+
                 response.status = 200;
                 return response;
             }

@@ -5,7 +5,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { TicketsComponent } from '../../tickets/tickets/tickets.component';
 import { LoginService } from 'src/app/services/login.service';
 import { Idle } from '@ng-idle/core';
-import { TicketsServicesHttpService } from 'src/app/services/ticketsServicesHttp/tickets-services-http.service';
+import { TicketsServicesHttpService } from 'src/app/services/httpService/tickets-services-http.service';
 import { MatTableDataSource } from '@angular/material/table';
 import { ITicketMapAndSup } from 'src/app/Model/ITicketMapAndSup';
 import { HubConnectionService } from 'src/app/services/hub/hub-connection.service';
@@ -68,7 +68,7 @@ export class DashboardInicioComponent implements OnInit, OnDestroy, AfterViewIni
   }
 
   ngOnInit(): void {
-    this.codeGenStatus = this.codeGenericService.loadCode('Status');
+
   }
 
   ngAfterViewInit(): void {
@@ -82,7 +82,6 @@ export class DashboardInicioComponent implements OnInit, OnDestroy, AfterViewIni
 
   public triggerVisiblity() {
     this.StatusVisible = this.StatusVisible === 'NotVisible' ? 'yesVisible' : 'NotVisible';
-    console.log(this.StatusVisible);
   }
 
   public loadingComponent() {
@@ -90,7 +89,10 @@ export class DashboardInicioComponent implements OnInit, OnDestroy, AfterViewIni
   }
 
   public OpenCreateTicket() {
-    this.dialog.open(TicketsComponent);
+    const dialog = this.dialog.open(TicketsComponent);
+    dialog.beforeClosed().subscribe(() => {
+      this.GetAllMapAndSup();
+    })
   }
 
   public async UpdateItemTicket(event: any, data: ITicketMapAndSup, index: number) {

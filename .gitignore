@@ -1,3 +1,4 @@
+.gitignore
 # Ignorar archivos binarios generados
 *.dll
 *.exe

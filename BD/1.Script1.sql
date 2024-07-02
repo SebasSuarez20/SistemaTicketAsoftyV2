@@ -24,12 +24,15 @@ CREATE TABLE Users(
 CREATE TABLE ticketssupport (
     Idcontrol INT NOT NULL AUTO_INCREMENT,
     Consecutive INT NOT NULL UNIQUE,
+    Date Date NOT NULL,
     Title VARCHAR(255) NOT NULL,
     Description TEXT NOT NULL,
-    Aerea VARCHAR(20) NOT NULL,
+    Area ENUM('1','2','3','4') NOT NULL,
     Status ENUM('1','2','3','4') NOT NULL COMMENT "Open,InProgress,Result,Close",
     Priority ENUM('1', '2', '3') NOT NULL COMMENT "S,M,L",
     PhotoDescription VARCHAR(255) NULL,
+    softwareApplication INT NULL,
+    codeConnectionSoftware VARCHAR(30) NULL,
     AssignedTo INT NULL,
 	RegistrationDate DATETIME DEFAULT CURRENT_TIMESTAMP,
     Enabled BOOL NOT NULL,
@@ -46,8 +49,6 @@ ADD INDEX idx_status (Status);
 -- Añadir índice a la columna Priority
 ALTER TABLE ticketssupport
 ADD INDEX idx_priority (Priority);
-
-
 
 CREATE TABLE chatOfMapping (
     Idcontrol INT NOT NULL AUTO_INCREMENT,

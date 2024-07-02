@@ -12,6 +12,7 @@ import { LibraryMessageService } from 'src/app/services/ToastServices/library-me
 import { HubConnection } from '@microsoft/signalr';
 import { HubConnectionService } from 'src/app/services/hub/hub-connection.service';
 import { DataEncryptionService } from 'src/app/services/Encryption/data-encryption.service';
+import { TicketsServicesHttpService } from 'src/app/services/httpService/tickets-services-http.service';
 
 @Component({
   selector: 'app-header',
@@ -27,16 +28,17 @@ export class HeaderComponent implements OnInit, OnDestroy {
   public MONTH: string[] = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio",
     "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
   public date: Date;
+  public validatorActive?: number;
 
 
   constructor(private breakpointObserver: BreakpointObserver, private data_Service: LoginService, private router: Router, private idle: Idle, private cd: ChangeDetectorRef,
-    public dialog: MatDialog, private toast: LibraryMessageService, private hubconnection: HubConnectionService, public encryptService: DataEncryptionService) {
+    public dialog: MatDialog, private toast: LibraryMessageService, private hubconnection: HubConnectionService, public encryptService: DataEncryptionService,
+    private serviceHttp: TicketsServicesHttpService) {
+
     this.date = new Date();
     this.nameUser = `${this.data_Service.dataLogged()?.nameUser ?? ""} ${this.data_Service.dataLogged()?.surName ?? ""}`;
     this.photoProfile = this.data_Service.dataLogged()?.photo ?? "";
-
-
-
+    this.validatorActive = parseInt(sessionStorage.getItem("_theme"));
     this.role = this.data_Service.dataLogged().rolCode;
 
     if (this.role == 1) this.rol = "Administrador";
@@ -80,12 +82,10 @@ export class HeaderComponent implements OnInit, OnDestroy {
     }, 1000);
   }
 
-  public validatorActive?: number;
 
   ngOnInit(): void {
     this.idle.watch();
     this.effectDashboard();
-    this.validatorActive = 2;
     document.body.classList.toggle(this.validatorActive % 2 != 0 ? 'white-theme-variables' : 'dark-theme-variables');
   }
 
@@ -114,11 +114,24 @@ export class HeaderComponent implements OnInit, OnDestroy {
     //change theme
     themeThoggler.addEventListener('click', () => {
       document.body.classList.toggle('white-theme-variables');
-
       themeThoggler.querySelector('span:nth-child(1)').classList.toggle('active');
       themeThoggler.querySelector('span:nth-child(2)').classList.toggle('active');
+
+      this.validatorActive = this.validatorActive === 1 ? 0 : 1;
+      Promise.allSettled([this.updateFieldTheme(this.validatorActive)]).then(() => {
+        sessionStorage.setItem("_theme", JSON.stringify(this.validatorActive));
+        console.log("Se acrualizo en el localstorage");
+      })
     })
 
+  }
+
+  private updateFieldTheme(theme: number): Promise<any> {
+    return new Promise((resolve, reject) => {
+      this.serviceHttp.connectApiGet(`user/updateThemeDefault?themeColor=${theme}`).then((res: any) => {
+        resolve(res);
+      });
+    });
   }
 
   public signIn() {
@@ -139,10 +152,6 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
 
   }
-
-
-
-
 
 
 }

@@ -102,7 +102,7 @@ namespace SistemaTickets.Repository
                 {
                     var getValue = columns.Where(s => s.Name == c.Name).Select(s => s.GetValue(entity)).First() ?? "null";
                     var typeOf = columns.Where(s => s.Name == c.Name).Select(s => s.PropertyType.GenericTypeArguments.Count()!=0 ? s.PropertyType.GenericTypeArguments[0].Name : s.PropertyType.Name).First();
-                     if (c.Name.StartsWith("date"))
+                     if (typeOf.Contains("DateTime"))
                     {
                         DateTime date = (DateTime)getValue;
                         result.Add(c.Name, date.ToString("yyyy-MM-dd H:mm:ss"));
@@ -216,7 +216,7 @@ namespace SistemaTickets.Repository
             GC.SuppressFinalize(this);
         }
 
-        public  void exceptionFolder(Exception ex,string method)
+        private void exceptionFolder(Exception ex,string method)
         {
             string folderPath = @"C:/Logs";
             DateTime today = DateTime.Now;

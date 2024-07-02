@@ -6,7 +6,7 @@ import { IUser } from 'src/app/Model/IUser';
 import { DataEncryptionService } from 'src/app/services/Encryption/data-encryption.service';
 import { HubConnectionService } from 'src/app/services/hub/hub-connection.service';
 import { LoginService } from 'src/app/services/login.service';
-import { TicketsServicesHttpService } from 'src/app/services/ticketsServicesHttp/tickets-services-http.service';
+import { TicketsServicesHttpService } from 'src/app/services/httpService/tickets-services-http.service';
 import { LibraryMessageService } from 'src/app/services/ToastServices/library-message.service';
 import Swal from 'sweetalert2';
 
@@ -28,7 +28,7 @@ export class LoginComponent implements OnInit {
     this.router.navigateByUrl('/login');
   }
   ngOnInit(): void {
-    
+
   }
 
   public async accessLogin() {
@@ -37,6 +37,7 @@ export class LoginComponent implements OnInit {
         this.toast.successMessage(res.message, ' Felicidades!!! ').then(() => {
           sessionStorage.setItem('_data', JSON.stringify(res));
           sessionStorage.setItem('token', res.token);
+          sessionStorage.setItem('_theme', JSON.stringify(res.themeColor))
           this.router.navigateByUrl(`/${this.encryptService.getEncryption("Ticket")}`);
         })
       } else {

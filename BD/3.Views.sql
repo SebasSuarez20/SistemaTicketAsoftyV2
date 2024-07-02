@@ -14,7 +14,7 @@ ORDER BY tick.Consecutive DESC LIMIT 1;
 CREATE VIEW TicketMapAndSupView AS
   SELECT 
     ts.Idcontrol, ts.Consecutive, 
-	ts.Aerea AS Area,
+	ts.Area AS Area,
     ts.Priority AS Priority,
     (CASE ts.Status 
     WHEN 1 THEN "Abierto"

@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.ResponseCompression;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.FileProviders;
 using Microsoft.IdentityModel.Tokens;
@@ -49,6 +50,14 @@ builder.Services.AddSignalR();
 // Configuraci�n del acceso al contexto HTTP
 builder.Services.AddHttpContextAccessor();
 
+#region compresionDeRespuesta
+builder.Services.AddResponseCompression(opt =>
+{
+    opt.Providers.Add<BrotliCompressionProvider>();
+    opt.Providers.Add<GzipCompressionProvider>();
+});
+#endregion
+
 var app = builder.Build();
 
 // Configuraci�n de Swagger/OpenAPI en el entorno de desarrollo
@@ -77,15 +86,14 @@ app.UseFileServer(new FileServerOptions
     EnableDirectoryBrowsing = true
 });
 
+#region se Agrega el middleware para que comprima todo tipo de respuesta
+app.UseResponseCompression();
+#endregion
 
+app.UseCors("Dev");
 app.UseHttpsRedirection();
 app.UseAuthorization();
-
-
 // Configuraci�n de CORS para permitir el acceso desde http://localhost:4200
-app.UseCors("Dev");
-
-
 app.MapHub<HubConnection>("/realTime");
 
 // Configuraci�n de enrutamiento para controladores

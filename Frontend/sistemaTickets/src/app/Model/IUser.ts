@@ -5,6 +5,7 @@ export interface IUser {
   surname: string;
   photo: string;
   token: string;
+  themeColor: number;
   status: number;
   message: string;
 }
