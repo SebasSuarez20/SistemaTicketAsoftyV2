@@ -41,7 +41,7 @@ namespace SistemaTickets.Services
                 var resultForTicket =await _dbHandlerTickets.GetAllAsyncForAll(s => s.Consecutive == consecutive);
                 resultForTicket.First().AssignedTo = assigned;
                 int resultIdControl = (int)resultForTicket.First().Idcontrol;
-                await _dbHandlerTickets.UpdateAsyncAll(resultForTicket.First(), new ticketssupport { Idcontrol = resultIdControl });
+                await _dbHandlerTickets.UpdateAsyncAll(resultForTicket.First(), new ticketssupport { Consecutive = resultIdControl });
             }catch(Exception ex)
             {
                 Console.WriteLine(ex.Message);

@@ -95,16 +95,23 @@ export class DashboardInicioComponent implements OnInit, OnDestroy, AfterViewIni
     })
   }
 
-  public async UpdateItemTicket(event: any, data: ITicketMapAndSup, index: number) {
+  public async UpdateItemTicket(event: any, data: ITicketMapAndSup) {
 
-    this.hubConnection.invokeSendMessageToClient(parseInt(event.target.value), this.resultUsername[index], data['n.ticket']);
-
+    this.hubConnection.invokeSendMessageToClient(parseInt(event.target.value), this.resultUsername[data['n.ticket']], data['n.ticket']);
   }
 
   public navigateUrl(index: number) {
     console.log(this.strlUnique[index]);
   }
 
+  public messageToolpit(element: ITicketMapAndSup, action: string): string {
+
+    let result = this.strlUnique[element['n.ticket']];
+
+    if (result != null) return action !== 'style' ? "estamos disponibles para chatear." : "#93A0FF";
+    else
+      return action !== 'style' ? "en este momento no estamos disponibles para chatear" : "#41f1b6";
+  }
 
   public GetAllMapAndSup() {
 
@@ -132,13 +139,14 @@ export class DashboardInicioComponent implements OnInit, OnDestroy, AfterViewIni
             element.estado = e.estado;
             element.prioridad = e.prioridad;
             element.asignacion = e.asignacion;
-            this.strlUnique.push(e.hasUnique);
+            this.strlUnique[e.no] = e.hasUnique;
             if (element.asignacion == -1) delete element.asignacion;
-            if (this.isValid) this.resultUsername.push(e.username);
+            if (this.isValid) this.resultUsername[e.no] = e.username;
             delete element.username;
             infoData.push(element);
           });
 
+          console.log(this.strlUnique);
           this.dataSource.data = infoData;
           this.displayedColumns =
             this.dataSource.data.length != 0

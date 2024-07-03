@@ -148,10 +148,10 @@ namespace SistemaTickets.Repository
                     var getValue = property_wh.Where(s => s.Name == c.Name).Select(s => s.GetValue(entity))?.First() ?? "";
                     var typeOf = property_wh.Where(x=>x.Name == c.Name).Select(x=>x.PropertyType.GenericTypeArguments.Count()!=0 ? x.PropertyType.GenericTypeArguments[0].Name : x.PropertyType.Name).First();
 
-                    if (c.Name.StartsWith("date"))
+                    if (typeOf.Contains("DateTime"))
                     {
                         DateTime date = (DateTime)getValue;
-                        queryStrl.Add(c.Name, date.ToString("yyyy-MM-dd H:mm:ss"));
+                        queryStrl.Add(c.Name,$"'{date.ToString("yyyy-MM-dd H:mm:ss")}'");
                     }
                     else
                     {

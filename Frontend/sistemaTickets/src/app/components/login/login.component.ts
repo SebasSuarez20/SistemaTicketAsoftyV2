@@ -19,7 +19,8 @@ export class LoginComponent implements OnInit {
 
   public formlogin: FormGroup;
 
-  constructor(private router: Router, private ticketsService: TicketsServicesHttpService, private toast: LibraryMessageService, private logged: LoginService, private encryptService: DataEncryptionService) {
+  constructor(private router: Router, private ticketsService: TicketsServicesHttpService, private toast: LibraryMessageService, private logged: LoginService,
+    private encryptService: DataEncryptionService) {
     this.formlogin = new FormGroup({
       user: new FormControl("", Validators.required),
       password: new FormControl("", Validators.required)
@@ -34,11 +35,11 @@ export class LoginComponent implements OnInit {
   public async accessLogin() {
     await this.ticketsService.connectApiGet(`login/authService?user=${this.formlogin.get('user').value}&pswd=${this.formlogin.get('password').value}`).then(async (res: IUser) => {
       if (res.status === 200) {
+        sessionStorage.setItem('_theme', JSON.stringify(res.themeColor))
         this.toast.successMessage(res.message, ' Felicidades!!! ').then(() => {
           sessionStorage.setItem('_data', JSON.stringify(res));
           sessionStorage.setItem('token', res.token);
-          sessionStorage.setItem('_theme', JSON.stringify(res.themeColor))
-          this.router.navigateByUrl(`/${this.encryptService.getEncryption("Ticket")}`);
+          this.router.navigate([`/${this.encryptService.getEncryption("Ticket")}`]);
         })
       } else {
         Swal.fire({

@@ -252,7 +252,7 @@
           <th class="UniTh" mat-header-cell *matHeaderCellDef>{{columns | uppercase}}</th>
           <td class="UniTd" mat-cell *matCellDef="let element; index as index">
             <select style="text-align: center;" [value]="element[columns]"
-              (change)="this.UpdateItemTicket($event,element,index)">
+              (change)="this.UpdateItemTicket($event,element)">
               <option value="0">No ha asignado</option>
               <option value="1">Juan Sebastian</option>
               <option value="2">Giovanny Vasquez</option>
@@ -264,10 +264,9 @@
           <th class="UniTh" mat-header-cell *matHeaderCellDef>{{columns | uppercase}}</th>
           <td class="UniTd" mat-cell *matCellDef="let element;index as index">
             <button class="bx_btn">
-              <mat-icon (click)="this.navigateUrl(index)"
-                matTooltip="{{this.strlUnique[index] ? 'estamos disponibles para chatear.' : 'en este momento no estamos disponibles para chatear'}}"
-                [matTooltipPosition]="'left'"
-                [ngStyle]="{'color': this.strlUnique[index] ? '#93A0FF' : '#41f1b6'}">chat</mat-icon>
+              <mat-icon (click)="this.navigateUrl(element['n.ticket'])"
+                [matTooltip]="this.messageToolpit(element,'logical')" [matTooltipPosition]="'left'"
+                [ngStyle]="{'color':this.messageToolpit(element,'style')}">chat</mat-icon>
             </button>
           </td>
         </ng-container>
