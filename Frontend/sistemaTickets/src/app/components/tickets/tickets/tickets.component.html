@@ -6,94 +6,109 @@
             <hr>
         </div>
 
-        <div class="bx_container">
-            <div class="bx_field">
-                <label>Fecha</label>
-                <input type="date">
+        <ng-container [formGroup]="this.formTicket">
+            <div class="bx_container">
+                <div class="bx_field">
+                    <label>Fecha</label>
+                    <input type="date" formControlName="Date" min="{{ this.resultMinDate}}">
+                    <small><b>{{this.validField(this.formTicket.get('Date').value)}}</b></small>
+                </div>
+                <div class="bx_field">
+                    <label>Area</label>
+                    <select formControlName="Area">
+                        <option value="" disabled></option>
+                        <option *ngFor="let codeArea of this.codeGenArea" [value]="codeArea.Value">{{codeArea.Code}}
+                        </option>
+                    </select>
+                    <small><b>{{this.validField(this.formTicket.get('Area').value)}}</b></small>
+                </div>
             </div>
-            <div class="bx_field">
-                <label>Asunto</label>
-                <input type="text">
+            <div class="bx_container">
+                <div class="bx_field">
+                    <label>Estado</label>
+                    <select formControlName="Status">
+                        <option value="" disabled></option>
+                        <option *ngFor="let codeStatus of this.codeGenStatus" [value]="codeStatus.Value">
+                            {{codeStatus.Code}}</option>
+                    </select>
+                    <small><b>{{this.validField(this.formTicket.get('Status').value)}}</b></small>
+                </div>
+                <div class="bx_field">
+                    <label>Titulo</label>
+                    <input type="text" formControlName="Title">
+                    <small><b>{{this.validField(this.formTicket.get('Title').value)}}</b></small>
+                </div>
             </div>
-        </div>
-        <div class="bx_container">
-            <div class="bx_field">
-                <label>Estado</label>
-                <select>
-                    <option>test</option>
+            <div class="bx_container">
+                <div class="bx_field">
+                    <label>Tipo de Aplicación</label>
+                    <select formControlName="SoftwareApplication" (change)="this.validSoftware($event)">
+                        <option value="" disabled></option>
+                        <option *ngFor="let codeSoftware of this.codeGenSoftware" [value]="codeSoftware.Value">
+                            {{codeSoftware.Code}}</option>
+                    </select>
+                    <small><b>{{this.validField(this.formTicket.get('SoftwareApplication').value)}}</b></small>
+                </div>
+                <div class="bx_field">
+                    <label>Codigo de Conexión Remota</label>
+                    <input type="text" formControlName="CodeConnectionSoftware" [readOnly]="this.isReadOnly">
+                    <small><b>{{this.validField(this.formTicket.get('CodeConnectionSoftware').value,'idConnection')}}</b></small>
+                </div>
+            </div>
+            <div class="bx_fieldDes">
+                <label>Prioridad</label>
+                <select formControlName="Priority" (change)="this.validSoftware($event)">
+                    <option value="" disabled></option>
+                    <option *ngFor="let codeGenPriority of this.codeGenPriority" [value]="codeGenPriority.Value">
+                        {{codeGenPriority.Code}}</option>
                 </select>
+                <small><b>{{this.validField(this.formTicket.get('Priority').value)}}</b></small>
             </div>
-            <div class="bx_field">
-                <label>Titulo</label>
-                <input type="text">
+            <div class="bx_fieldDes">
+                <label>Descripción</label>
+                <textarea minlength="1" maxlength="100000" formControlName="Description"></textarea>
+                <small><b>{{this.validField(this.formTicket.get('Description').value)}}</b></small>
             </div>
-        </div>
-        <div class="bx_container">
-            <div class="bx_field">
-                <label>Tipo de Aplicación</label>
-                <select>
-                    <option>test</option>
-                </select>
-            </div>
-            <div class="bx_field">
-                <label>Codigo de Conexión Remota</label>
-                <input type="text">
-            </div>
-        </div>
-
-        <div class="bx_fieldDes">
-            <label>Area</label>
-            <select>
-                <option>Area</option>
-            </select>
-        </div>
-        <div class="bx_fieldDes">
-            <label>Descripción</label>
-            <textarea></textarea>
-        </div>
-
-        <div class="bx_imgS">
-            <label>Imagenes</label>
-            <div class="img-adj">
-                <div class="bx-img" id="first">
-                    <div class="bx_addImg">
-                        <input type="file" id="first" class="input_file" (change)="loadImg($event,0)">
-                        <img [src]="this.imageFirst" class="img_file" alt="">
+            <div class="bx_imgS">
+                <label>Imagenes</label>
+                <div class="img-adj">
+                    <div class="bx-img" id="first">
+                        <div class="bx_addImg">
+                            <input type="file" id="first" class="input_file" (change)="loadImg($event,0)">
+                            <img [src]="this.imageFirst" class="img_file" alt="">
+                        </div>
                     </div>
-                </div>
-                <div class="bx-img" id="second">
-                    <div class="bx_addImg">
-                        <input class="input_file" type="file" id="first" (change)="loadImg($event,1)">
-                        <img [src]="this.imageSecond" class="img_file" alt="">
+                    <div class="bx-img" id="second">
+                        <div class="bx_addImg">
+                            <input class="input_file" type="file" id="first" (change)="loadImg($event,1)">
+                            <img [src]="this.imageSecond" class="img_file" alt="">
+                        </div>
                     </div>
-                </div>
-                <div class="bx-img" id="three">
-                    <div class="bx_addImg">
-                        <input type="file" id="first" class="input_file" (change)="loadImg($event,2)">
-                        <img [src]="this.imageThree" class="img_file" alt="">
+                    <div class="bx-img" id="three">
+                        <div class="bx_addImg">
+                            <input type="file" id="first" class="input_file" (change)="loadImg($event,2)">
+                            <img [src]="this.imageThree" class="img_file" alt="">
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="btn-ver">
-            <div (click)="this.showImage(1)" class="zoom">
-                {{this.imageFirst!='' ? 'Zoom' : ''}}</div>
-            <div (click)="this.showImage(2)" class="zoom">
-                {{this.imageSecond!='' ? 'Zoom' : ''}}</div>
-            <div (click)="this.showImage(3)" class="zoom">
-                {{this.imageThree!='' ? 'Zoom' : ''}}</div>
-        </div>
+            <div class="btn-ver">
+                <div (click)="this.showImage(1)" class="zoom">
+                    {{this.imageFirst!='' ? 'Zoom' : ''}}</div>
+                <div (click)="this.showImage(2)" class="zoom">
+                    {{this.imageSecond!='' ? 'Zoom' : ''}}</div>
+                <div (click)="this.showImage(3)" class="zoom">
+                    {{this.imageThree!='' ? 'Zoom' : ''}}</div>
+            </div>
 
-        <button class="buttonBx">
-            <span class="button_lg">
-                <span class="button_sl"></span>
-                <span class="button_text">Crear Ticket</span>
-            </span>
-        </button>
+            <button class="buttonBx">
+                <span class="button_lg" (click)="this.saveTickets()">
+                    <span class="button_sl"></span>
+                    <span class="button_text">Crear Ticket</span>
+                </span>
+            </button>
+        </ng-container>
+
 
     </div>
 </div>
-
-<ng-container *ngIf="this.isVisible">
-    <app-imagen-popup-zoom [imgZoom]="this.imageZoom"></app-imagen-popup-zoom>
-</ng-container>

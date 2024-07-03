@@ -1,24 +1,21 @@
-import { ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
-import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
-import { Observable } from 'rxjs';
-import { map, shareReplay } from 'rxjs/operators';
+import { AfterContentChecked, AfterViewChecked, AfterViewInit, ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
+
 import { LoginService } from 'src/app/services/login.service';
-import { AccessRolUserDirective } from 'src/app/Directive/access-rol-user.directive';
 import { Router } from '@angular/router';
 import { DEFAULT_INTERRUPTSOURCES, Idle } from '@ng-idle/core';
 import Swal from 'sweetalert2';
 import { MatDialog } from '@angular/material/dialog';
 import { LibraryMessageService } from 'src/app/services/ToastServices/library-message.service';
-import { HubConnection } from '@microsoft/signalr';
 import { HubConnectionService } from 'src/app/services/hub/hub-connection.service';
 import { DataEncryptionService } from 'src/app/services/Encryption/data-encryption.service';
+import { TicketsServicesHttpService } from 'src/app/services/httpService/tickets-services-http.service';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
-export class HeaderComponent implements OnInit, OnDestroy {
+export class HeaderComponent implements OnInit, OnDestroy, AfterViewInit {
 
   public nameUser: string = '';
   public photoProfile: string = '';
@@ -27,15 +24,16 @@ export class HeaderComponent implements OnInit, OnDestroy {
   public MONTH: string[] = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio",
     "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
   public date: Date;
+  public validatorActive?: number;
 
 
-  constructor(private breakpointObserver: BreakpointObserver, private data_Service: LoginService, private router: Router, private idle: Idle, private cd: ChangeDetectorRef,
-    public dialog: MatDialog, private toast: LibraryMessageService, private hubconnection: HubConnectionService, public encryptService: DataEncryptionService) {
+  constructor(private data_Service: LoginService, private router: Router, private idle: Idle, private cd: ChangeDetectorRef,
+    public dialog: MatDialog, private toast: LibraryMessageService, private hubconnection: HubConnectionService, public encryptService: DataEncryptionService,
+    private serviceHttp: TicketsServicesHttpService) {
+
     this.date = new Date();
     this.nameUser = `${this.data_Service.dataLogged()?.nameUser ?? ""} ${this.data_Service.dataLogged()?.surName ?? ""}`;
     this.photoProfile = this.data_Service.dataLogged()?.photo ?? "";
-
-
 
     this.role = this.data_Service.dataLogged().rolCode;
 
@@ -80,15 +78,19 @@ export class HeaderComponent implements OnInit, OnDestroy {
     }, 1000);
   }
 
-  public validatorActive?: number;
 
   ngOnInit(): void {
     this.idle.watch();
     this.effectDashboard();
-    this.validatorActive = 2;
-    document.body.classList.toggle(this.validatorActive % 2 != 0 ? 'white-theme-variables' : 'dark-theme-variables');
   }
 
+  ngAfterViewInit(): void {
+    this.validatorActive = parseInt(sessionStorage.getItem("_theme"));
+    document.body.classList.toggle(this.validatorActive % 2 != 0 ? 'white-theme-variables' : 'dark-theme-variables');
+    console.log(document.body.classList);
+    this.cd.detectChanges();
+    this.cd.reattach();
+  }
 
   ngOnDestroy(): void {
     this.hubconnection.closeConnection();
@@ -114,11 +116,23 @@ export class HeaderComponent implements OnInit, OnDestroy {
     //change theme
     themeThoggler.addEventListener('click', () => {
       document.body.classList.toggle('white-theme-variables');
-
       themeThoggler.querySelector('span:nth-child(1)').classList.toggle('active');
       themeThoggler.querySelector('span:nth-child(2)').classList.toggle('active');
+
+      this.validatorActive = this.validatorActive === 1 ? 0 : 1;
+      Promise.allSettled([this.updateFieldTheme(this.validatorActive)]).then(() => {
+        sessionStorage.setItem("_theme", JSON.stringify(this.validatorActive));
+      })
     })
 
+  }
+
+  private updateFieldTheme(theme: number): Promise<any> {
+    return new Promise((resolve, reject) => {
+      this.serviceHttp.connectApiGet(`user/updateThemeDefault?themeColor=${theme}`).then((res: any) => {
+        resolve(res);
+      });
+    });
   }
 
   public signIn() {
@@ -133,16 +147,13 @@ export class HeaderComponent implements OnInit, OnDestroy {
       if (result.isConfirmed) {
         this.data_Service.closeSession();
         let routstrl = `/${this.encryptService.getEncryption('login')}`;
+        document.body.classList.remove('white-theme-variables', 'dark-theme-variables');
         this.router.navigateByUrl(routstrl);
       }
     })
 
 
   }
-
-
-
-
 
 
 }

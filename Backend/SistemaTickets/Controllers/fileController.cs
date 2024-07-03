@@ -19,7 +19,7 @@ namespace SistemaTickets.Controllers
 
 
         [HttpPost("CreateFile")]
-        public async Task<object> CreateFile(IFormFile file)
+        public async Task<IActionResult> CreateFile(IFormFile file)
         {
             try
             {

@@ -1,9 +1,11 @@
+import { DialogRef } from '@angular/cdk/dialog';
 import { Component, HostListener } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ICodeGen } from 'src/app/Model/ICodeGen';
 import { ITicketSupport } from 'src/app/Model/ITicketSupport';
 import { CodeGenService } from 'src/app/services/code-gen.service';
-import { TicketsServicesHttpService } from 'src/app/services/ticketsServicesHttp/tickets-services-http.service';
+import { TicketsServicesHttpService } from 'src/app/services/httpService/tickets-services-http.service';
+import Swal from 'sweetalert2';
 
 
 
@@ -14,46 +16,80 @@ import { TicketsServicesHttpService } from 'src/app/services/ticketsServicesHttp
 })
 export class TicketsComponent {
 
-  public isLinear = false;
   public firstFormGroup: FormGroup;
   public secondFormGroup: FormGroup;
   public panelOpenState: boolean = false;
-  public codeGenAerea!: ICodeGen[];
+  public codeGenArea!: ICodeGen[];
   public codeGenPriority!: ICodeGen[];
+  public codeGenStatus!: ICodeGen[];
+  public codeGenSoftware!: ICodeGen[];
   public imageFirst: string = '';
   public imageSecond: string = '';
   public imageThree: string = '';
   public isVisible: boolean = false;
   public imageZoom: string = '';
   public imageDescription: File[] = [];
+  public isReadOnly: boolean = false;
+  private date = new Date();
+  public resultMinDate!: string;
+  private isValid: boolean = false;
 
   public formTicket = new FormGroup({
     Idcontrol: new FormControl(null),
+    Date: new FormControl(null, Validators.required),
     Consecutive: new FormControl(null),
-    Aerea: new FormControl(''),
-    Title: new FormControl(''),
-    Description: new FormControl(''),
-    Priority: new FormControl(''),
+    Area: new FormControl('', Validators.required),
+    SoftwareApplication: new FormControl('', Validators.required),
+    Status: new FormControl(''),
+    CodeConnectionSoftware: new FormControl(null),
+    Title: new FormControl('', Validators.required),
+    Description: new FormControl('', Validators.required),
+    Priority: new FormControl('', Validators.required),
     PhotoDescription: new FormControl(''),
-    Assigned_To: new FormControl(''),
     Enabled: new FormControl(true)
   });
 
-  constructor(private serviceHttp: TicketsServicesHttpService, private codeGenericService: CodeGenService) { }
+  constructor(private serviceHttp: TicketsServicesHttpService, private codeGenericService: CodeGenService, private dialog: DialogRef) {
+    this.resultMinDate = this.date.toISOString().slice(0, 10);
+    this.formTicket.get('Date').setValue(this.resultMinDate);
+  }
 
-  @HostListener('document:keydown', ['$event'])
-  handleKeyboardEvent(event: KeyboardEvent) {
-    if ((event.key === 'e' || event.key === 'E') && (this.isVisible)) {
-      this.isVisible = false;
+
+  ngOnInit(): void {
+    this.codeGenArea = this.codeGenericService.loadCode('Area');
+    this.codeGenPriority = this.codeGenericService.loadCode('Priority');
+    this.codeGenStatus = this.codeGenericService.loadCode('Info_Status');
+    this.codeGenSoftware = this.codeGenericService.loadCode('Software');
+  }
+
+  public validSoftware(event: any) {
+    this.isReadOnly = false;
+    if (event.target.value === '3' || event.target.value === '4') {
+      this.isReadOnly = true;
+      this.formTicket.get("CodeConnectionSoftware").setValue(null);
     }
   }
 
-  ngOnInit(): void {
-    this.codeGenAerea = this.codeGenericService.loadCode('Aerea');
-    this.codeGenPriority = this.codeGenericService.loadCode('Priority');
+  public validField(text: string, field?: string): string {
+    if (this.isValid) {
+      if (field === "idConnection") {
+        let { SoftwareApplication } = this.formTicket.value;
+        if (SoftwareApplication === "3" || SoftwareApplication === "4") {
+          return '';
+        } else {
+          if (text === "" || text === null) {
+            return 'Campo requerido,por favor ingresa informacion.';
+          }
+        }
+      } else {
+        if (text === "" || text === null) {
+          return 'Campo requerido,por favor ingresa informacion.';
+        }
+        return '';
+      }
+    }
+    return '';
   }
-
-
 
   public loadImg(event: any, pos: number) {
     const file = event.target.files[0];
@@ -108,36 +144,84 @@ export class TicketsComponent {
   }
 
   public async saveTickets() {
+    if (this.formTicket.valid) {
 
-    let arrayImg: string[] = [];
 
-    if (this.imageFirst != "") arrayImg.push(this.imageDescription[0].name);
-    if (this.imageSecond != "") arrayImg.push(this.imageDescription[1].name);
-    if (this.imageThree != "") arrayImg.push(this.imageDescription[2].name);
+      Swal.fire({
+        title: '¿Esta seguro de crear el ticket?',
+        icon: 'info',
+        toast: true,
+        showCancelButton: true,
+        showConfirmButton: true
+      }).then(async (result) => {
+        if (result.isConfirmed) {
 
-    const ModelTickets: Partial<ITicketSupport> = {
-      idControl: null,
-      consecutive: 7,
-      title: this.formTicket.get('Title').value,
-      aerea: this.formTicket.get('Aerea').value,
-      description: this.formTicket.get('Description').value,
-      priority: this.formTicket.get('Priority').value,
-      photoDescription: arrayImg.length != 0 ? arrayImg.join(',') : null,
-      assigned_To: parseInt(this.formTicket.get('Assigned_To').value),
-      enabled: true
+
+          let arrayImg: string[] = [];
+
+          if (this.imageFirst != "") arrayImg.push(this.imageDescription[0].name);
+          if (this.imageSecond != "") arrayImg.push(this.imageDescription[1].name);
+          if (this.imageThree != "") arrayImg.push(this.imageDescription[2].name);
+
+          const ModelTickets: Partial<ITicketSupport> = {
+            idControl: null,
+            consecutive: null,
+            date: this.formTicket.get('Date').value,
+            title: this.formTicket.get('Title').value,
+            description: this.formTicket.get('Description').value,
+            aerea: this.formTicket.get('Area').value,
+            status: this.formTicket.get('Status').value,
+            priority: this.formTicket.get('Priority').value,
+            codeConnectionSoftware: this.formTicket.get('CodeConnectionSoftware').value,
+            softwareApplication: parseInt(this.formTicket.get('SoftwareApplication').value),
+            photoDescription: arrayImg.length != 0 ? arrayImg.join(',') : null,
+            enabled: true
+          }
+
+          let form = new FormData();
+          form.append('header', JSON.stringify(ModelTickets));
+
+          this.imageDescription.forEach((e: File) => {
+            form.append('files', e);
+          })
+
+
+          await this.serviceHttp.connectApiPost("ticketssupport/CreateTickets", form).then((res: any) => {
+
+            if (res.status === 200) {
+              Swal.fire({
+                icon: 'success',
+                title: res.message,
+                toast: true,
+                timer: 2200,
+                timerProgressBar: true,
+                showCancelButton: false,
+                showConfirmButton: false
+              }).then(() => {
+                this.dialog.close();
+              })
+            } else {
+              Swal.fire({
+                icon: 'error',
+                title: res.message,
+                toast: true,
+                timer: 2200,
+                timerProgressBar: true,
+                showCancelButton: false,
+                showConfirmButton: false
+              }).then(() => {
+                this.dialog.close();
+              })
+            }
+          })
+        }
+      })
+
+    } else {
+      this.isValid = true;
     }
 
 
-    let form = new FormData();
-    form.append('header', JSON.stringify(ModelTickets));
-
-    this.imageDescription.forEach((e: File) => {
-      form.append('files', e);
-    })
-
-    await this.serviceHttp.connectApiPost("ticketssupport/CreateTickets", form).then((res: any) => {
-      console.log(res);
-    })
   }
 
 }

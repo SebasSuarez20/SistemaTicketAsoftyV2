@@ -3,53 +3,73 @@
     "Info_Status": [
       {
         "name": "Abierto",
-        "value": "Open"
+        "value": "1"
       },
       {
         "name": "En Progreso",
-        "value": "InProgress"
+        "value": "2"
       },
       {
         "name": "Resuelto",
-        "value": "Result"
+        "value": "3"
       },
       {
         "name": "Cerrado",
-        "value": "Close"
+        "value": "4"
       }
     ],
     "Info_Progress": [
       {
         "name": "Baja",
-        "value": "S"
+        "value": "1"
       },
       {
         "name": "Media",
-        "value": "M"
+        "value": "2"
       },
       {
         "name": "Alta",
-        "value": "L"
+        "value": "3"
       }
     ],
     "Aerea": [
       {
-        "name": "Administrativo"
+        "name": "Administrativo",
+        "value": "1"
       },
       {
-        "name": "Recursos Humanos"
+        "name": "Recursos Humanos",
+        "value": "2"
       },
       {
-        "name": "Comercial"
+        "name": "Comercial",
+        "value": "3"
       },
       {
-        "name": "Operaciones"
+        "name": "Operaciones",
+        "value": "4"
       },
       {
-        "name": "Contabilidad"
+        "name": "Contabilidad",
+        "value": "5"
+      }
+    ],
+    "Software": [
+      {
+        "name": "Anydesk",
+        "value": "1"
       },
       {
-        "name": "Financiero"
+        "name": "TeamViewer",
+        "value": "2"
+      },
+      {
+        "name": "Teams",
+        "value": "3"
+      },
+      {
+        "name": "Meet",
+        "value": "4"
       }
     ]
   }

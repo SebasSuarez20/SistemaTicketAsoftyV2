@@ -1,33 +1,27 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using SistemaTickets.Interface;
 using SistemaTickets.Interface.IModel;
 
 namespace SistemaTickets.Controllers
 {
+    [Authorize]
     [ApiController]
     [Route("api/[controller]")]
     public class userController : Controller
     {
 
-        private readonly ILogin _service;
+        private readonly IUser _service;
 
-        public userController(ILogin service)
+        public userController(IUser service)
         {
             _service = service;
         }
 
-
-        [HttpGet("authService")]
-        public Task<object> authService(string user, string pswd)
+        [HttpGet("updateThemeDefault")]
+        public async Task<IActionResult> updateThemeDefault(int themeColor)
         {
-            return _service.authLoginSupport(user, pswd);
+            return Ok(await _service.updateThemeDefault(themeColor));
         }
-
-        [HttpGet("SpExample")]
-        public IActionResult spExample(string user, string pswd)
-        {
-            return Ok(_service.authLoginSupport(user,pswd));
-        }
-
     }
 }

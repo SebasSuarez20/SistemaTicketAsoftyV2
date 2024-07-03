@@ -39,6 +39,7 @@ namespace SistemaTickets.Services
                     response.idControl = resultAuth.First().Idcontrol;
                     response.username = resultAuth.First()?.nameUser;
                     response.rolCode = resultAuth.First()?.RoleCode;
+                    response.themeColor = resultAuth.First().themeColor;
                     response.nameUser = resultAuth.First()?.NameSupport;
                     response.surName = resultAuth.First()?.Surname;
                     response.photo = resultAuth.First()?.PhotoPerfil;

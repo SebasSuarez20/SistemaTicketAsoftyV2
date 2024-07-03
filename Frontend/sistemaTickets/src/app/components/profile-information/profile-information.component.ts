@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DataEncryptionService } from 'src/app/services/Encryption/data-encryption.service';
-import { TicketsServicesHttpService } from 'src/app/services/ticketsServicesHttp/tickets-services-http.service';
+import { TicketsServicesHttpService } from 'src/app/services/httpService/tickets-services-http.service';
 
 @Component({
   selector: 'app-profile-information',

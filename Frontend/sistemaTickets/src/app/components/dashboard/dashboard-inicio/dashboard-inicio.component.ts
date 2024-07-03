@@ -5,7 +5,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { TicketsComponent } from '../../tickets/tickets/tickets.component';
 import { LoginService } from 'src/app/services/login.service';
 import { Idle } from '@ng-idle/core';
-import { TicketsServicesHttpService } from 'src/app/services/ticketsServicesHttp/tickets-services-http.service';
+import { TicketsServicesHttpService } from 'src/app/services/httpService/tickets-services-http.service';
 import { MatTableDataSource } from '@angular/material/table';
 import { ITicketMapAndSup } from 'src/app/Model/ITicketMapAndSup';
 import { HubConnectionService } from 'src/app/services/hub/hub-connection.service';
@@ -68,7 +68,7 @@ export class DashboardInicioComponent implements OnInit, OnDestroy, AfterViewIni
   }
 
   ngOnInit(): void {
-    this.codeGenStatus = this.codeGenericService.loadCode('Status');
+
   }
 
   ngAfterViewInit(): void {
@@ -82,7 +82,6 @@ export class DashboardInicioComponent implements OnInit, OnDestroy, AfterViewIni
 
   public triggerVisiblity() {
     this.StatusVisible = this.StatusVisible === 'NotVisible' ? 'yesVisible' : 'NotVisible';
-    console.log(this.StatusVisible);
   }
 
   public loadingComponent() {
@@ -90,19 +89,29 @@ export class DashboardInicioComponent implements OnInit, OnDestroy, AfterViewIni
   }
 
   public OpenCreateTicket() {
-    this.dialog.open(TicketsComponent);
+    const dialog = this.dialog.open(TicketsComponent);
+    dialog.beforeClosed().subscribe(() => {
+      this.GetAllMapAndSup();
+    })
   }
 
-  public async UpdateItemTicket(event: any, data: ITicketMapAndSup, index: number) {
+  public async UpdateItemTicket(event: any, data: ITicketMapAndSup) {
 
-    this.hubConnection.invokeSendMessageToClient(parseInt(event.target.value), this.resultUsername[index], data['n.ticket']);
-
+    this.hubConnection.invokeSendMessageToClient(parseInt(event.target.value), this.resultUsername[data['n.ticket']], data['n.ticket']);
   }
 
   public navigateUrl(index: number) {
     console.log(this.strlUnique[index]);
   }
 
+  public messageToolpit(element: ITicketMapAndSup, action: string): string {
+
+    let result = this.strlUnique[element['n.ticket']];
+
+    if (result != null) return action !== 'style' ? "estamos disponibles para chatear." : "#93A0FF";
+    else
+      return action !== 'style' ? "en este momento no estamos disponibles para chatear" : "#41f1b6";
+  }
 
   public GetAllMapAndSup() {
 
@@ -130,13 +139,14 @@ export class DashboardInicioComponent implements OnInit, OnDestroy, AfterViewIni
             element.estado = e.estado;
             element.prioridad = e.prioridad;
             element.asignacion = e.asignacion;
-            this.strlUnique.push(e.hasUnique);
+            this.strlUnique[e.no] = e.hasUnique;
             if (element.asignacion == -1) delete element.asignacion;
-            if (this.isValid) this.resultUsername.push(e.username);
+            if (this.isValid) this.resultUsername[e.no] = e.username;
             delete element.username;
             infoData.push(element);
           });
 
+          console.log(this.strlUnique);
           this.dataSource.data = infoData;
           this.displayedColumns =
             this.dataSource.data.length != 0

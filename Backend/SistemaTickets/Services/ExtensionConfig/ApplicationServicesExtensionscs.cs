@@ -23,6 +23,7 @@ namespace SistemaPoscloud.Services.ServicesConfig.ExtensionsConfig
             services.AddTransient<IticketsSupport,ticketssupportService>();
             services.AddTransient<IFile,fileService>();
             services.AddTransient<IHubconnection, hubService>();
+            services.AddTransient<IUser, userService>();
 
             //DbHandler(IRepository)
             services.AddTransient<IdbHandler<Users>, repositoryServices<Users>>();

@@ -18,9 +18,9 @@ export class CodeGenService {
 
     let arrayCode: ICodeGen[] = [];
 
-    let resultCode = dataService[0][loadType === 'Aerea' ?
+    let resultCode = dataService[0][loadType === 'Area' ?
       'Aerea' : loadType == 'Priority' ?
-        "Info_Progress" : "Info_Status"];
+        "Info_Progress" : loadType === "Info_Status" ? "Info_Status" : "Software"];
 
     resultCode.forEach((e) => {
       let codeGen: ICodeGen = { Code: '', Value: '' };
