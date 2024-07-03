@@ -842,3 +842,63 @@ main .recent-order a {
 .info p {
   margin: 0;
 }
+
+.bx_dropDown {
+  width: 75%;
+  height: 47px;
+  position: relative;
+  left: 2.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.consultDown {
+  -webkit-animation-name: fadeInDown;
+  animation-name: fadeInDown;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  margin-top: 1rem;
+  }
+  @-webkit-keyframes fadeInDown {
+  0% {
+  opacity: 0;
+  -webkit-transform: translate3d(0, -85%, 0);
+  transform: translate3d(0, -85%, 0);
+  }
+  100% {
+  opacity: 1;
+  -webkit-transform: none;
+  transform: none;
+  }
+  }
+  @keyframes fadeInDown {
+
+  0% {
+    opacity: 0;
+    transform: translateY(-30px); /* Ajusta aquí la distancia desde la cual aparece */
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  } 
+
+  .bx_dropDown small {
+    font-weight: 500;
+    font-size: 12px;
+    transition: all 0.5s ease;
+    color: var(--color-info-dark);
+  }
+
+  .bx_dropDown small:hover {
+    color: var(--color-success);
+    cursor: pointer;
+  }
+
+  .bx_dropDown span {
+    color: var(--color-info-dark);
+    cursor: pointer;
+  }

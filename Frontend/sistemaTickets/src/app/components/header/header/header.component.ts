@@ -26,6 +26,8 @@ export class HeaderComponent implements OnInit, OnDestroy, AfterViewInit {
   public date: Date;
   public validatorActive?: number;
 
+  public isDropDown: boolean = false; 
+
 
   constructor(private data_Service: LoginService, private router: Router, private idle: Idle, private cd: ChangeDetectorRef,
     public dialog: MatDialog, private toast: LibraryMessageService, private hubconnection: HubConnectionService, public encryptService: DataEncryptionService,
@@ -155,5 +157,8 @@ export class HeaderComponent implements OnInit, OnDestroy, AfterViewInit {
 
   }
 
+public changeOfDropDown() {
+this.isDropDown = !this.isDropDown
+}
 
 }

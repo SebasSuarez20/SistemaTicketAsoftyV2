@@ -116,10 +116,16 @@
         <span class="material-symbols-outlined"> confirmation_number </span>
         <h3>Tickets</h3>
       </a>
-      <a class="active" [routerLink]="'14014e6a570327892015d91391f0756bc8c84d3594c867af4cefb5a7e9fb4eac'">
-        <span class="material-symbols-outlined"> person </span>
+      <a (click)="this.changeOfDropDown()" class="active" >
+        <span class="material-symbols-outlined"> search </span>
         <h3>Consulta</h3>
       </a>
+      <div *ngIf="this.isDropDown" class="consultDown">
+        <div class="bx_dropDown">
+        <span class="material-symbols-outlined"> person </span>
+          <small [routerLink]="'14014e6a570327892015d91391f0756bc8c84d3594c867af4cefb5a7e9fb4eac'">Consultas Empleado</small> 
+        </div>
+      </div>
 
       <a (click)="this.signIn()">
         <span class="material-symbols-outlined"> logout </span>
