@@ -38,14 +38,12 @@ namespace SistemaTickets.Services
             try
             {
                 ticketssupport modelHeader = new ticketssupport();
-
-
                 dynamic jsonObject = JsonConvert.DeserializeObject(model.header);
+                int? resultConsecutive = null;
 
-                var lastConsecutive = await _dbHandlerconsecTicket.GetAllAsyncForAll();
+                var lastConsecutive = await _dbHandlerconsecTicket.GetAllAsyncForAllNotEnabled();
                 var filesSupport = $"{this._config["pathFile:pathCompany"].Replace("\\", "/")}/TicketOfCompany_{User}";
 
-                int? resultConsecutive = null;
 
                 if(lastConsecutive.Any() && lastConsecutive != null){
                     resultConsecutive = (int)lastConsecutive.First().consecutive;
@@ -112,16 +110,14 @@ namespace SistemaTickets.Services
 
                 dynamic response = new ExpandoObject();
 
-                var respontForRol = await _dbHandlerTicketMapAndSupView.
-               GetAllAsyncForAll((Rol == 2) ? s => s.AssignedTo == User :
-               (Rol == 3) ? s => s.Username == User : null);
+                var responseForRol = await _dbHandlerTicketMapAndSupView.GetAllAsyncForAllWithRol();
 
-                if (respontForRol.Any())
+                if (responseForRol.Any())
                 {
                     return new
                     {
-                        status = 200,
-                        data = respontForRol.Select(s => new
+                        status = StatusCodes.Status200OK,
+                        data = responseForRol.Select(s => new
                         {
                             No = s.Consecutive,
                             Area = s.Area,
@@ -136,7 +132,7 @@ namespace SistemaTickets.Services
                 }
                 else
                 {
-                    response.status = 404;
+                    response.status = StatusCodes.Status400BadRequest;
                     response.message = "No tiene información en estos momentos...";
                     return response;
                    
@@ -146,5 +142,7 @@ namespace SistemaTickets.Services
                 return ex.Message;
             }
         }
+
+     
     }
 }

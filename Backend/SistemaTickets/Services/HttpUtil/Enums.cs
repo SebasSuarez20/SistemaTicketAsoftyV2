@@ -20,4 +20,10 @@
         M,
         L
     }
+
+    public enum logicalNode
+    {
+        True,
+        False
+    }
 }

@@ -1,5 +1,6 @@
 ﻿using SistemaTickets.Interface;
 using SistemaTickets.Model;
+using SistemaTickets.Services.HttpUtil;
 
 namespace SistemaTickets.Services
 {
@@ -18,7 +19,7 @@ namespace SistemaTickets.Services
         public async Task<Users> getInfoUser(int identity)
         {
 
-            var result = await _dbHandlerUser.GetAllAsyncForAll(s=>s.Idcontrol == identity);
+            var result = await _dbHandlerUser.GetAllAsyncForAllWithClouse((int)logicalNode.False, new Users { Idcontrol = identity });
             return result.First() ?? null;
         }
 
@@ -38,7 +39,7 @@ namespace SistemaTickets.Services
         {
             try
             {
-                var resultForTicket =await _dbHandlerTickets.GetAllAsyncForAll(s => s.Consecutive == consecutive);
+                var resultForTicket =await _dbHandlerTickets.GetAllAsyncForAllWithClouse((int)logicalNode.False,new ticketssupport { Consecutive = consecutive});
                 resultForTicket.First().AssignedTo = assigned;
                 int resultIdControl = (int)resultForTicket.First().Idcontrol;
                 await _dbHandlerTickets.UpdateAsyncAll(resultForTicket.First(), new ticketssupport { Consecutive = resultIdControl });

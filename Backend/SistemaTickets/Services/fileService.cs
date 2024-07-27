@@ -1,5 +1,6 @@
 ﻿using SistemaTickets.Interface.IModel;
 using SistemaTickets.Model;
+using SistemaTickets.Services.HttpUtil;
 using SistemaTickets.Services.Jwt;
 using System.Dynamic;
 
@@ -33,7 +34,7 @@ namespace SistemaTickets.Services
                 string pathfile = $"Support{user}";
                 string random = $"{Guid.NewGuid().ToString()}.jpg";
                 string strlPath = _configuration["pathFile:path"].Replace("\\","/") + $"/{pathfile}";
-                List<Users> taskUser =(List<Users>) await _dbHandlerUser.GetAllAsyncForAll();
+                List<Users> taskUser =(List<Users>) await _dbHandlerUser.GetAllAsyncForAllWithClouse((int)logicalNode.True);
                 string combinePath = Path.Combine(strlPath, random);
 
                 if (!Directory.Exists(strlPath))

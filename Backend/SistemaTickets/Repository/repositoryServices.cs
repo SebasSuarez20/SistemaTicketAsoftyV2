@@ -19,6 +19,8 @@ namespace SistemaTickets.Repository
         private bool disposed = false;
         protected string userName;
         protected int rol;
+        private string whereClouse;
+        private string sql;
 
         public repositoryServices(appDbContext context, IHttpContextAccessor _Icontext)
         {
@@ -26,33 +28,122 @@ namespace SistemaTickets.Repository
             _context = context;
             this.userName = authorizeServices.GetUserName(Icontext);
             this.rol = authorizeServices.GetRoleUser(Icontext);
+            this.whereClouse = "";
+            this.sql = "";
         }
 
         protected DbSet<T> entitySet => _context.Set<T>();
 
-        public async Task<IEnumerable<T>> GetAllAsyncForAll(Expression<Func<T, bool>> _where = null)
+        public async Task<IEnumerable<T>> GetAllAsyncForAllWithClouse(int isFlag,T? w=null)
         {
             try
             {
-                var Sql = entitySet.AsQueryable();
+                bool isWhere = false;
+                string clouse = "";
 
-                if ((!string.IsNullOrEmpty(this.userName) && typeof(T).Name != "consecticketview"
-                    && typeof(T).Name != "TicketMapAndSupView"))
+                if (isFlag % 2 == 0) clouse = $"AND IdControl = {this.userName}";
+
+                if (w != null)
                 {
-                    Sql = Sql.Where(s => EF.Property<int>(s, "Idcontrol") == int.Parse(this.userName.ToString()));
+                    var property = w.GetType().GetProperties();
+                    var valueField = property.Where(s => s.GetValue(w) != null);
+                    Dictionary<string, object?> whereDictionary = new Dictionary<string, object?>();
+
+                    foreach (var c in valueField)
+                    {
+                        var getValue = valueField.Where(v => v.Name == c.Name).Select(s => s.GetValue(w)).First();
+                        whereDictionary.Add(c.Name, getValue);
+                    }
+
+                    if (whereDictionary.Count() > 0)
+                    {
+
+                    whereClouse = $" WHERE ( " +
+                                 $"{string.Join(" AND ", whereDictionary.Select(s => $"{s.Key} = '{s.Value}'"))}" +
+                                 $" {clouse} AND Enabled = TRUE )";
+                    }
+                    else
+                    {
+                        whereClouse = $" WHERE (Enabled = TRUE {clouse} )";
+                    }
+
+                }
+                else
+                {
+                    whereClouse = $" WHERE (Enabled = TRUE {clouse} )";
                 }
 
-                if (typeof(T).Name != "consecticketview") Sql = Sql.Where(s => EF.Property<bool>(s, "Enabled") == true); // se valida que siempre sea true.
+                sql = $" SELECT * FROM {typeof(T).Name} {whereClouse}";
 
-                if (_where != null) Sql = Sql.Where(_where);
-                return await Sql.ToListAsync();
+                return await entitySet.FromSqlRaw(sql).ToListAsync();
             }catch(Exception ex)
             {
-                exceptionFolder(ex,"GetAllAsync");
+                exceptionFolder(ex, "GetAllAsyncForAllWithClouse");
                 return null;
             }
         }
+        public async Task<IEnumerable<T>> GetAllAsyncForAllNotEnabled()
+        {
+            try
+            {
+                sql = $"SELECT * FROM {typeof(T).Name}";
+                return await entitySet.FromSqlRaw(sql).ToListAsync();
+            }catch(Exception ex)
+            {
+                exceptionFolder(ex, "GetAllAsyncForAllNotEnabled");
+                return null;
+            }
+        }
+        public async Task<IEnumerable<T>> GetAllAsyncForAllWithRol(T w = null)
+        {
+            try
+            {
+                bool isWhere = false;
+                string clouse = "";
 
+                if ((rol == 2)) clouse = $"AND AssignedTo = {this.userName}";
+                else if((rol ==3)) clouse = $"AND Username = {this.userName}";
+
+                if (w != null)
+                {
+                    var property = w.GetType().GetProperties();
+                    var valueField = property.Where(s => s.GetValue(w) != null);
+                    Dictionary<string, object?> whereDictionary = new Dictionary<string, object?>();
+
+                    foreach (var c in valueField)
+                    {
+                        var getValue = valueField.Where(v => v.Name == c.Name).Select(s => s.GetValue(w)).First();
+                        whereDictionary.Add(c.Name, getValue);
+                    }
+
+                    if (whereDictionary.Count() > 0)
+                    {
+
+                        whereClouse = $" WHERE ( " +
+                                     $"{string.Join(" AND ", whereDictionary.Select(s => $"{s.Key} = '{s.Value}'"))}" +
+                                     $"AND Enabled = TRUE ";
+                    }
+                    else
+                    {
+                        whereClouse = $" WHERE (  Enabled = TRUE ";
+                    }
+
+                }
+                else
+                {
+                    whereClouse = $" WHERE ( Enabled = TRUE ";
+                }
+
+                sql = $" SELECT * FROM {typeof(T).Name} {whereClouse.Trim()} {clouse})".Trim();
+
+                return await entitySet.FromSqlRaw(sql).ToListAsync();
+            }
+            catch (Exception ex)
+            {
+                exceptionFolder(ex, "GetAllAsyncForAllWithRol");
+                return null;
+            }
+        }
         public async Task<IEnumerable<T>> GetAllAsyncSp(string nameSp, T e)
         {
             try
@@ -74,7 +165,6 @@ namespace SistemaTickets.Repository
                 return null;
             }
         }
-
         public async Task<IEnumerable<T>> GetCodeAsyncAll(string nameSp)
         {
             try
@@ -87,7 +177,6 @@ namespace SistemaTickets.Repository
             }
            
         }
-
         public async Task CreateAllAsync(T entity)
         {
             try
@@ -126,7 +215,6 @@ namespace SistemaTickets.Repository
                 exceptionFolder(ex,"InsertAsync");
             }
         }
-      
         public  async Task UpdateAsyncAll(T entity, object _wh)
         {
 
@@ -179,7 +267,6 @@ namespace SistemaTickets.Repository
                exceptionFolder(ex,"UpdateAsync");
             }
         }
-
         public async Task<int>? UpdateForField(string field, object value)
         {
             string sql = $"UPDATE {typeof(T).Name} SET {field}='{value}' WHERE Idcontrol=@Idcontrol AND Enabled = TRUE;";
@@ -198,9 +285,7 @@ namespace SistemaTickets.Repository
                 return -1;
             }
         }
-
         public async Task Save() => await _context.SaveChangesAsync();
-
         public void Dispose(bool disposing)
         {
             if (!this.disposed && disposing)
@@ -209,13 +294,11 @@ namespace SistemaTickets.Repository
             }
             this.disposed = true;
         }
-
         public void Dispose()
         {
             Dispose(true);
             GC.SuppressFinalize(this);
         }
-
         private void exceptionFolder(Exception ex,string method)
         {
             string folderPath = @"C:/Logs";
@@ -236,6 +319,5 @@ namespace SistemaTickets.Repository
             }
         }
 
-     
     }
 }
