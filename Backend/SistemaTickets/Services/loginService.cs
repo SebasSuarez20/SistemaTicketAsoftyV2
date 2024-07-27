@@ -6,7 +6,9 @@ using System.Text;
 using System.IdentityModel.Tokens.Jwt;
 using System.Dynamic;
 using SistemaTickets.Model.View;
-using SistemaTickets.Services.Jwt;
+using SistemaTickets.Services.HttpUtil;
+using System;
+using System.IO;
 
 namespace SistemaTickets.Services
 {
@@ -19,20 +21,20 @@ namespace SistemaTickets.Services
         private IConfiguration _config;
 
 
-        public loginService(IdbHandler<Users> dbHandlerSupport, IdbHandler<ticketSupportViewChats> db ,IConfiguration config)
+        public loginService(IdbHandler<Users> dbHandlerSupport, IdbHandler<ticketSupportViewChats> db, IConfiguration config)
         {
             this._dbHandlerSupport = dbHandlerSupport;
             this._config = config;
             this._db = db;
         }
 
-        public async Task<object> authLoginSupport(string user,string pswd)
+        public async Task<object> authLoginSupport(string user, string pswd)
         {
             try
             {
                 dynamic response = new ExpandoObject();
 
-                var resultAuth = await _dbHandlerSupport.GetAllAsyncForAll(s => s.nameUser == user && s.Password == pswd);
+                var resultAuth = await _dbHandlerSupport.GetAllAsyncForAllWithClouse((int)logicalNode.False, new Users { nameUser = user, Password = pswd });
 
                 if (resultAuth.Count() != 0)
                 {
@@ -51,13 +53,14 @@ namespace SistemaTickets.Services
                 response.status = 400;
                 response.message = "Error: No se encontró ningún información sobre el usuario.";
                 return response;
-            }catch(Exception ex)
+            }
+            catch (Exception ex)
             {
                 return ex.Message;
             }
         }
 
-        public string generateToken(string roleCode,string usernameFk)
+        public string generateToken(string roleCode, string usernameFk)
         {
 
             var claims = new[]
@@ -82,6 +85,12 @@ namespace SistemaTickets.Services
 
         }
 
-   
-    }
+
+        public void ConvertPdfToImages(string pdfPath, string outputPath)
+        {
+        }
+     
+        }
+
 }
+

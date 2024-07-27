@@ -15,11 +15,8 @@ CREATE VIEW TicketMapAndSupView AS
   SELECT 
     ts.Idcontrol, ts.Consecutive, 
 	ts.Area AS Area,
-    ts.Priority AS Priority,
-    (CASE ts.Status 
-    WHEN 1 THEN "Abierto"
-    WHEN 2 THEN "En Proceso"
-    END) AS Status,
+    GetPriorityOfTicket(ts.Priority) AS Priority,
+    GetStatusOfTicket(ts.Status) AS Status,
 	ts.AssignedTo, 
     ch.HasUnique,
     ts.Enabled,
@@ -28,6 +25,6 @@ FROM ticketssupport ts
 LEFT JOIN chatOfMapping ch ON
 	ch.Consecutive  = ts.Consecutive
     AND ch.Enabled = TRUE
-WHERE ts.Enabled = TRUE AND (ts.Status<>"Close" AND ts.Status<>"Result")
+WHERE ts.Enabled = TRUE AND (ts.Status<>3 AND ts.Status<>4)
 GROUP BY ts.Consecutive,ch.HasUnique
 ORDER BY ts.Consecutive;

@@ -23,30 +23,7 @@ namespace SistemaTickets.Services
 
         public async Task<object> authLoginSupport(string user,string pswd)
         {
-            try
-            {
-                dynamic response = new ExpandoObject();
-
-                var resultAuth = await _dbHandlerSupport.GetAllAsyncForAll(s => s.userName == user && s.Password == pswd);
-
-                if (resultAuth.Count() != 0)
-                {
-                    response.username = resultAuth.First()?.userName;
-                    response.rolCode = resultAuth.First()?.RoleCode;
-                    response.nameUser = resultAuth.First()?.NameSupport;
-                    response.photo = resultAuth.First()?.PhotoPerfil;
-                    response.token = generateToken(resultAuth.First()?.RoleCode.ToString(), resultAuth.First().Idcontrol.ToString());
-                    response.status = 200;
-                    response.message = $"Ingreso correctamente el usuario: {resultAuth.First()?.NameSupport}";
-                    return response;
-                }
-                response.status = 400;
-                response.message = "Error: No se encontró ningún información sobre el usuario.";
-                return response;
-            }catch(Exception ex)
-            {
-                return ex.Message;
-            }
+            return null;
         }
 
         public string generateToken(string roleCode,string usernameFk)

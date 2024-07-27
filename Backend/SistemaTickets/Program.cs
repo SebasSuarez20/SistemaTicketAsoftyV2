@@ -1,62 +1,32 @@
-using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.AspNetCore.ResponseCompression;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.FileProviders;
-using Microsoft.IdentityModel.Tokens;
+
 using SistemaPoscloud.Services.ServicesConfig.ExtensionsConfig;
-using SistemaTickets.Data;
+using SistemaTickets.Extensions;
 using SistemaTickets.Services.SignalR;
-using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Configuraci�n de la cadena de conexi�n a la base de datos MySQL
-var connectionString = builder.Configuration.GetConnectionString("connectionDefault");
-builder.Services.AddDbContext<appDbContext>(options => options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString)));
 
-// Configuraci�n de CORS para permitir el acceso desde http://localhost:4200
-builder.Services.AddCors(options =>
-{
-    options.AddPolicy("Dev", app =>
-    {
-        app.WithOrigins("http://localhost:4200")
-           .AllowAnyMethod()
-           .AllowAnyHeader().
-           AllowCredentials();
-    });
-});
+builder.Services.configurationConnection(builder.Configuration);
+builder.Services.addCorsApplication();
 
-
-
-// Configuraci�n de la autenticaci�n JWT
-builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
-{
-    options.TokenValidationParameters = new TokenValidationParameters
-    {
-        ValidateIssuer = false,
-        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["JWT:Key"])),
-        ValidateIssuerSigningKey = true,
-        ValidateAudience = false
-    };
-});
+builder.Services.addJwtApplication(builder.Configuration);
 
 builder.Services.AddControllers();
-builder.Services.AddAplicationServices(builder.Configuration); // Supongo que este m�todo agrega tus servicios de aplicaci�n
+builder.Services.AddAplicationServices(builder.Configuration);
 
 // Configuraci�n de Swagger/OpenAPI
 builder.Services.AddSwaggerGen();
 builder.Services.AddSignalR();
 
+
 // Configuraci�n del acceso al contexto HTTP
 builder.Services.AddHttpContextAccessor();
 
 #region compresionDeRespuesta
-builder.Services.AddResponseCompression(opt =>
-{
-    opt.Providers.Add<BrotliCompressionProvider>();
-    opt.Providers.Add<GzipCompressionProvider>();
-});
+builder.Services.comprenssionData();
 #endregion
+
+
 
 var app = builder.Build();
 
@@ -79,12 +49,7 @@ if (!Directory.Exists(pathCompany))
     Directory.CreateDirectory(pathCompany);
 
 // Configuraci�n del servidor de archivos est�ticos
-app.UseFileServer(new FileServerOptions
-{
-    FileProvider = new PhysicalFileProvider(path),
-    RequestPath = "/files",
-    EnableDirectoryBrowsing = true
-});
+applicationExtensions.fileServerApplication(app,builder.Configuration);
 
 #region se Agrega el middleware para que comprima todo tipo de respuesta
 app.UseResponseCompression();
