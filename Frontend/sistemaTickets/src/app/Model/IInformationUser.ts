@@ -1,0 +1,21 @@
+export interface IInformationUser {
+    NameSupport:string;
+    Surname:string;
+    Email:string;
+    gender:number;
+    typeIdentification:number;
+    identification:string;
+    bloodType:string;
+    country:number;
+    city:number;
+    address:string;
+    phone:number;
+    birthDate:Date;
+    emergencyContact:number;
+    parentage:string;
+    firstName:string;
+    firstSurname:string;
+    department:string;
+    enabled:number;
+    Idcontrol:null
+}

@@ -24,6 +24,7 @@ namespace SistemaPoscloud.Services.ServicesConfig.ExtensionsConfig
             services.AddTransient<IFile,fileService>();
             services.AddTransient<IHubconnection, hubService>();
             services.AddTransient<IUser, userService>();
+            
 
             //DbHandler(IRepository)
             services.AddTransient<IdbHandler<Users>, repositoryServices<Users>>();
@@ -32,6 +33,7 @@ namespace SistemaPoscloud.Services.ServicesConfig.ExtensionsConfig
             services.AddTransient<IdbHandler<TicketMapAndSupView>, repositoryServices<TicketMapAndSupView>>();
             services.AddTransient<IdbHandler<codeGeneric>, repositoryServices<codeGeneric>>();
             services.AddTransient<IdbHandler<ticketSupportViewChats>, repositoryServices<ticketSupportViewChats>>();
+            services.AddTransient<IdbHandler<informationUser>, repositoryServices<informationUser>>();
         }
 
     }
