@@ -14,6 +14,7 @@ namespace SistemaTickets.Data
         public DbSet<TicketMapAndSupView> TicketMapAndSupView { get; set; }
         public DbSet<codeGeneric> CodeGeneric { get; set; }
         public DbSet<ticketSupportViewChats> ticketSupportViewChats { get; set; }
+        public DbSet<informationUser> informationUser { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

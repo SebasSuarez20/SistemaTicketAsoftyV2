@@ -12,6 +12,7 @@ import { DashboardInicioComponent } from './components/dashboard/dashboard-inici
 const routes: Routes = [
   { path: 'd56b699830e77ba53855679cb1d252da', component: LoginComponent, canActivate: [AuthGeneralGuard] },
   { path: 'c751439d0db3883ac1c8e816327adcab', component: DashboardInicioComponent, canActivate: [GuardRoutingGuard] },
+  { path: '7b148caab26e69204c441b5f69aef5cc75e64a79f3654af280cdccd2ed69d590', component: ProfileInformationComponent, canActivate: [GuardRoutingGuard] },
   { path: '14014e6a570327892015d91391f0756bc8c84d3594c867af4cefb5a7e9fb4eac', component: EmployeeComponent, canActivate: [GuardRoutingGuard] },
   { path: '**', component: NotFoundComponent, canActivate: [GuardRoutingGuard] }
 ];

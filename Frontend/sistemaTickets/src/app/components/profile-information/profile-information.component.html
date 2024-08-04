@@ -10,7 +10,7 @@
                     <div class="bx_inpLab">
                         <label>Tipo de Identificación</label>
                         <select>
-                            <option value=""></option>
+                            <option value="1"></option>
                         </select>
                     </div>
                     <div class="bx_inpLab">
@@ -98,3 +98,147 @@
         </div>
     </div>
 </div> -->
+
+<div class="containerEmployee">
+    <h1>Empleado</h1>
+    <div class="bx_body">
+
+        <div class="bx_img">
+            <img src="" alt="imagen">
+            <span class="placeholder-text">imagen</span>
+        </div>
+
+        <form action="" [formGroup]="this.formUser">
+            <div class="bx_column">
+                <div class="bx_field">
+                    <label>Nombre</label>
+                    <input type="text" formControlName="NameSupport">
+                </div>
+                <div class="bx_field">
+                    <label>Apellido</label>
+                    <input type="text" formControlName="Surname">
+                </div>
+                <div class="bx_field">
+                    <label>Contraseña</label>
+                    <input type="password" formControlName="Password">
+                </div>
+
+                <div class="bx_field">
+                    <label>Departamento</label>
+                    <select formControlName="department">
+                        <option value="1">option</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="bx_column">
+                <div class="bx_field">
+                    <label>Género</label>
+                    <select formControlName="gender">
+                        <option value="1">option</option>
+                    </select>
+                </div>
+                <!-- <div class="bx_field">
+            <label>Tipo de Identificación</label>
+            <select formControlName=" typeIdentification">
+                <option value="1">option</option>
+            </select>
+        </div> -->
+                <div class="bx_field">
+                    <label>Número de Identificación</label>
+                    <input type="text" formControlName="identification">
+                </div>
+                <div class="bx_field">
+                    <label>Tipo de Sangre</label>
+                    <select formControlName="bloodType">
+                        <option value="1">option</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="bx_column">
+                <div class="bx_field">
+                    <label>País</label>
+                    <select formControlName="country">
+                        <option value="1">option</option>
+                    </select>
+                </div>
+                <div class="bx_field">
+                    <label>Ciudad</label>
+                    <select formControlName="city">
+                        <option value="1">option</option>
+                    </select>
+                </div>
+                <div class="bx_field">
+                    <label>Dirección</label>
+                    <input type="text" formControlName="address">
+                </div>
+                <div class="bx_field">
+                    <label>Teléfono</label>
+                    <input type="number" formControlName="phone">
+                </div>
+            </div>
+
+            <div class="bx_column">
+                <div class="bx_field">
+                    <label>rol</label>
+                    <select formControlName="rolCode">
+                        <option value="1">option</option>
+                    </select>
+                </div>
+                <div class="bx_field">
+                    <label>Correo Electrónico</label>
+                    <input type="email" formControlName="Email">
+                </div>
+                <div class="bx_field">
+                    <label>Fecha de Nacimiento</label>
+                    <input type="date" formControlName="birthDate">
+                </div>
+                <div class="bx_field">
+                    <label>Nombre de Usuario</label>
+                    <input type="text" formControlName="username">
+                </div>
+            </div>
+
+            <div class="bx_column">
+                <div class="bx_field">
+                    <label>Contacto de Emergencia</label>
+                    <input type="text" formControlName="emergencyContact">
+                </div>
+                <div class="bx_field">
+                    <label>parentesco</label>
+                    <select formControlName="parentage">
+                        <option value="1">option</option>
+                    </select>
+                </div>
+                <div class="bx_field">
+                    <label>Nombre</label>
+                    <input type="text" formControlName="firstName">
+                </div>
+                <div class="bx_field">
+                    <label>Apellido</label>
+                    <input type="text" formControlName="firstSurname">
+                </div>
+            </div>
+            <div class="bx_column">
+                <div class="bx_btn">
+                    <button (click)="this.saveUser()" class="buttonBx">
+                        <span class="button_lg">
+                            <span class="button_sl"></span>
+                            <span class="button_text">Crear Empleado</span>
+                        </span>
+                    </button>
+                </div>
+                <div class="bx_btn">
+                    <button class="buttonBx">
+                        <span class="button_lg">
+                            <span class="button_sle"></span>
+                            <span class="button_text">Eliminar</span>
+                        </span>
+                    </button>
+                </div>
+            </div>
+
+        </form>
+    </div>
+</div>
