@@ -1,5 +1,4 @@
-import { AfterContentChecked, AfterViewChecked, AfterViewInit, ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
-
+import { AfterViewInit, ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
 import { LoginService } from 'src/app/services/login.service';
 import { Router } from '@angular/router';
 import { DEFAULT_INTERRUPTSOURCES, Idle } from '@ng-idle/core';
@@ -9,6 +8,7 @@ import { LibraryMessageService } from 'src/app/services/ToastServices/library-me
 import { HubConnectionService } from 'src/app/services/hub/hub-connection.service';
 import { DataEncryptionService } from 'src/app/services/Encryption/data-encryption.service';
 import { TicketsServicesHttpService } from 'src/app/services/httpService/tickets-services-http.service';
+import { BehaviorSubject, Subscription, timer } from 'rxjs';
 
 @Component({
   selector: 'app-header',
@@ -25,8 +25,8 @@ export class HeaderComponent implements OnInit, OnDestroy, AfterViewInit {
     "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
   public date: Date;
   public validatorActive?: number;
-
-  public isDropDown: boolean = false; 
+  public suscribe: Subscription;
+  public isDropDown: boolean = false;
 
 
   constructor(private data_Service: LoginService, private router: Router, private idle: Idle, private cd: ChangeDetectorRef,
@@ -35,7 +35,8 @@ export class HeaderComponent implements OnInit, OnDestroy, AfterViewInit {
 
     this.date = new Date();
     this.nameUser = `${this.data_Service.dataLogged()?.nameUser ?? ""} ${this.data_Service.dataLogged()?.surName ?? ""}`;
-    this.photoProfile = this.data_Service.dataLogged()?.photo ?? "";
+    this.photoProfile = `${this.data_Service.dataLogged()?.photo ?? ""}`;
+    if (this.photoProfile != "") this.photoProfile = `https://localhost:7026/files/${this.photoProfile}`;
 
     this.role = this.data_Service.dataLogged().rolCode;
 
@@ -75,9 +76,10 @@ export class HeaderComponent implements OnInit, OnDestroy, AfterViewInit {
       })
     });
 
-    setTimeout(() => {
-      this.hubconnection.connectionStart(this.data_Service.dataLogged().idControl);
-    }, 1000);
+    const time = timer(1000);
+    this.suscribe = time.subscribe(v =>
+      this.hubconnection.connectionStart(this.data_Service.dataLogged().idControl)
+    )
   }
 
 
@@ -97,6 +99,7 @@ export class HeaderComponent implements OnInit, OnDestroy, AfterViewInit {
   ngOnDestroy(): void {
     this.hubconnection.closeConnection();
     this.idle.stop();
+    this.suscribe.unsubscribe();
   }
 
   public effectDashboard() {
@@ -157,8 +160,8 @@ export class HeaderComponent implements OnInit, OnDestroy, AfterViewInit {
 
   }
 
-public changeOfDropDown() {
-this.isDropDown = !this.isDropDown
-}
+  public changeOfDropDown() {
+    this.isDropDown = !this.isDropDown
+  }
 
 }
