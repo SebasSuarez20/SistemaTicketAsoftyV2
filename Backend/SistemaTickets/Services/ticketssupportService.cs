@@ -110,7 +110,7 @@ namespace SistemaTickets.Services
 
                 dynamic response = new ExpandoObject();
 
-                var responseForRol = await _dbHandlerTicketMapAndSupView.GetAllAsyncForAllWithRol();
+                var responseForRol = await _dbHandlerTicketMapAndSupView.GetAllAsyncForAllWithClouse();
 
                 if (responseForRol.Any())
                 {

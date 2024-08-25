@@ -7,7 +7,7 @@ namespace SistemaTickets.Services
     {
 
         public Task<IEnumerable<T>> GetAllAsyncForAllWithClouse(int isFlag,T w = null);
-        public Task<IEnumerable<T>> GetAllAsyncForAllWithRol(T w = null);
+        public Task<IEnumerable<T>> GetAllAsyncForAllWithClouse(T w = null);
         public Task<IEnumerable<T>> GetAllAsyncForAllNotEnabled();
         public Task<IEnumerable<T>> GetCodeAsyncAll(string nameSp);
         public Task<IEnumerable<T>> GetAllAsyncSp(string nameSp,T e);
