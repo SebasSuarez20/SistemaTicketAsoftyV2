@@ -57,10 +57,7 @@ export class HeaderComponent implements OnInit, OnDestroy, AfterViewInit {
 
     this.idle.onTimeout.subscribe(() => {
       this.dialog.closeAll();
-      this.toast.InfoMessagge("La sesión se está cerrando", "Adios!!").then(() => {
-      }).then(() => {
-        this.signIn();
-      })
+      this.signIn();
     });
 
     this.idle.onIdleStart.subscribe(() => {
