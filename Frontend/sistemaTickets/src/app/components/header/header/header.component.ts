@@ -44,6 +44,7 @@ export class HeaderComponent implements OnInit, OnDestroy, AfterViewInit {
     else if (this.role == 2) this.rol = "Soporte";
     else if (this.role == 3) this.rol = "Empresa";
 
+
     this.idle.setIdle(600);
     this.idle.setTimeout(5);
     this.idle.setInterrupts(DEFAULT_INTERRUPTSOURCES);
