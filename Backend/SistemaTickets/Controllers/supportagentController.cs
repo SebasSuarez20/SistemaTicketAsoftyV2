@@ -17,11 +17,6 @@ namespace SistemaTickets.Controllers
         }
 
 
-        [HttpGet("authService")]
-        public Task<object> authService(string user, string pswd)
-        {
-            return _service.authLoginSupport(user, pswd);
-        }
 
     }
 }

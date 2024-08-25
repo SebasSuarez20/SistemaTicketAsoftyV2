@@ -28,3 +28,4 @@ LEFT JOIN chatOfMapping ch ON
 WHERE ts.Enabled = TRUE AND (ts.Status<>3 AND ts.Status<>4)
 GROUP BY ts.Consecutive,ch.HasUnique
 ORDER BY ts.Consecutive;
+

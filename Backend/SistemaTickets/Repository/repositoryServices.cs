@@ -58,7 +58,7 @@ namespace SistemaTickets.Repository
                     if (whereDictionary.Count() > 0)
                     {
 
-                    whereClouse = $" WHERE ( " +
+                        whereClouse = $" WHERE ( " +
                                  $"{string.Join(" AND ", whereDictionary.Select(s => $"{s.Key} = '{s.Value}'"))}" +
                                  $" {clouse} AND Enabled = TRUE )";
                     }
@@ -94,7 +94,7 @@ namespace SistemaTickets.Repository
                 return null;
             }
         }
-        public async Task<IEnumerable<T>> GetAllAsyncForAllWithRol(T w = null)
+        public async Task<IEnumerable<T>> GetAllAsyncForAllWithClouse(T w = null)
         {
             try
             {

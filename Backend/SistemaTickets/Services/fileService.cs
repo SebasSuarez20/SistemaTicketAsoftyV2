@@ -26,35 +26,28 @@ namespace SistemaTickets.Services
         public async Task<object> createFile(IFormFile file)
         {
             dynamic response = new ExpandoObject();
-
             bool isFlag = true;
             
             try
             {
-                string pathfile = $"Support{user}";
                 string random = $"{Guid.NewGuid().ToString()}.jpg";
-                string strlPath = _configuration["pathFile:path"].Replace("\\","/") + $"/{pathfile}";
+                string strlPath = _configuration["pathFile:path"].Replace("\\","/");
                 List<Users> taskUser =(List<Users>) await _dbHandlerUser.GetAllAsyncForAllWithClouse((int)logicalNode.True);
-                string combinePath = Path.Combine(strlPath, random);
+                string combinePath = Path.Combine(strlPath, $"{taskUser?.First()?.PhotoPerfil ?? "user"}").Replace("\\","/");
 
-                if (!Directory.Exists(strlPath))
+
+                if (File.Exists(combinePath))
                 {
                     isFlag = false;
-                    Directory.CreateDirectory(strlPath);
-                    taskUser.First().PhotoPerfil = pathfile+$"/{random}";
-                    await _dbHandlerUser.UpdateAsyncAll(taskUser.First(),new Users { Idcontrol = int.Parse(user) });
-                    createDirectoryAndFile(file, combinePath);
+                    string fileDeletePath = $"{strlPath}/{taskUser.First()?.PhotoPerfil}";
+                    File.Delete($"{fileDeletePath}");
                 }
-                else{
-                    if (taskUser.First()?.PhotoPerfil != null)
-                    {
-                     string fileDeletePath = $"{strlPath}/{taskUser.First()?.PhotoPerfil.Split('/')[1]}";
-                     File.Delete($"{fileDeletePath}");
-                     taskUser.First().PhotoPerfil = pathfile + $"/{random}";
-                     await _dbHandlerUser.UpdateAsyncAll(taskUser.First(), new Users { Idcontrol = int.Parse(user)});
-                     createDirectoryAndFile(file,combinePath);
-                    }
-                }
+                
+
+                taskUser.First().PhotoPerfil = $"/{random}".Replace("/", "");
+                combinePath = Path.Combine(strlPath, $"{random}").Replace("\\", "/");
+                await _dbHandlerUser.UpdateAsyncAll(taskUser.First(), new Users { Idcontrol = int.Parse(user) });
+                 createDirectoryAndFile(file, combinePath);
 
                 response.status = 200;
                 response.message = $"Success: {(isFlag ? "Creado" : "Actualizado")} correctamente";

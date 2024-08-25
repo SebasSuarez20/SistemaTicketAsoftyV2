@@ -9,6 +9,8 @@ import { LoginService } from 'src/app/services/login.service';
 import { TicketsServicesHttpService } from 'src/app/services/httpService/tickets-services-http.service';
 import { LibraryMessageService } from 'src/app/services/ToastServices/library-message.service';
 import Swal from 'sweetalert2';
+import { IReponse } from 'src/app/Model/IResponse';
+import { DataSharedService } from 'src/app/services/Data/data-shared.service';
 
 @Component({
   selector: 'app-login',
@@ -18,9 +20,10 @@ import Swal from 'sweetalert2';
 export class LoginComponent implements OnInit {
 
   public formlogin: FormGroup;
+  private token: string;
 
   constructor(private router: Router, private ticketsService: TicketsServicesHttpService, private toast: LibraryMessageService, private logged: LoginService,
-    private encryptService: DataEncryptionService) {
+    private encryptService: DataEncryptionService, private dataShared: DataSharedService) {
     this.formlogin = new FormGroup({
       user: new FormControl("", Validators.required),
       password: new FormControl("", Validators.required)
@@ -28,8 +31,16 @@ export class LoginComponent implements OnInit {
     this.logged.informationInactive.next(false);
     this.router.navigateByUrl('/login');
   }
-  ngOnInit(): void {
 
+
+  ngOnInit(): void {
+    this.getToken();
+  }
+
+  public getToken() {
+    this.ticketsService.connectApiGet("RIzFe3ERr+dEyYxpHLkkcZj8VLOPIh5IGPE+Un6tEOM=/qBxaIJFATtc5xC/+k/J4H2/joKbisL063cPCRs9dEqc=").then((res: IReponse) => {
+      this.dataShared.setToken(res.data);
+    });
   }
 
   public async accessLogin() {
