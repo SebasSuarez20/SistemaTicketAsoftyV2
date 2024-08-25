@@ -117,8 +117,8 @@
         <h3>Tickets</h3>
       </a>
       <a [routerLink]="'7b148caab26e69204c441b5f69aef5cc75e64a79f3654af280cdccd2ed69d590'">
-        <span class="material-symbols-outlined"> confirmation_number </span>
-        <h3>person</h3>
+        <span class="material-symbols-outlined"> person </span>
+        <h3>persona</h3>
       </a>
       <a (click)="this.changeOfDropDown()" class="active" >
         <span class="material-symbols-outlined"> search </span>
@@ -130,11 +130,6 @@
           <small [routerLink]="'14014e6a570327892015d91391f0756bc8c84d3594c867af4cefb5a7e9fb4eac'">Consultas Empleado</small> 
         </div>
       </div>
-
-      <a (click)="this.signIn()">
-        <span class="material-symbols-outlined"> logout </span>
-        <h3>Salir</h3>
-      </a>
     </div>
   </aside>
   <main>
@@ -145,6 +140,11 @@
       <button id="menu-btn">
         <span class="material-symbols-outlined">menu</span>
       </button>
+      <a class="exit" (click)="this.signIn()" 
+      matTooltip="Salir">
+        <span class="material-symbols-outlined"> logout </span>
+        <!-- <h3>Salir</h3> -->
+      </a>
       <div class="theme-toggler">
         <span class="material-symbols-outlined {{(this.validatorActive%2===0) ? 'active' : ''}}">dark_mode</span>
         <span class="material-symbols-outlined {{(this.validatorActive%2!=0) ? 'active' : ''}}">light_mode</span>
