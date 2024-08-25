@@ -4,19 +4,17 @@ USE sistematickets;
 
 CREATE TABLE Users(
      Idcontrol INT NOT NULL AUTO_INCREMENT,
-     NameSupport VARCHAR(50) NOT NULL,
-     Surname VARCHAR(50) NOT NULL,
-     Identification VARCHAR(50) NOT NULL,
-     nameUser VARCHAR(50) NOT NULL,
-     Password VARCHAR(50) NOT NULL,
-     Email VARCHAR(80) NOT NULL,
-     RegistrationDate DATETIME DEFAULT CURRENT_TIMESTAMP,
-     PhotoPerfil VARCHAR(255) NULL,
-     themeColor BOOL NOT NULL DEFAULT FALSE,
+     Identification VARCHAR(50) NOT NULL COMMENT 'Numero de Identificacion',
+     nameUser VARCHAR(50) NOT NULL COMMENT 'Nombre de Usuario',
+     Password VARCHAR(50) NOT NULL COMMENT 'Contraseña',
+     RegistrationDate DATETIME DEFAULT CURRENT_TIMESTAMP COMMENT 'Fecha de registro',
+     PhotoPerfil VARCHAR(255) NULL COMMENT 'Foto de Perfil',
+     themeColor BOOL NOT NULL DEFAULT FALSE COMMENT 'Tema del Aplicativo',
 	 Enabled BOOl NOT NULL DEFAULT TRUE,
-     RoleCode INT NOT NULL,
+     RoleCode INT NOT NULL COMMENT 'Código de rol',
      hasConnection VARCHAR(50) NULL,
      Username INT NOT NULL,
+     INDEX(Identification),
      PRIMARY KEY(Idcontrol)
 );
 
@@ -64,4 +62,36 @@ CREATE TABLE chatOfMapping (
     FOREIGN KEY (Consecutive) REFERENCES ticketssupport(Consecutive)
 );
 
-  
+CREATE TABLE informationUser (
+    Idcontrol INT NOT NULL AUTO_INCREMENT,
+	NameSupport VARCHAR(50) NOT NULL COMMENT 'Nombre',
+    Surname VARCHAR(50) NOT NULL COMMENT 'Apellido',
+--     FirstName1 VARCHAR(50) NOT NULL,
+--     SecondName1 VARCHAR(50) NULL,
+--     FirstSurname1 VARCHAR(50) NOT NULL,
+--     SecondSurname1 VARCHAR(50) NULL,
+    Gender INT NOT NULL COMMENT 'Género',
+    TypeIdentification INT NOT NULL COMMENT 'Tipo de Identificacion',
+    Identification VARCHAR(50) NOT NULL COMMENT 'Identificacion',
+    BloodType VARCHAR(20) NULL COMMENT 'Grupo sanguíneo',
+    Country INT NOT NULL COMMENT 'País',
+    City INT NOT NULL COMMENT 'Ciudad',
+    Address VARCHAR(100) NOT NULL COMMENT 'Dirección',
+    Phone INT NOT NULL COMMENT 'Telefono',
+    -- EmailAddress VARCHAR(100) NOT NULL COMMENT 'Dirección de correo electrónico',
+    BirthDate DATE COMMENT 'Fecha de Nacimiento',
+    EmergencyContact INT NOT NULL COMMENT 'Contacto de Emergencia',
+    Parentage VARCHAR(50) NOT NULL COMMENT 'Parentesco',
+    FirstName VARCHAR(50) NOT NULL COMMENT 'Nombre del Contacto de Emergencia',
+   --  SecondName2 VARCHAR(50) NULL COMMENT '',
+    FirstSurname VARCHAR(50) NOT NULL COMMENT 'Apellido del Contacto de Emergencia',
+--     SecondSurname2 VARCHAR(50) NULL COMMENT '',
+    Department INT NOT NULL COMMENT 'Departamento',
+    Email VARCHAR(80) NOT NULL COMMENT 'Dirección de correo electrónico',
+    Enabled BOOL NOT NULL,
+    Username INT NOT NULL ,
+    PRIMARY KEY (Idcontrol),
+    INDEX(Identification),
+    FOREIGN KEY (Identification) REFERENCES Users(Identification) 
+);
+

@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using SistemaTickets.Interface;
 using SistemaTickets.Interface.IModel;
+using SistemaTickets.Model;
 
 namespace SistemaTickets.Controllers
 {
@@ -18,10 +19,19 @@ namespace SistemaTickets.Controllers
             _service = service;
         }
 
+        [HttpPost("createUser")]
+
+        public async Task<IActionResult> createUser([FromBody] createUserModel user)
+        {
+            return Ok(await _service.createUser(user));
+        }
+
         [HttpGet("updateThemeDefault")]
         public async Task<IActionResult> updateThemeDefault(int themeColor)
         {
             return Ok(await _service.updateThemeDefault(themeColor));
         }
+
+
     }
 }
