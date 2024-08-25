@@ -1,6 +1,6 @@
 export interface IUser {
-  username: string;
-  rolCode: number;
+  nameUser: string;
+  roleCode: number;
   photo: string;
   token: string;
   themeColor: number;

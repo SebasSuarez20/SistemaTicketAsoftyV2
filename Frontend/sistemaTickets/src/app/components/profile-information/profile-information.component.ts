@@ -1,3 +1,4 @@
+import { DataRowOutlet } from '@angular/cdk/table';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { IcreateUser } from 'src/app/Model/IcreateUser';
@@ -17,14 +18,14 @@ export class ProfileInformationComponent implements OnInit {
     Idcontrol: new FormControl(null),
     NameSupport: new FormControl(''),
     Surname: new FormControl(''),
-    gender: new FormControl(),
-    // typeIdentification: new FormControl(),
+    gender: new FormControl(0),
+    typeIdentification: new FormControl(1),
     identification: new FormControl('', Validators.required),
     bloodType: new FormControl(''),
-    country: new FormControl(''),
-    city: new FormControl(''),
+    country: new FormControl(0),
+    city: new FormControl(0),
     address: new FormControl(''),
-    phone: new FormControl(),
+    phone: new FormControl(0),
     Email: new FormControl('', Validators.required),
     birthDate: new FormControl(),
     emergencyContact: new FormControl(0),
@@ -35,42 +36,41 @@ export class ProfileInformationComponent implements OnInit {
     department: new FormControl(''),
     enabled: new FormControl(1),
 
-    username:new FormControl(''),
-    rolCode:new FormControl(),
+    nameUser: new FormControl(''),
+    roleCode: new FormControl(1),
   });
 
   constructor(
     private serviceHttp: TicketsServicesHttpService,
     private serviceAES: DataEncryptionService
-  ) {}
+  ) { }
 
   public resultCode: string = '';
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 
-  public  saveUser() {
-
-    console.log('hola formUser :',this.formUser)
+  public saveUser() {
+    if(this.formUser.valid) {
 
     const header: Partial<IUser> = {
-      // username: this.formUser.controls.username.value,
+      nameUser: this.formUser.controls.nameUser.value,
       password: this.formUser.controls.Password.value,
       identification: this.formUser.controls.identification.value,
-      rolCode: this.formUser.controls.rolCode.value,
-      enabled:this.formUser.controls.enabled.value,
-      // Idcontrol:this.formUser.controls.Idcontrol.value
+      roleCode: this.formUser.controls.roleCode.value,
+      enabled: this.formUser.controls.enabled.value,
+      
     };
 
-    const body: Partial<IInformationUser> = { 
+    const body: Partial<IInformationUser> = {
       NameSupport: this.formUser.controls.NameSupport.value,
       Surname: this.formUser.controls.Surname.value,
       Email: this.formUser.controls.Email.value,
       gender: this.formUser.controls.gender.value,
-      // typeIdentification: this.formUser.controls.typeIdentification.value,
+      typeIdentification: this.formUser.controls.typeIdentification.value,
       identification: this.formUser.controls.identification.value,
       bloodType: this.formUser.controls.bloodType.value,
-      country: parseInt(this.formUser.controls.country.value),
-      city: parseInt(this.formUser.controls.city.value),
+      country: this.formUser.controls.country.value,
+      city: this.formUser.controls.city.value,
       address: this.formUser.controls.address.value,
       phone: this.formUser.controls.phone.value,
       birthDate: this.formUser.controls.birthDate.value,
@@ -80,7 +80,6 @@ export class ProfileInformationComponent implements OnInit {
       firstSurname: this.formUser.controls.firstSurname.value,
       department: this.formUser.controls.department.value,
       enabled: this.formUser.controls.enabled.value,
-      // Idcontrol: this.formUser.controls.Idcontrol.value
     };
 
     if (this.formUser.valid) {
@@ -89,9 +88,8 @@ export class ProfileInformationComponent implements OnInit {
         body: body,
       };
 
-       this.serviceHttp.connectApiPost(`user/createUser`,userCreate).then((res: any) => {
-
-        if(res.status === 200){
+      this.serviceHttp.connectApiPost(`user/createUser`, userCreate).then((res: any) => {
+        if (res.status === 200) {
           Swal.fire({
             icon: 'success',
             title: res.message,
@@ -99,11 +97,13 @@ export class ProfileInformationComponent implements OnInit {
             timer: 2200,
             timerProgressBar: true,
             showCancelButton: false,
+          }).then(() => {
+            this.formUser.reset();
           })
-        }
-          console.log('hola res:', res);
-        });
+        } 
+      });
     }
+  }
   }
 
   public createCodeQr() {

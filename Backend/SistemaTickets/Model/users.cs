@@ -15,7 +15,6 @@ namespace SistemaTickets.Model
           [Column]
           public int? themeColor { get; set; } 
           public int? RoleCode { get; set; }
-          [Column]
           public int? Enabled { get;  set; }
 
     }
