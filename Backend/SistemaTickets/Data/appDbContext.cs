@@ -15,10 +15,12 @@ namespace SistemaTickets.Data
         public DbSet<codeGeneric> CodeGeneric { get; set; }
         public DbSet<ticketSupportViewChats> ticketSupportViewChats { get; set; }
         public DbSet<informationUser> informationUser { get; set; }
+        public DbSet<loggetUserDataView> loggetUserDataView { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<codeGeneric>().HasNoKey();
+            modelBuilder.Entity<loggetUserDataView>().HasNoKey();
         }
     }
 }
