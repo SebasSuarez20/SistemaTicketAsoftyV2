@@ -15,6 +15,7 @@ import Swal from 'sweetalert2';
 import { trigger, state, style, transition, animate } from "@angular/animations";
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
+import { DataSharedService } from 'src/app/services/Data/data-shared.service';
 
 @Component({
   selector: 'app-dashboard-inicio',
@@ -57,7 +58,8 @@ export class DashboardInicioComponent implements OnInit, OnDestroy, AfterViewIni
 
   constructor(private codeGenericService: CodeGenService, private data_Service: LoginService,
     public dialog: MatDialog, private idle: Idle, private cd: ChangeDetectorRef, private serviceHttp: TicketsServicesHttpService,
-    private hubConnection: HubConnectionService, private serviceObserver: ObserverService) {
+    private hubConnection: HubConnectionService, private serviceObserver: ObserverService, private dataShared: DataSharedService) {
+
     this.dataSource = new MatTableDataSource();
     if (this.data_Service.dataLogged().rolCode === 1) this.isValidRol = true;
     this.suscription = this.serviceObserver
@@ -65,10 +67,11 @@ export class DashboardInicioComponent implements OnInit, OnDestroy, AfterViewIni
       .subscribe(() => {
         this.GetAllMapAndSup();
       });
+
   }
 
   ngOnInit(): void {
-
+    this.dataShared.release();
   }
 
   ngAfterViewInit(): void {

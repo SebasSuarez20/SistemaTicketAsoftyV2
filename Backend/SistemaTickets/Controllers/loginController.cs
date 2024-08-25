@@ -1,11 +1,13 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using SistemaTickets.Interface.IModel;
-using SistemaTickets.Model;
 
 namespace SistemaTickets.Controllers
 {
+    [Authorize]
     [ApiController]
     [Route("api/[controller]")]
+    [ApiExplorerSettings(IgnoreApi = true)]
     public class loginController : Controller
     {
 

@@ -1,14 +1,9 @@
-﻿using Microsoft.IdentityModel.Tokens;
-using SistemaTickets.Interface.IModel;
+﻿using SistemaTickets.Interface.IModel;
 using SistemaTickets.Model;
-using System.Security.Claims;
-using System.Text;
-using System.IdentityModel.Tokens.Jwt;
 using System.Dynamic;
 using SistemaTickets.Model.View;
 using SistemaTickets.Services.HttpUtil;
-using System;
-using System.IO;
+using SistemaTickets.Util;
 
 namespace SistemaTickets.Services
 {
@@ -28,6 +23,8 @@ namespace SistemaTickets.Services
             this._dbHandlerloggetUserDataView = dbHandlerloggetUserDataView;
             this._config = config;
             this._db = db;
+            _config = config;
+            httpUtils.key = _config.GetSection("JWT:Key").Value;
         }
 
         public async Task<object> authLoginSupport(string user, string pswd)
@@ -47,7 +44,7 @@ namespace SistemaTickets.Services
                     response.nameUser = resultAuth.First()?.NameSupport;
                     response.surName = resultAuth.First()?.Surname;
                     response.photo = resultAuth.First()?.PhotoPerfil;
-                    response.token = generateToken(resultAuth.First()?.RoleCode.ToString(), resultAuth.First().Idcontrol.ToString());
+                    response.token = httpUtils.generateToken(resultAuth.First()?.RoleCode.ToString(), resultAuth.First().Idcontrol.ToString());
                     response.status = 200;
                     response.message = $"Ingreso correctamente el usuario: {resultAuth.First()?.NameUser}";
                     return response;
@@ -61,38 +58,6 @@ namespace SistemaTickets.Services
                 return ex.Message;
             }
         }
-
-        public string generateToken(string roleCode, string usernameFk)
-        {
-
-            var claims = new[]
-         {
-                new Claim(ClaimTypes.Name,usernameFk),
-                new Claim(ClaimTypes.Role,roleCode),
-            };
-
-            var strlKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config.GetSection("JWT:Key").Value));
-            var strlPswd = new SigningCredentials(strlKey, SecurityAlgorithms.HmacSha256);
-
-            var token = new JwtSecurityToken(
-                    claims: claims,
-                    expires: DateTime.UtcNow.AddMinutes(60),
-                    signingCredentials: strlPswd
-            );
-
-            string rstToken = new JwtSecurityTokenHandler().WriteToken(token);
-
-
-            return rstToken;
-
-        }
-
-
-        public void ConvertPdfToImages(string pdfPath, string outputPath)
-        {
-        }
-     
-        }
-
+    }
 }
 

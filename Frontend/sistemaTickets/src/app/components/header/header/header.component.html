@@ -120,14 +120,15 @@
         <span class="material-symbols-outlined"> person </span>
         <h3>persona</h3>
       </a>
-      <a (click)="this.changeOfDropDown()" class="active" >
+      <a (click)="this.changeOfDropDown()" class="active">
         <span class="material-symbols-outlined"> search </span>
         <h3>Consulta</h3>
       </a>
       <div *ngIf="this.isDropDown" class="consultDown">
         <div class="bx_dropDown">
-        <span class="material-symbols-outlined"> person </span>
-          <small [routerLink]="'14014e6a570327892015d91391f0756bc8c84d3594c867af4cefb5a7e9fb4eac'">Consultas Empleado</small> 
+          <span class="material-symbols-outlined"> person </span>
+          <small [routerLink]="'14014e6a570327892015d91391f0756bc8c84d3594c867af4cefb5a7e9fb4eac'">Consultas
+            Empleado</small>
         </div>
       </div>
     </div>
@@ -156,7 +157,7 @@
         </div>
         <div class="profile-photo">
           <ng-container *ngIf="this.photoProfile!='';else templateNotImage">
-            <img src="http://localhost:2024/files/{{this.photoProfile}}" alt="user">
+            <img [src]="this.photoProfile" alt="user">
           </ng-container>
           <ng-template #templateNotImage>
             <small>{{this.nameUser.split(' ')[0].charAt(0)}} {{this.nameUser.split(' ')[1].charAt(0)}}</small>
