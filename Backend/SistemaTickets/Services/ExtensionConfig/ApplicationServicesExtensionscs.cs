@@ -34,6 +34,7 @@ namespace SistemaPoscloud.Services.ServicesConfig.ExtensionsConfig
             services.AddTransient<IdbHandler<codeGeneric>, repositoryServices<codeGeneric>>();
             services.AddTransient<IdbHandler<ticketSupportViewChats>, repositoryServices<ticketSupportViewChats>>();
             services.AddTransient<IdbHandler<informationUser>, repositoryServices<informationUser>>();
+            services.AddTransient<IdbHandler<loggetUserDataView>, repositoryServices<loggetUserDataView>>();
         }
 
     }

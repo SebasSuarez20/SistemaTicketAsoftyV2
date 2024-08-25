@@ -196,6 +196,13 @@ mat-toolbar {
 
 a {
   color: var(--color-dark);
+  height: 20px;
+  transition: all 500ms ease;
+}
+
+a:hover {
+  color: var(--color-primary);
+  height: 20px;
 }
 
 img {
@@ -900,5 +907,15 @@ main .recent-order a {
 
   .bx_dropDown span {
     color: var(--color-info-dark);
+    cursor: pointer;
+  }
+
+  .exit span {
+    font-size: 20px;
+    cursor: pointer;
+  }
+
+  .exit span:hover {
+    font-size: 20px;
     cursor: pointer;
   }

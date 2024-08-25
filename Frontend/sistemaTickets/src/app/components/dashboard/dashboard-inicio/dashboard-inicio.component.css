@@ -124,7 +124,7 @@
 
 .btn_add button {
   border: none;
-  background-color: #464d52;
+  background-color: var(--color-white);
   border-radius: 5px;
   margin-top: 14px;
   cursor: pointer;

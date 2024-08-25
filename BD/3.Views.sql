@@ -29,3 +29,13 @@ WHERE ts.Enabled = TRUE AND (ts.Status<>3 AND ts.Status<>4)
 GROUP BY ts.Consecutive,ch.HasUnique
 ORDER BY ts.Consecutive;
 
+#Creacion de vista para obtener el NameSupport y el Surname
+CREATE VIEW loggetUserDataView AS 
+SELECT 
+u.Idcontrol, u.NameUser, u.RoleCode,
+u.ThemeColor, iu.NameSupport, iu.Surname,
+u.PhotoPerfil, u.Password, u.Enabled 
+FROM Users u
+LEFT JOIN Informationuser iu ON 
+iu.Identification = u.Identification AND
+iu.Enabled = TRUE;
